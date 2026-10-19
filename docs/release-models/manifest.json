@@ -1,0 +1,35 @@
+[
+  {
+    "group": "PolishWords",
+    "folder": "pet3r12-polish-words",
+    "repository": "PET3R12/trocr-base-polish-handwriting",
+    "revision": "f4367ee64a5ff3b202bb69dc0378b2dc7a9837c9",
+    "files": {
+      "README.md": "3e0e15fa0c5cc81675bd69af8eb469d128a725c1a7bfc71f03b7877b7b650567",
+      "config.json": "aaf7eb2b55dda8413339e477142ae4b95c6128eee2cde86ef94b05f243a28def",
+      "generation_config.json": "a4f4e3f909a20eff51ac51ce7744aef4dde7dd718a53897a4721c36abf9ea735",
+      "model.safetensors": "866229d082506af95cc9371818d9502e03e692edc579a3c3dff13d38531693c3",
+      "processor_config.json": "b24d66a8e2f8691234137c2bbae9f5a905e195ac10eeb9f8f07f274e8a967138",
+      "tokenizer.json": "bb53cb21354c19c59f4b09ae993dd5b3e00e23d4ff518329d285d81ce07ef444",
+      "tokenizer_config.json": "b546074240a6ecb5baafb5aa2040d0d1f4e583b0b517606fd1d5b8c48bad4fe6"
+    },
+    "license": "MIT"
+  },
+  {
+    "group": "PolishExperimental",
+    "folder": "polish-metrical-experimental",
+    "repository": "meldynamics/polish-metrical-htr-experimental",
+    "revision": "9c471a913ffb3694c22b6ad6d4469e9a5f68a91e",
+    "files": {
+      "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "README.md": "c2f263c9792a55bdb519065dfab7b51a3d079e6134df90d2a2e871896c8eb92b",
+      "config.json": "9802fb3b2357b5544543c0bc7a401814585a4b5ce7c5153be96b4598e0c6b354",
+      "generation_config.json": "befa238b6c3123b3c72a17280070df051c33f6b7b0468e77ab5dfb950b2ec646",
+      "model.safetensors": "34b651452fc0f015b6b03a2faee50fb1b6d2c6595e5c542066fc3c7d6dd8ac01",
+      "processor_config.json": "544cd33dcb9b9dff14773e54b7ace29651d1e028ed05d5ac472e4adcc6788721",
+      "tokenizer.json": "2bb1a22cfbe25b8e5a232b7fc4d7fc5073923b45724a5f813b00811bb6620f66",
+      "tokenizer_config.json": "dc4ce68fd873f49dbc5a80091e9ee67ca0afb12c7e94efdfc9236d29644e73df"
+    },
+    "license": "Apache-2.0"
+  }
+]

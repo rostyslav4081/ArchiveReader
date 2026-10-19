@@ -1,0 +1,32 @@
+name: Package optional release models
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing release to receive the model packs
+        required: true
+        default: v0.1.0
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [PolishWords, PolishExperimental]
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Fetch pinned weights and verify every file
+        run: python scripts/package_release_models.py --group "${{ matrix.group }}" --output release-assets
+      - name: Upload verified packs to the existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: gh release upload "$RELEASE_TAG" release-assets/* --repo "$GITHUB_REPOSITORY"
