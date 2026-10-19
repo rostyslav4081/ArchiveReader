@@ -1,7 +1,7 @@
 """Fetch public pinned safetensors candidate; never uploads documents."""
 import hashlib,json,urllib.request
 from pathlib import Path
-root=Path(__file__).resolve().parents[1];repo='small-models-for-glam/kraken-ppocrv6-medium';folder=root/'models/kraken-ppocrv6-medium';folder.mkdir(exist_ok=True)
+root=Path(__file__).resolve().parents[1];repo='small-models-for-glam/kraken-ppocrv6-medium';folder=root/'models/kraken-ppocrv6-medium';folder.mkdir(parents=True,exist_ok=True)
 with urllib.request.urlopen('https://huggingface.co/api/models/'+repo+'?blobs=true',timeout=40) as r:info=json.load(r)
 revision=info['sha'];entry=next(f for f in info['siblings'] if f['rfilename']=='medium.safetensors');expected=entry['lfs']['sha256'];target=folder/'medium.safetensors';tmp=target.with_suffix('.partial')
 if not target.exists() or hashlib.sha256(target.read_bytes()).hexdigest()!=expected:
