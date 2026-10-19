@@ -1,0 +1,117 @@
+{
+  "Перевірені поля запису": [
+    "Checked record fields",
+    "Sprawdzone pola wpisu",
+    "Ověřená pole záznamu"
+  ],
+  "Записуйте лише звірені з оригіналом значення. Порожнє поле означає, що його не оцінюють.": [
+    "Enter only values checked against the original. Empty fields are not evaluated.",
+    "Wpisuj tylko wartości sprawdzone z oryginałem. Puste pola nie są oceniane.",
+    "Zadávejte jen hodnoty ověřené podle originálu. Prázdná pole se nehodnotí."
+  ],
+  "Ім’я та прізвище": [
+    "Given name and surname",
+    "Imię i nazwisko",
+    "Jméno a příjmení"
+  ],
+  "Дата події": [
+    "Event date",
+    "Data zdarzenia",
+    "Datum události"
+  ],
+  "Номер будинку": [
+    "House number",
+    "Numer domu",
+    "Číslo domu"
+  ],
+  "Родич 1": [
+    "Relative 1",
+    "Krewny 1",
+    "Příbuzný 1"
+  ],
+  "Родич 2": [
+    "Relative 2",
+    "Krewny 2",
+    "Příbuzný 2"
+  ],
+  "Я окремо звірив ці поля зі сканом": [
+    "I separately checked these fields against the scan",
+    "Osobno sprawdziłem te pola ze skanem",
+    "Tato pole jsem samostatně ověřil podle skenu"
+  ],
+  "Якість окремих полів": [
+    "Field quality",
+    "Jakość poszczególnych pól",
+    "Kvalita jednotlivých polí"
+  ],
+  "Спочатку зафіксуйте корпус із полями, які людина окремо звірила зі сканом. Потім виберіть файл окремих прочитань для порівняння.": [
+    "First freeze a corpus with separately human-checked fields, then select an independent field-reading file.",
+    "Najpierw utrwal korpus z osobno sprawdzonymi polami, potem wybierz plik odczytów do porównania.",
+    "Nejprve zmrazte korpus se samostatně ověřenými poli a potom vyberte soubor čtení k porovnání."
+  ],
+  "Вибрати файл прочитаних полів": [
+    "Choose field readings",
+    "Wybierz plik odczytów pól",
+    "Vybrat soubor čtení polí"
+  ],
+  "Порахувати помилки полів": [
+    "Score field errors",
+    "Policz błędy pól",
+    "Vyhodnotit chyby polí"
+  ],
+  "Це оцінка наданих прочитань, а не автоматичне виділення полів із тексту. Пропуски й збої враховуються окремо; ручне введення прогнозу не доводить якість моделі.": [
+    "Scores supplied readings; fields are not extracted automatically. Missing and failed outputs are counted separately. Manually entered predictions do not establish model quality.",
+    "Oceniane są podane odczyty, bez automatycznego wydzielania pól. Braki i awarie liczone są osobno; ręczne prognozy nie dowodzą jakości modelu.",
+    "Hodnotí se dodaná čtení bez automatického získávání polí. Chybějící výstupy a selhání se počítají zvlášť; ručně zadané předpovědi nedokládají kvalitu modelu."
+  ],
+  "Таблиця прочитаних полів": [
+    "Field readings",
+    "Tabela odczytów pól",
+    "Tabulka čtení polí"
+  ],
+  "Виберіть знімок корпусу й файл прочитаних полів.": [
+    "Choose a frozen corpus and field-reading file.",
+    "Wybierz zamrożony korpus i plik odczytów pól.",
+    "Vyberte zmrazený korpus a soubor čtení polí."
+  ],
+  "Файл прочитаних полів завеликий.": [
+    "The field-reading file is too large.",
+    "Plik odczytów pól jest zbyt duży.",
+    "Soubor čtení polí je příliš velký."
+  ],
+  "Файл не містить списку прочитаних полів.": [
+    "The file contains no field-reading list.",
+    "Plik nie zawiera listy odczytów pól.",
+    "Soubor neobsahuje seznam čtení polí."
+  ],
+  "Точних значень": [
+    "Exact values",
+    "Dokładne wartości",
+    "Přesné hodnoty"
+  ],
+  "Пропусків": [
+    "Missing",
+    "Brakujące",
+    "Chybějící"
+  ],
+  "Виконати наново навіть за наявності збереженого результату": [
+    "Run again even if a saved result exists",
+    "Uruchom ponownie mimo zapisanego wyniku",
+    "Spustit znovu i při uloženém výsledku"
+  ],
+  "Розпізнати вибраний рядок, запис або колонку": [
+    "Recognize selected line, record or column",
+    "Rozpoznaj wybrany wiersz, wpis lub kolumnę",
+    "Rozpoznat vybraný řádek, záznam nebo sloupec"
+  ],
+  "Використано збережене прочитання незмінної ділянки.": [
+    "Reused the saved reading of the unchanged region.",
+    "Użyto zapisanego odczytu niezmienionego obszaru.",
+    "Bylo použito uložené čtení nezměněné oblasti."
+  ],
+  "Наявні рядки залишено без перезапису": [
+    "Existing lines preserved without overwriting",
+    "Istniejące wiersze zachowano bez nadpisania",
+    "Existující řádky ponechány bez přepsání"
+  ]
+}

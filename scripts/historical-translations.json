@@ -1,0 +1,932 @@
+{
+  "Історичне читання": [
+    "Historical reading",
+    "Odczyt historyczny",
+    "Historické čtení"
+  ],
+  "Позначення почерку": [
+    "Handwriting label",
+    "Oznaczenie charakteru pisma",
+    "Označení rukopisu"
+  ],
+  "Ручне позначення групує зразки. Воно не доводить, що це одна рука чи одна людина.": [
+    "A manual label groups samples. It does not prove the same hand or the same person.",
+    "Ręczne oznaczenie grupuje wzory. Nie dowodzi tej samej ręki ani tej samej osoby.",
+    "Ruční označení seskupuje vzorky. Nedokazuje stejnou písařskou ruku ani stejnou osobu."
+  ],
+  "Зразки з тим самим позначенням почерку": [
+    "Samples with the same handwriting label",
+    "Wzory o tym samym oznaczeniu pisma",
+    "Vzorky se stejným označením rukopisu"
+  ],
+  "Для цього позначення почерку зразків немає.": [
+    "No samples have this handwriting label.",
+    "Brak wzorów o tym oznaczeniu pisma.",
+    "Pro toto označení rukopisu nejsou vzorky."
+  ],
+  "Зразок для ручного порівняння рисок.": [
+    "Sample for manually comparing strokes.",
+    "Wzór do ręcznego porównania kresek.",
+    "Vzorek pro ruční porovnání tahů."
+  ],
+  "Зразок застарів або не відповідає поточному контексту.": [
+    "The sample is outdated or does not match the current context.",
+    "Wzór jest nieaktualny lub nie pasuje do bieżącego kontekstu.",
+    "Vzorek je zastaralý nebo neodpovídá aktuálnímu kontextu."
+  ],
+  "Виберіть збережений рядок або запис цієї сторінки.": [
+    "Select a saved line or entry from this page.",
+    "Wybierz zapisany wiersz lub wpis z tej strony.",
+    "Vyberte uložený řádek nebo záznam z této stránky."
+  ],
+  "Збережене прочитання потребує повторної перевірки.": [
+    "The saved reading needs to be checked again.",
+    "Zapisany odczyt wymaga ponownego sprawdzenia.",
+    "Uložené čtení je třeba znovu ověřit."
+  ],
+  "Буквальне прочитання, значення слів і висновки зберігаються окремо. Пропущені літери не домальовуються.": [
+    "Literal readings, word meanings and conclusions are saved separately. Missing letters are not invented.",
+    "Odczyt dosłowny, znaczenia słów i wnioski są zapisywane osobno. Brakujące litery nie są domyślane.",
+    "Doslovné čtení, významy slov a závěry se ukládají odděleně. Chybějící písmena se nedomýšlejí."
+  ],
+  "Джерело й писар": [
+    "Source and scribe",
+    "Źródło i pisarz",
+    "Pramen a písař"
+  ],
+  "Походження документа": [
+    "Document origin",
+    "Pochodzenie dokumentu",
+    "Původ dokumentu"
+  ],
+  "Період": [
+    "Period",
+    "Okres",
+    "Období"
+  ],
+  "Установа": [
+    "Institution",
+    "Instytucja",
+    "Instituce"
+  ],
+  "Обряд": [
+    "Rite",
+    "Obrządek",
+    "Obřad"
+  ],
+  "Тип письма": [
+    "Script type",
+    "Rodzaj pisma",
+    "Druh písma"
+  ],
+  "Писар": [
+    "Scribe",
+    "Pisarz",
+    "Písař"
+  ],
+  "Мови через кому": [
+    "Languages, separated by commas",
+    "Języki oddzielone przecinkami",
+    "Jazyky oddělené čárkami"
+  ],
+  "Примітки про джерело": [
+    "Source notes",
+    "Uwagi o źródle",
+    "Poznámky k prameni"
+  ],
+  "Зберегти профіль джерела": [
+    "Save source profile",
+    "Zapisz profil źródła",
+    "Uložit profil pramene"
+  ],
+  "Історичний словник": [
+    "Historical lexicon",
+    "Słownik historyczny",
+    "Historický slovník"
+  ],
+  "Словникова підказка не замінює видимий текст документа.": [
+    "A lexicon suggestion does not replace the visible document text.",
+    "Podpowiedź słownikowa nie zastępuje widocznego tekstu dokumentu.",
+    "Slovníková nápověda nenahrazuje viditelný text dokumentu."
+  ],
+  "Форма в документі": [
+    "Form in the document",
+    "Forma w dokumencie",
+    "Podoba v dokumentu"
+  ],
+  "Лема": [
+    "Lemma",
+    "Lemat",
+    "Lemma"
+  ],
+  "Спільне поняття (за бажанням)": [
+    "Shared concept (optional)",
+    "Wspólne pojęcie (opcjonalnie)",
+    "Společný pojem (nepovinné)"
+  ],
+  "Значення": [
+    "Meaning",
+    "Znaczenie",
+    "Význam"
+  ],
+  "Мова": [
+    "Language",
+    "Język",
+    "Jazyk"
+  ],
+  "Тип підказки": [
+    "Suggestion type",
+    "Rodzaj podpowiedzi",
+    "Druh nápovědy"
+  ],
+  "Слово": [
+    "Word",
+    "Słowo",
+    "Slovo"
+  ],
+  "Ім’я": [
+    "Name",
+    "Imię",
+    "Jméno"
+  ],
+  "Місце": [
+    "Place",
+    "Miejsce",
+    "Místo"
+  ],
+  "Скорочення": [
+    "Abbreviation",
+    "Skrót",
+    "Zkratka"
+  ],
+  "Лігатура": [
+    "Ligature",
+    "Ligatura",
+    "Ligatura"
+  ],
+  "Календар": [
+    "Calendar",
+    "Kalendarz",
+    "Kalendář"
+  ],
+  "Інше": [
+    "Other",
+    "Inne",
+    "Jiné"
+  ],
+  "Примітка до підказки": [
+    "Suggestion note",
+    "Uwaga do podpowiedzi",
+    "Poznámka k nápovědě"
+  ],
+  "Я перевірив цю словникову підказку": [
+    "I checked this lexicon suggestion",
+    "Sprawdziłem tę podpowiedź słownikową",
+    "Tuto slovníkovou nápovědu jsem ověřil"
+  ],
+  "Додати словникову підказку": [
+    "Add lexicon suggestion",
+    "Dodaj podpowiedź słownikową",
+    "Přidat slovníkovou nápovědu"
+  ],
+  "Очистити поля": [
+    "Clear fields",
+    "Wyczyść pola",
+    "Vymazat pole"
+  ],
+  "Читання й тлумачення": [
+    "Reading and interpretation",
+    "Odczyt i interpretacja",
+    "Čtení a výklad"
+  ],
+  "Поточне буквальне прочитання": [
+    "Current literal reading",
+    "Bieżący odczyt dosłowny",
+    "Aktuální doslovné čtení"
+  ],
+  "Неперевірені варіанти моделей": [
+    "Unverified model alternatives",
+    "Niezweryfikowane warianty modeli",
+    "Neověřené varianty modelů"
+  ],
+  "Видима форма → лема → значення": [
+    "Visible form → lemma → meaning",
+    "Widoczna forma → lemat → znaczenie",
+    "Viditelná podoba → lemma → význam"
+  ],
+  "Контекст і застереження": [
+    "Context and cautions",
+    "Kontekst i zastrzeżenia",
+    "Kontext a upozornění"
+  ],
+  "Моє буквальне прочитання": [
+    "My literal reading",
+    "Mój odczyt dosłowny",
+    "Moje doslovné čtení"
+  ],
+  "Моє тлумачення": [
+    "My interpretation",
+    "Moja interpretacja",
+    "Můj výklad"
+  ],
+  "Примітка до прочитання": [
+    "Reading note",
+    "Uwaga do odczytu",
+    "Poznámka ke čtení"
+  ],
+  "У прочитанні залишилася невпевненість": [
+    "The reading remains uncertain",
+    "Odczyt nadal jest niepewny",
+    "Čtení zůstává nejisté"
+  ],
+  "Я звірив прочитання з цим фрагментом": [
+    "I checked the reading against this fragment",
+    "Porównałem odczyt z tym fragmentem",
+    "Čtení jsem porovnal s tímto výřezem"
+  ],
+  "Зберегти окреме прочитання": [
+    "Save separate reading",
+    "Zapisz odrębny odczyt",
+    "Uložit samostatné čtení"
+  ],
+  "Структура й зразки літер": [
+    "Structure and letter samples",
+    "Struktura i wzory liter",
+    "Struktura a vzorky písmen"
+  ],
+  "Структура сторінки": [
+    "Page structure",
+    "Struktura strony",
+    "Struktura stránky"
+  ],
+  "Текст": [
+    "Text",
+    "Tekst",
+    "Text"
+  ],
+  "Таблиця": [
+    "Table",
+    "Tabela",
+    "Tabulka"
+  ],
+  "Ілюстрація": [
+    "Illustration",
+    "Ilustracja",
+    "Ilustrace"
+  ],
+  "Підпис": [
+    "Caption",
+    "Podpis",
+    "Popisek"
+  ],
+  "Невідомо": [
+    "Unknown",
+    "Nieznane",
+    "Neznámé"
+  ],
+  "Пошкодження": [
+    "Damage",
+    "Uszkodzenie",
+    "Poškození"
+  ],
+  "Виділити ділянку сторінки": [
+    "Select a page region",
+    "Zaznacz obszar strony",
+    "Vybrat oblast stránky"
+  ],
+  "Я перевірив роль виділеної ділянки": [
+    "I checked the selected region's role",
+    "Sprawdziłem rolę zaznaczonego obszaru",
+    "Ověřil jsem roli vybrané oblasti"
+  ],
+  "Зберегти ділянку структури": [
+    "Save structure region",
+    "Zapisz obszar struktury",
+    "Uložit oblast struktury"
+  ],
+  "Зразок літери або лігатури": [
+    "Letter or ligature sample",
+    "Wzór litery lub ligatury",
+    "Vzorek písmene nebo ligatury"
+  ],
+  "Спочатку виберіть рядок на вкладці читання. Зразок вирізається лише всередині цього рядка.": [
+    "First select a line on the reading tab. Samples are cropped only within that line.",
+    "Najpierw wybierz wiersz na karcie odczytu. Wzór jest wycinany tylko wewnątrz tego wiersza.",
+    "Nejprve vyberte řádek na kartě čtení. Vzorek se vyřízne pouze uvnitř tohoto řádku."
+  ],
+  "Виділити зразок у рядку": [
+    "Select a sample within the line",
+    "Zaznacz wzór w wierszu",
+    "Vybrat vzorek v řádku"
+  ],
+  "Позначення літери або лігатури": [
+    "Letter or ligature label",
+    "Oznaczenie litery lub ligatury",
+    "Označení písmene nebo ligatury"
+  ],
+  "Примітка до зразка": [
+    "Sample note",
+    "Uwaga do wzoru",
+    "Poznámka ke vzorku"
+  ],
+  "Я звірив позначення з видимими рисками": [
+    "I checked the label against the visible strokes",
+    "Porównałem oznaczenie z widocznymi kreskami",
+    "Označení jsem porovnal s viditelnými tahy"
+  ],
+  "Зберегти зразок без донавчання": [
+    "Save sample without training",
+    "Zapisz wzór bez douczania",
+    "Uložit vzorek bez dotrénování"
+  ],
+  "Джерело змінилося": [
+    "Source changed",
+    "Źródło się zmieniło",
+    "Pramen se změnil"
+  ],
+  "Рядок": [
+    "Line",
+    "Wiersz",
+    "Řádek"
+  ],
+  "Запис": [
+    "Entry",
+    "Wpis",
+    "Záznam"
+  ],
+  "На сторінці ще немає розмічених рядків або записів.": [
+    "This page has no annotated lines or entries yet.",
+    "Ta strona nie ma jeszcze oznaczonych wierszy ani wpisów.",
+    "Na této stránce zatím nejsou označené řádky ani záznamy."
+  ],
+  "Для цього фрагмента ще немає збережених варіантів моделей.": [
+    "No model alternatives have been saved for this fragment yet.",
+    "Dla tego fragmentu nie zapisano jeszcze wariantów modeli.",
+    "Pro tento výřez zatím nejsou uložené varianty modelů."
+  ],
+  "Немає словникової підказки": [
+    "No lexicon suggestion",
+    "Brak podpowiedzi słownikowej",
+    "Bez slovníkové nápovědy"
+  ],
+  "Спочатку виділіть ділянку.": [
+    "Select a region first.",
+    "Najpierw zaznacz obszar.",
+    "Nejprve vyberte oblast."
+  ],
+  "Спочатку виберіть розмічений рядок.": [
+    "Select an annotated line first.",
+    "Najpierw wybierz oznaczony wiersz.",
+    "Nejprve vyberte označený řádek."
+  ],
+  "Спочатку виділіть зразок у рядку.": [
+    "Select a sample within the line first.",
+    "Najpierw zaznacz wzór w wierszu.",
+    "Nejprve vyberte vzorek v řádku."
+  ],
+  "Застаріле порівняння пропущено.": [
+    "An outdated comparison was skipped.",
+    "Pominięto nieaktualne porównanie.",
+    "Zastaralé porovnání bylo vynecháno."
+  ],
+  "Ділянка пошкоджена: це не навчальний еталон.": [
+    "The region is damaged: it is not training ground truth.",
+    "Obszar jest uszkodzony: to nie wzorzec do uczenia.",
+    "Oblast je poškozená: není to trénovací etalon."
+  ],
+  "Збережені моделі прочитали по-різному.": [
+    "The saved model readings disagree.",
+    "Zapisane odczyty modeli są rozbieżne.",
+    "Uložená čtení modelů se liší."
+  ],
+  "Підказки взято з ручного словника.": [
+    "Suggestions come from the manually maintained lexicon.",
+    "Podpowiedzi pochodzą z ręcznie prowadzonego słownika.",
+    "Nápovědy pocházejí z ručně vedeného slovníku."
+  ],
+  "Невідоме слово не означає помилку.": [
+    "An unknown word does not imply an error.",
+    "Nieznane słowo nie oznacza błędu.",
+    "Neznámé slovo neznamená chybu."
+  ],
+  "Мова й походження не вгадуються.": [
+    "Language and origin are not guessed.",
+    "Język i pochodzenie nie są zgadywane.",
+    "Jazyk a původ se neodhadují."
+  ],
+  "Потребує ручної перевірки.": [
+    "Manual review required.",
+    "Wymaga ręcznego sprawdzenia.",
+    "Vyžaduje ruční kontrolu."
+  ],
+  "Запропонувати сітку таблиці": [
+    "Suggest a table grid",
+    "Zaproponuj siatkę tabeli",
+    "Navrhnout mřížku tabulky"
+  ],
+  "Лінії сітки не визначають зміст комірок чи ілюстрації. Підказка нічого не виключає автоматично.": [
+    "Grid lines do not identify cell content or illustrations. Suggestions do not exclude anything automatically.",
+    "Linie siatki nie określają treści komórek ani ilustracji. Podpowiedź niczego nie wyklucza automatycznie.",
+    "Čáry mřížky neurčují obsah buněk ani ilustrace. Nápověda nic automaticky nevylučuje."
+  ],
+  "Можлива сітка таблиці": [
+    "Possible table grid",
+    "Możliwa siatka tabeli",
+    "Možná mřížka tabulky"
+  ],
+  "Сітки таблиці не запропоновано. Можна виділити ділянку вручну.": [
+    "No table grid was suggested. You can select a region manually.",
+    "Nie zaproponowano siatki tabeli. Możesz zaznaczyć obszar ręcznie.",
+    "Mřížka tabulky nebyla navržena. Oblast můžete vybrat ručně."
+  ],
+  "Перевірте межі підказки перед збереженням.": [
+    "Check the suggested boundaries before saving.",
+    "Sprawdź proponowane granice przed zapisaniem.",
+    "Před uložením zkontrolujte navržené hranice."
+  ],
+  "Джерело й почерк": [
+    "Source and handwriting",
+    "Źródło i charakter pisma",
+    "Pramen a rukopis"
+  ],
+  "Застаріла підказка": [
+    "Outdated suggestion",
+    "Nieaktualna podpowiedź",
+    "Zastaralá nápověda"
+  ],
+  "Правопис": [
+    "Orthography",
+    "Ortografia",
+    "Pravopis"
+  ],
+  "Граматика": [
+    "Grammar",
+    "Gramatyka",
+    "Gramatika"
+  ],
+  "Палеографія": [
+    "Paleography",
+    "Paleografia",
+    "Paleografie"
+  ],
+  "Довідкове джерело (за бажанням)": [
+    "Reference source (optional)",
+    "Źródło pomocnicze (opcjonalnie)",
+    "Referenční zdroj (nepovinné)"
+  ],
+  "Час створення твору, рукописного примірника й видання — різні відомості. Межі застосування перевіряє людина.": [
+    "The work, manuscript witness and edition have separate dates. A person must check applicability.",
+    "Czas powstania dzieła, rękopisu i wydania to różne informacje. Zakres zastosowania sprawdza człowiek.",
+    "Doba vzniku díla, rukopisného exempláře a vydání jsou různé údaje. Použitelnost ověřuje člověk."
+  ],
+  "Назва довідкового джерела": [
+    "Reference title",
+    "Tytuł źródła pomocniczego",
+    "Název referenčního zdroje"
+  ],
+  "Посилання HTTP або HTTPS": [
+    "HTTP or HTTPS link",
+    "Odnośnik HTTP lub HTTPS",
+    "Odkaz HTTP nebo HTTPS"
+  ],
+  "Сторінка, розділ або місце у джерелі": [
+    "Page, section or location in source",
+    "Strona, rozdział lub miejsce w źródle",
+    "Stránka, oddíl nebo místo ve zdroji"
+  ],
+  "Тип довідкового джерела": [
+    "Reference source type",
+    "Rodzaj źródła pomocniczego",
+    "Druh referenčního zdroje"
+  ],
+  "Час створення твору": [
+    "Date of composition",
+    "Czas powstania dzieła",
+    "Doba vzniku díla"
+  ],
+  "Дата рукописного примірника": [
+    "Date of manuscript witness",
+    "Data egzemplarza rękopiśmiennego",
+    "Datum rukopisného exempláře"
+  ],
+  "Час видання або опису": [
+    "Date of edition or description",
+    "Czas wydania lub opisu",
+    "Doba vydání nebo popisu"
+  ],
+  "Межі застосування: мова, регіон, тип документа": [
+    "Applicability: language, region, document type",
+    "Zakres zastosowania: język, region, typ dokumentu",
+    "Použitelnost: jazyk, oblast, druh dokumentu"
+  ],
+  "Автентичність і характер правила": [
+    "Authenticity and nature of the rule",
+    "Autentyczność i charakter reguły",
+    "Autentičnost a povaha pravidla"
+  ],
+  "Я перевірив це довідкове джерело та місце у ньому": [
+    "I checked this reference and the cited location",
+    "Sprawdziłem to źródło i wskazane miejsce",
+    "Ověřil jsem tento zdroj i uvedené místo"
+  ],
+  "Показати приклад правила з джерелом": [
+    "Show a sourced rule example",
+    "Pokaż przykład reguły ze źródłem",
+    "Zobrazit příklad pravidla se zdrojem"
+  ],
+  "Приклад не застосовано до документа. Перевірте час, мову й почерк.": [
+    "The example has not been applied to the document. Check its period, language and handwriting.",
+    "Przykład nie został zastosowany do dokumentu. Sprawdź okres, język i pismo.",
+    "Příklad nebyl použit na dokument. Ověřte období, jazyk a rukopis."
+  ],
+  "Зберегти словникову підказку": [
+    "Save lexicon suggestion",
+    "Zapisz podpowiedź słownikową",
+    "Uložit slovníkovou nápovědu"
+  ],
+  "Довідкове джерело": [
+    "Reference source",
+    "Źródło pomocnicze",
+    "Referenční zdroj"
+  ],
+  "Місце у джерелі": [
+    "Location in source",
+    "Miejsce w źródle",
+    "Místo ve zdroji"
+  ],
+  "Перевірте межі застосування довідкового джерела.": [
+    "Check the applicability of the reference source.",
+    "Sprawdź zakres zastosowania źródła pomocniczego.",
+    "Ověřte použitelnost referenčního zdroje."
+  ],
+  "Неправильне посилання на довідкове джерело.": [
+    "Invalid reference source.",
+    "Nieprawidłowe odwołanie do źródła pomocniczego.",
+    "Neplatný odkaz na referenční zdroj."
+  ],
+  "Вкажіть назву, посилання, місце у джерелі та підтвердьте його перевірку.": [
+    "Enter a title, URL and source location, and confirm your review.",
+    "Podaj tytuł, odnośnik i miejsce w źródle oraz potwierdź sprawdzenie.",
+    "Uveďte název, odkaz a místo ve zdroji a potvrďte ověření."
+  ],
+  "Дозволено лише HTTP або HTTPS посилання без облікових даних.": [
+    "Only HTTP or HTTPS links without credentials are allowed.",
+    "Dozwolone są tylko odnośniki HTTP lub HTTPS bez danych logowania.",
+    "Povoleny jsou pouze odkazy HTTP nebo HTTPS bez přihlašovacích údajů."
+  ],
+  "Каталог довідкових джерел": [
+    "Reference source catalogue",
+    "Katalog źródeł pomocniczych",
+    "Katalog referenčních zdrojů"
+  ],
+  "Вставити джерело у підказку": [
+    "Insert source into suggestion",
+    "Wstaw źródło do podpowiedzi",
+    "Vložit zdroj do nápovědy"
+  ],
+  "Каталог недоступний. Довідкове джерело можна ввести вручну.": [
+    "The catalogue is unavailable. You can enter a reference manually.",
+    "Katalog jest niedostępny. Źródło można wpisać ręcznie.",
+    "Katalog není dostupný. Referenční zdroj můžete zadat ručně."
+  ],
+  "Вставлено лише відомості про джерело. Вкажіть місце у ньому та перевірте застосовність.": [
+    "Only source metadata was inserted. Enter a location and check applicability.",
+    "Wstawiono tylko informacje o źródle. Podaj miejsce i sprawdź zastosowanie.",
+    "Byly vloženy pouze údaje o zdroji. Uveďte místo a ověřte použitelnost."
+  ],
+  "Архівний навчальний матеріал (PDF)": [
+    "Archive tutorial (PDF)",
+    "Archiwalny materiał szkoleniowy (PDF)",
+    "Archivní výukový materiál (PDF)"
+  ],
+  "Довідкове джерело: тип потребує перевірки": [
+    "Reference source: type needs review",
+    "Źródło pomocnicze: rodzaj wymaga sprawdzenia",
+    "Referenční zdroj: druh je třeba ověřit"
+  ],
+  "Університетські настанови": [
+    "University guidelines",
+    "Wytyczne uniwersyteckie",
+    "Univerzitní pokyny"
+  ],
+  "Університетська довідкова база": [
+    "University reference database",
+    "Uniwersytecka baza informacyjna",
+    "Univerzitní referenční databáze"
+  ],
+  "Університетський навчальний матеріал": [
+    "University tutorial",
+    "Uniwersytecki materiał szkoleniowy",
+    "Univerzitní výukový materiál"
+  ],
+  "Мови світу": [
+    "Languages of the world",
+    "Języki świata",
+    "Jazyky světa"
+  ],
+  "Це реєстр назв і кодів мов, діалектів та мовних сімей. Наявність у ньому не означає підтримку розпізнавання чи перекладу.": [
+    "This is a registry of language, dialect and family names and codes. Inclusion does not mean recognition or translation support.",
+    "To rejestr nazw i kodów języków, dialektów i rodzin językowych. Obecność nie oznacza obsługi rozpoznawania ani tłumaczenia.",
+    "Toto je registr názvů a kódů jazyků, dialektů a jazykových rodin. Zařazení neznamená podporu rozpoznávání ani překladu."
+  ],
+  "Пошук за назвою видавця англійською, ISO або Glottocode": [
+    "Search publisher names in English, ISO or Glottocode",
+    "Szukaj według angielskiej nazwy wydawcy, ISO lub Glottocode",
+    "Hledejte podle anglického názvu vydavatele, ISO nebo Glottocode"
+  ],
+  "Шукати в реєстрі мов": [
+    "Search language registry",
+    "Szukaj w rejestrze języków",
+    "Hledat v registru jazyků"
+  ],
+  "Попередні мови": [
+    "Previous languages",
+    "Poprzednie języki",
+    "Předchozí jazyky"
+  ],
+  "Наступні мови": [
+    "Next languages",
+    "Następne języki",
+    "Další jazyky"
+  ],
+  "Відомості вибраного запису": [
+    "Selected entry details",
+    "Szczegóły wybranego wpisu",
+    "Podrobnosti vybraného záznamu"
+  ],
+  "Походження даних і ліцензія": [
+    "Data provenance and license",
+    "Pochodzenie danych i licencja",
+    "Původ dat a licence"
+  ],
+  "Ідентифікатор": [
+    "Identifier",
+    "Identyfikator",
+    "Identifikátor"
+  ],
+  "Назва видавця": [
+    "Publisher name",
+    "Nazwa wydawcy",
+    "Název vydavatele"
+  ],
+  "Рівень": [
+    "Level",
+    "Poziom",
+    "Úroveň"
+  ],
+  "Діалект": [
+    "Dialect",
+    "Dialekt",
+    "Dialekt"
+  ],
+  "Мовна сім’я": [
+    "Language family",
+    "Rodzina językowa",
+    "Jazyková rodina"
+  ],
+  "За цим запитом записів немає.": [
+    "No entries match this query.",
+    "Brak wpisów dla tego zapytania.",
+    "Tomuto dotazu neodpovídají žádné záznamy."
+  ],
+  "Ліцензія": [
+    "License",
+    "Licencja",
+    "Licence"
+  ],
+  "Походження даних": [
+    "Data provenance",
+    "Pochodzenie danych",
+    "Původ dat"
+  ],
+  "Дата отримання": [
+    "Retrieval date",
+    "Data pobrania",
+    "Datum získání"
+  ],
+  "Версія джерела": [
+    "Source version",
+    "Wersja źródła",
+    "Verze zdroje"
+  ],
+  "Введіть пошуковий запит до 200 символів.": [
+    "Enter a search query up to 200 characters.",
+    "Wpisz zapytanie do 200 znaków.",
+    "Zadejte dotaz do 200 znaků."
+  ],
+  "Неправильні межі сторінки каталогу мов.": [
+    "Invalid language catalogue page bounds.",
+    "Nieprawidłowe granice strony katalogu języków.",
+    "Neplatné meze stránky katalogu jazyků."
+  ],
+  "Локальний каталог мов недоступний або пошкоджений.": [
+    "The local language catalogue is unavailable or damaged.",
+    "Lokalny katalog języków jest niedostępny lub uszkodzony.",
+    "Místní katalog jazyků není dostupný nebo je poškozený."
+  ],
+  "Бібліографія": [
+    "Bibliography",
+    "Bibliografia",
+    "Bibliografie"
+  ],
+  "Порівняльні списки слів": [
+    "Comparative word lists",
+    "Porównawcze listy słów",
+    "Srovnávací seznamy slov"
+  ],
+  "Збірка словників": [
+    "Dictionary collection",
+    "Zbiór słowników",
+    "Sbírka slovníků"
+  ],
+  "Збірка граматик": [
+    "Grammar collection",
+    "Zbiór gramatyk",
+    "Sbírka gramatik"
+  ],
+  "Портал історичних мов": [
+    "Historical language portal",
+    "Portal języków historycznych",
+    "Portál historických jazyků"
+  ],
+  "Каталог мов": [
+    "Language catalogue",
+    "Katalog języków",
+    "Katalog jazyků"
+  ],
+  "Пошук бібліографічних відомостей": [
+    "Bibliographic metadata search",
+    "Wyszukiwanie danych bibliograficznych",
+    "Vyhledávání bibliografických údajů"
+  ],
+  "Корпус текстів": [
+    "Text corpus",
+    "Korpus tekstów",
+    "Textový korpus"
+  ],
+  "Назва в реєстрі": [
+    "Registry name",
+    "Nazwa w rejestrze",
+    "Název v registru"
+  ],
+  "Пошук за англійською назвою, ISO або Glottocode": [
+    "Search by English name, ISO or Glottocode",
+    "Szukaj według angielskiej nazwy, ISO lub Glottocode",
+    "Hledejte podle anglického názvu, ISO nebo Glottocode"
+  ],
+  "Пакет знань книги": [
+    "Book knowledge package",
+    "Pakiet wiedzy księgi",
+    "Znalostní balíček knihy"
+  ],
+  "Пакет обмежує підказки цієї книги вибраними відповідниками й довідковими джерелами. Це не навчання моделі й не автоматичний вибір мов.": [
+    "The package limits this book’s hints to selected lexical entries and references. It does not train a model or select languages automatically.",
+    "Pakiet ogranicza podpowiedzi tej księgi do wybranych odpowiedników i źródeł. Nie uczy modelu ani nie wybiera języków automatycznie.",
+    "Balíček omezuje nápovědy této knihy na vybraná hesla a zdroje. Netrénuje model ani automaticky nevybírá jazyky."
+  ],
+  "Використовувати вибраний пакет книги": [
+    "Use the selected book package",
+    "Używaj wybranego pakietu księgi",
+    "Používat vybraný balíček knihy"
+  ],
+  "Без окремого пакета доступні збережені підказки книги. Увімкнений порожній пакет вимикає всі словникові підказки.": [
+    "Without a separate package, saved book hints remain available. An enabled empty package disables all lexical hints.",
+    "Bez osobnego pakietu dostępne są zapisane podpowiedzi księgi. Włączony pusty pakiet wyłącza wszystkie podpowiedzi słownikowe.",
+    "Bez samostatného balíčku jsou dostupné uložené nápovědy knihy. Zapnutý prázdný balíček vypne všechny slovníkové nápovědy."
+  ],
+  "Для вибору кількох рядків використовуйте Ctrl або Shift.": [
+    "Use Ctrl or Shift to select multiple rows.",
+    "Użyj Ctrl lub Shift, aby wybrać kilka wierszy.",
+    "Pro výběr více řádků použijte Ctrl nebo Shift."
+  ],
+  "Відповідники цієї книги": [
+    "This book’s lexical entries",
+    "Odpowiedniki tej księgi",
+    "Hesla této knihy"
+  ],
+  "Довідкові джерела пакета": [
+    "Package reference sources",
+    "Źródła pomocnicze pakietu",
+    "Referenční zdroje balíčku"
+  ],
+  "Примітка до вибору пакета": [
+    "Package selection note",
+    "Uwaga do wyboru pakietu",
+    "Poznámka k výběru balíčku"
+  ],
+  "Я перевірив власний вибір складових пакета": [
+    "I reviewed my package selection",
+    "Sprawdziłem własny wybór składników pakietu",
+    "Ověřil jsem svůj výběr součástí balíčku"
+  ],
+  "Зберегти пакет книги": [
+    "Save book package",
+    "Zapisz pakiet księgi",
+    "Uložit balíček knihy"
+  ],
+  "Складові книги мають різні пакети. Перевірте вибір перед збереженням.": [
+    "Parts of the book have different packages. Review the selection before saving.",
+    "Części księgi mają różne pakiety. Sprawdź wybór przed zapisaniem.",
+    "Části knihy mají různé balíčky. Před uložením ověřte výběr."
+  ],
+  "Сумнівне слово": [
+    "Uncertain word",
+    "Niepewne słowo",
+    "Nejisté slovo"
+  ],
+  "Виберіть слово зі збереженого тексту або виділіть буквальний фрагмент. Підказки не виправляють його автоматично.": [
+    "Choose a word from the saved text or select a literal span. Hints do not correct it automatically.",
+    "Wybierz słowo z zapisanego tekstu lub zaznacz dosłowny fragment. Podpowiedzi nie poprawiają go automatycznie.",
+    "Vyberte slovo z uloženého textu nebo označte doslovný úsek. Nápovědy jej automaticky neopravují."
+  ],
+  "Взяти виділений текст": [
+    "Use selected text",
+    "Użyj zaznaczonego tekstu",
+    "Použít označený text"
+  ],
+  "Показати докази слова": [
+    "Show word evidence",
+    "Pokaż dowody dla słowa",
+    "Zobrazit doklady ke slovu"
+  ],
+  "Виділити фрагмент слова вручну": [
+    "Select a word fragment manually",
+    "Zaznacz fragment słowa ręcznie",
+    "Ručně vybrat výřez slova"
+  ],
+  "Дослівний фрагмент": [
+    "Literal span",
+    "Dosłowny fragment",
+    "Doslovný úsek"
+  ],
+  "Модельні варіанти стосуються всього рядка; вирівнювання зі словом не встановлено.": [
+    "Model alternatives refer to the whole line; word alignment is unknown.",
+    "Warianty modeli dotyczą całego wiersza; dopasowanie do słowa nie jest ustalone.",
+    "Varianty modelů se vztahují k celému řádku; zarovnání ke slovu není známé."
+  ],
+  "Зразки почерку нижче служать лише ручному порівнянню рисок.": [
+    "Handwriting samples below are only for manual stroke comparison.",
+    "Wzory pisma poniżej służą tylko ręcznemu porównaniu kresek.",
+    "Vzorky rukopisu níže slouží pouze k ručnímu porovnání tahů."
+  ],
+  "Показано весь рядок: межі слова не визначено.": [
+    "The whole line is shown: word bounds are unknown.",
+    "Pokazano cały wiersz: granice słowa nie są ustalone.",
+    "Je zobrazen celý řádek: hranice slova nejsou známé."
+  ],
+  "Показано фрагмент, виділений людиною. Відповідність рисок слову потребує перевірки.": [
+    "A manually selected fragment is shown. Its correspondence to the word needs review.",
+    "Pokazano ręcznie zaznaczony fragment. Zgodność kresek ze słowem wymaga sprawdzenia.",
+    "Je zobrazen ručně vybraný výřez. Souvislost tahů se slovem je třeba ověřit."
+  ],
+  "Спочатку виділіть буквальний фрагмент тексту.": [
+    "Select a literal text span first.",
+    "Najpierw zaznacz dosłowny fragment tekstu.",
+    "Nejprve označte doslovný úsek textu."
+  ],
+  "Спочатку виберіть слово або буквальний фрагмент.": [
+    "Choose a word or literal span first.",
+    "Najpierw wybierz słowo lub dosłowny fragment.",
+    "Nejprve vyberte slovo nebo doslovný úsek."
+  ],
+  "Відкрити повторне розпізнавання рядка або запису": [
+    "Open line or entry recognition again",
+    "Otwórz ponowne rozpoznawanie wiersza lub wpisu",
+    "Otevřít opakované rozpoznání řádku nebo záznamu"
+  ],
+  "Підтвердьте власний вибір пакета знань книги.": [
+    "Confirm your book package selection.",
+    "Potwierdź własny wybór pakietu wiedzy księgi.",
+    "Potvrďte svůj výběr znalostního balíčku knihy."
+  ],
+  "Неправильний перелік складових пакета знань.": [
+    "Invalid knowledge package component list.",
+    "Nieprawidłowa lista składników pakietu wiedzy.",
+    "Neplatný seznam součástí znalostního balíčku."
+  ],
+  "Вибраний відповідник або довідкове джерело недоступні для цієї книги.": [
+    "The selected lexical entry or reference is unavailable for this book.",
+    "Wybrany odpowiednik lub źródło są niedostępne dla tej księgi.",
+    "Vybrané heslo nebo zdroj nejsou pro tuto knihu dostupné."
+  ],
+  "Пакет або контекст книги змінилися. Оновіть перегляд.": [
+    "The book package or context changed. Refresh the view.",
+    "Pakiet lub kontekst księgi się zmienił. Odśwież widok.",
+    "Balíček nebo kontext knihy se změnil. Obnovte zobrazení."
+  ],
+  "Виберіть дійсний фрагмент тексту до 500 символів.": [
+    "Select a valid text span up to 500 characters.",
+    "Wybierz poprawny fragment tekstu do 500 znaków.",
+    "Vyberte platný úsek textu do 500 znaků."
+  ],
+  "Ручні межі слова мають бути всередині вибраного рядка або запису.": [
+    "Manual word bounds must be inside the selected line or entry.",
+    "Ręczne granice słowa muszą być wewnątrz wybranego wiersza lub wpisu.",
+    "Ruční hranice slova musí být uvnitř vybraného řádku nebo záznamu."
+  ],
+  "Ручний фрагмент слова надто малий.": [
+    "The manual word fragment is too small.",
+    "Ręcznie zaznaczony fragment słowa jest zbyt mały.",
+    "Ručně vybraný výřez slova je příliš malý."
+  ]
+}

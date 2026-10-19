@@ -1,0 +1,22 @@
+{
+  "Виберіть локальну модель.": ["Choose a local model.", "Wybierz lokalny model.", "Vyberte místní model."],
+  "Вкажіть походження прогнозів.": ["Specify the prediction source.", "Podaj źródło przewidywanych wartości.", "Uveďte původ předpovězených hodnot."],
+  "Джерело еталона змінилося.": ["The reference source has changed.", "Źródło wzorca uległo zmianie.", "Zdroj referenčního vzorku se změnil."],
+  "Джерело, ділянка або модель змінилися під час розпізнавання. Повторіть спробу.": ["The source, region or model changed during recognition. Try again.", "Źródło, obszar lub model zmieniły się podczas rozpoznawania. Spróbuj ponownie.", "Zdroj, oblast nebo model se během rozpoznávání změnily. Zkuste to znovu."],
+  "Ділянка перетинає позначене пошкодження. Перевірте межі перед повторним розпізнаванням.": ["The region overlaps marked damage. Check its boundaries before recognizing it again.", "Obszar nakłada się na oznaczone uszkodzenie. Sprawdź granice przed ponownym rozpoznawaniem.", "Oblast zasahuje do označeného poškození. Před opětovným rozpoznáním zkontrolujte její hranice."],
+  "Ділянка перетинає позначене пошкодження. Перевірте результат вручну.": ["The region overlaps marked damage. Check the result manually.", "Obszar nakłada się na oznaczone uszkodzenie. Sprawdź wynik ręcznie.", "Oblast zasahuje do označeného poškození. Výsledek zkontrolujte ručně."],
+  "Збережений набір змінено. Оновіть знімок.": ["The saved dataset has changed. Refresh the snapshot.", "Zapisany zbiór został zmieniony. Odśwież migawkę.", "Uložená datová sada se změnila. Obnovte snímek."],
+  "Значення поля надто довге.": ["The field value is too long.", "Wartość pola jest zbyt długa.", "Hodnota pole je příliš dlouhá."],
+  "Зображення ділянки змінилося. Розпізнайте повторно.": ["The region image has changed. Run recognition again.", "Obraz obszaru uległ zmianie. Uruchom rozpoznawanie ponownie.", "Obrázek oblasti se změnil. Spusťte rozpoznávání znovu."],
+  "Зображення еталона змінено.": ["The reference image has changed.", "Obraz wzorca został zmieniony.", "Referenční obrázek se změnil."],
+  "Неправильний опис збою прогнозу.": ["Invalid prediction failure description.", "Nieprawidłowy opis błędu przewidywania.", "Neplatný popis chyby předpovědi."],
+  "Неправильний список прогнозів полів.": ["Invalid list of field predictions.", "Nieprawidłowa lista przewidywanych wartości pól.", "Neplatný seznam předpovězených hodnot polí."],
+  "Неправильні поля еталона.": ["Invalid reference fields.", "Nieprawidłowe pola wzorca.", "Neplatná referenční pole."],
+  "Оригінал джерела змінився.": ["The original source has changed.", "Oryginał źródła uległ zmianie.", "Originál zdroje se změnil."],
+  "Оригінал джерела змінився. Оновіть бібліотеку.": ["The original source has changed. Refresh the library.", "Oryginał źródła uległ zmianie. Odśwież bibliotekę.", "Originál zdroje se změnil. Obnovte knihovnu."],
+  "Оригінал джерела змінився. Розпізнайте ділянку повторно.": ["The original source has changed. Recognize the region again.", "Oryginał źródła uległ zmianie. Rozpoznaj obszar ponownie.", "Originál zdroje se změnil. Rozpoznejte oblast znovu."],
+  "Оригінал джерела недоступний.": ["The original source is unavailable.", "Oryginał źródła jest niedostępny.", "Originál zdroje není dostupný."],
+  "Прогноз має невідомий або повторний ідентифікатор.": ["A prediction has an unknown or duplicate identifier.", "Przewidywana wartość ma nieznany lub powtórzony identyfikator.", "Předpověď má neznámý nebo duplicitní identifikátor."],
+  "Підтвердьте власні певні значення полів разом із повним еталоном.": ["Confirm your unambiguous field readings together with the full reference transcription.", "Potwierdź własne jednoznaczne odczyty pól wraz z pełną transkrypcją wzorcową.", "Potvrďte vlastní jednoznačná čtení polí spolu s úplným referenčním přepisem."],
+  "У знімку немає окремо підтверджених людиною полів.": ["The snapshot contains no separately human-confirmed fields.", "Migawka nie zawiera pól osobno potwierdzonych przez człowieka.", "Snímek neobsahuje žádná pole samostatně potvrzená člověkem."]
+}

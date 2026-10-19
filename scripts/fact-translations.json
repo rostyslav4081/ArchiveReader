@@ -1,0 +1,117 @@
+{
+  "Факти та докази": [
+    "Facts and evidence",
+    "Fakty i dowody",
+    "Fakta a důkazy"
+  ],
+  "Оцінка окремого факту": [
+    "Individual fact assessment",
+    "Ocena pojedynczego faktu",
+    "Posouzení jednotlivého faktu"
+  ],
+  "Оцінка факту не змінює оригінальну транскрипцію чи перевірку всього запису.": [
+    "Fact assessment does not change the original transcription or record verification.",
+    "Ocena faktu nie zmienia oryginalnej transkrypcji ani weryfikacji całego wpisu.",
+    "Posouzení faktu nemění původní přepis ani ověření celého záznamu."
+  ],
+  "Значення факту": [
+    "Fact value",
+    "Wartość faktu",
+    "Hodnota faktu"
+  ],
+  "Стан факту": [
+    "Fact status",
+    "Stan faktu",
+    "Stav faktu"
+  ],
+  "Спостереження в документі": [
+    "Document observation",
+    "Obserwacja w dokumencie",
+    "Pozorování v dokumentu"
+  ],
+  "Прочитання тексту": [
+    "Transcription",
+    "Odczyt tekstu",
+    "Přepis textu"
+  ],
+  "Гіпотеза": [
+    "Hypothesis",
+    "Hipoteza",
+    "Hypotéza"
+  ],
+  "Підтверджено незалежними джерелами": [
+    "Corroborated by independent sources",
+    "Potwierdzone niezależnymi źródłami",
+    "Potvrzeno nezávislými zdroji"
+  ],
+  "Пояснення оцінки": [
+    "Assessment explanation",
+    "Uzasadnienie oceny",
+    "Odůvodnění posouzení"
+  ],
+  "Додаткові докази: виберіть записи через Ctrl/Shift": [
+    "Additional evidence: select records with Ctrl/Shift",
+    "Dodatkowe dowody: wybierz wpisy przez Ctrl/Shift",
+    "Další důkazy: vyberte záznamy pomocí Ctrl/Shift"
+  ],
+  "Знайти докази": [
+    "Find evidence",
+    "Znajdź dowody",
+    "Najít důkazy"
+  ],
+  "Я звірив факт з усіма вибраними джерелами": [
+    "I checked this fact against all selected sources",
+    "Sprawdziłem fakt we wszystkich wybranych źródłach",
+    "Ověřil jsem fakt ve všech vybraných zdrojích"
+  ],
+  "Зберегти оцінку факту": [
+    "Save fact assessment",
+    "Zapisz ocenę faktu",
+    "Uložit posouzení faktu"
+  ],
+  "Сусідні сторінки": [
+    "Neighboring pages",
+    "Sąsiednie strony",
+    "Sousední stránky"
+  ],
+  "Пропозиції показують збіги та відмінності. Вони не створюють зв’язків між людьми.": [
+    "Suggestions show similarities and differences. They do not link people.",
+    "Propozycje pokazują zgodności i różnice. Nie łączą osób.",
+    "Návrhy ukazují shody a rozdíly. Nevytvářejí vazby mezi lidmi."
+  ],
+  "Перевірити сусідні сторінки": [
+    "Check neighboring pages",
+    "Sprawdź sąsiednie strony",
+    "Prověřit sousední stránky"
+  ],
+  "Відкрити запис-доказ": [
+    "Open evidence record",
+    "Otwórz wpis źródłowy",
+    "Otevřít důkazní záznam"
+  ],
+  "Доказ змінився": [
+    "Evidence changed",
+    "Dowód się zmienił",
+    "Důkaz se změnil"
+  ],
+  "Збіги": [
+    "Matches",
+    "Zgodności",
+    "Shody"
+  ],
+  "Відмінності": [
+    "Differences",
+    "Różnice",
+    "Rozdíly"
+  ],
+  "Вибрати фрагмент доказу": [
+    "Select evidence fragment",
+    "Wybierz fragment dowodu",
+    "Vybrat výřez důkazu"
+  ],
+  "Спорідненість": [
+    "Kinship",
+    "Pokrewieństwo",
+    "Příbuzenství"
+  ]
+}

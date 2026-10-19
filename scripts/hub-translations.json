@@ -1,0 +1,347 @@
+{
+ "Помічник дослідника": [
+  "Research helper",
+  "Pomocnik badacza",
+  "Pomocník badatele"
+ ],
+ "Фотографія": [
+  "Photo",
+  "Zdjęcie",
+  "Fotografie"
+ ],
+ "Перевірка": [
+  "Review",
+  "Weryfikacja",
+  "Kontrola"
+ ],
+ "Родинний пошук": [
+  "Family search",
+  "Wyszukiwanie rodzinne",
+  "Rodinné hledání"
+ ],
+ "Повнота книги": [
+  "Book completeness",
+  "Kompletność księgi",
+  "Úplnost knihy"
+ ],
+ "Профіль і шаблони": [
+  "Profile and templates",
+  "Profil i szablony",
+  "Profil a šablony"
+ ],
+ "Поворот, градуси": [
+  "Rotation, degrees",
+  "Obrót, stopnie",
+  "Otočení, stupně"
+ ],
+ "Показати обробку": [
+  "Show processing",
+  "Pokaż obróbkę",
+  "Zobrazit úpravu"
+ ],
+ "Невизначене поле": [
+  "Unbound text disagreement",
+  "Nieprzypisane pole",
+  "Nepřiřazené pole"
+ ],
+ "Родич 1 як у записі": [
+  "Relative 1 as recorded",
+  "Krewny 1 według wpisu",
+  "Příbuzný 1 podle zápisu"
+ ],
+ "Родич 2 як у записі": [
+  "Relative 2 as recorded",
+  "Krewny 2 według wpisu",
+  "Příbuzný 2 podle zápisu"
+ ],
+ "Оновити чергу": [
+  "Refresh review queue",
+  "Odśwież kolejkę",
+  "Obnovit frontu"
+ ],
+ "Примітка до перевірки": [
+  "Review note",
+  "Uwaga do weryfikacji",
+  "Poznámka ke kontrole"
+ ],
+ "Зберегти пріоритет": [
+  "Save priority",
+  "Zapisz priorytet",
+  "Uložit prioritu"
+ ],
+ "Відкрити джерело": [
+  "Open source",
+  "Otwórz źródło",
+  "Otevřít zdroj"
+ ],
+ "Перевірку завершено": [
+  "Review complete",
+  "Weryfikacja zakończona",
+  "Kontrola dokončena"
+ ],
+ "Показувати часткові збіги": [
+  "Include partial matches",
+  "Uwzględnij częściowe dopasowania",
+  "Zahrnout částečné shody"
+ ],
+ "Лише поточна книга": [
+  "Current book only",
+  "Tylko bieżąca księga",
+  "Pouze aktuální kniha"
+ ],
+ "Рік від": [
+  "Year from",
+  "Rok od",
+  "Rok od"
+ ],
+ "Рік до": [
+  "Year to",
+  "Rok do",
+  "Rok do"
+ ],
+ "Знайти записи": [
+  "Find records",
+  "Znajdź wpisy",
+  "Najít zápisy"
+ ],
+ "Перевірити повноту книги": [
+  "Check book completeness",
+  "Sprawdź kompletność księgi",
+  "Zkontrolovat úplnost knihy"
+ ],
+ "Книги та порядок сторінок": [
+  "Books and page order",
+  "Księgi i kolejność stron",
+  "Knihy a pořadí stránek"
+ ],
+ "Перевірити дублікати": [
+  "Review duplicate candidates",
+  "Sprawdź duplikaty",
+  "Prověřit duplicity"
+ ],
+ "Оновити налаштування": [
+  "Refresh settings",
+  "Odśwież ustawienia",
+  "Obnovit nastavení"
+ ],
+ "Шаблони документа": [
+  "Document templates",
+  "Szablony dokumentu",
+  "Šablony dokumentu"
+ ],
+ "Застосувати шаблон до цієї сторінки": [
+  "Apply template to this page",
+  "Zastosuj szablon do tej strony",
+  "Použít šablonu na tuto stránku"
+ ],
+ "Застосувати колонки книги до цієї сторінки": [
+  "Apply book columns to this page",
+  "Zastosuj kolumny księgi do tej strony",
+  "Použít sloupce knihy na tuto stránku"
+ ],
+ "Перевірені слова книги": [
+  "Verified book vocabulary",
+  "Zweryfikowane słownictwo księgi",
+  "Ověřený slovník knihy"
+ ],
+ "Редагувати розмітку та винятки": [
+  "Edit layout and exceptions",
+  "Edytuj układ i wyjątki",
+  "Upravit rozvržení a výjimky"
+ ],
+ "Колонок на цій сторінці": [
+  "Columns on this page",
+  "Kolumny na tej stronie",
+  "Sloupce na této stránce"
+ ],
+ "Спочатку об’єднайте фото в книгу.": [
+  "First assemble photos into a book.",
+  "Najpierw połącz zdjęcia w księgę.",
+  "Nejprve sestavte fotografie do knihy."
+ ],
+ "Збіг": [
+  "Match",
+  "Zgodność",
+  "Shoda"
+ ],
+ "Відмінність": [
+  "Difference",
+  "Różnica",
+  "Rozdíl"
+ ],
+ "Не вказано": [
+  "Missing",
+  "Brak",
+  "Chybí"
+ ],
+ "Непевно": [
+  "Uncertain",
+  "Niepewne",
+  "Nejisté"
+ ],
+ "Показано обмежену вибірку. Уточніть пошук.": [
+  "Limited results. Refine the search.",
+  "Ograniczone wyniki. Doprecyzuj wyszukiwanie.",
+  "Omezené výsledky. Upřesněte hledání."
+ ],
+ "Сторінок": [
+  "Pages",
+  "Strony",
+  "Stránky"
+ ],
+ "Позначених пропусків": [
+  "Marked missing folios",
+  "Oznaczone brakujące karty",
+  "Označené chybějící listy"
+ ],
+ "Очікують обробки": [
+  "Pending",
+  "Oczekujące",
+  "Čekající"
+ ],
+ "Обробляються": [
+  "Running",
+  "W trakcie",
+  "Zpracovává se"
+ ],
+ "Розпізнано": [
+  "Recognized",
+  "Rozpoznane",
+  "Rozpoznáno"
+ ],
+ "Неперевірених записів": [
+  "Unverified records",
+  "Niezweryfikowane wpisy",
+  "Neověřené zápisy"
+ ],
+ "Сторінок без записів": [
+  "Pages without records",
+  "Strony bez wpisów",
+  "Stránky bez zápisů"
+ ],
+ "Кандидатів у дублікати": [
+  "Duplicate candidates",
+  "Kandydaci na duplikaty",
+  "Možné duplicity"
+ ],
+ "Підтверджених дублікатів": [
+  "Confirmed duplicates",
+  "Potwierdzone duplikaty",
+  "Potvrzené duplicity"
+ ],
+ "Споріднених фрагментів": [
+  "Related fragments",
+  "Powiązane fragmenty",
+  "Související fragmenty"
+ ],
+ "Сторінок з відбитками": [
+  "Pages with fingerprints",
+  "Strony z odciskami",
+  "Stránky s otisky"
+ ],
+ "Позначений пропуск": [
+  "Marked missing folio",
+  "Oznaczona brakująca karta",
+  "Označený chybějící list"
+ ],
+ "Неправильний кут повороту.": [
+  "Invalid rotation angle.",
+  "Nieprawidłowy kąt obrotu.",
+  "Neplatný úhel otočení."
+ ],
+ "Невідомий режим обробки.": [
+  "Unknown processing mode.",
+  "Nieznany tryb obróbki.",
+  "Neznámý režim úpravy."
+ ],
+ "Результат або розмітка змінилися. Оновіть порівняння.": [
+  "The result or layout changed. Refresh the comparison.",
+  "Wynik lub układ zmienił się. Odśwież porównanie.",
+  "Výsledek nebo rozvržení se změnilo. Obnovte porovnání."
+ ],
+ "Виберіть пріоритет від 0 до 3.": [
+  "Choose priority 0 to 3.",
+  "Wybierz priorytet od 0 do 3.",
+  "Vyberte prioritu 0 až 3."
+ ],
+ "Неправильне поле перевірки.": [
+  "Invalid review field.",
+  "Nieprawidłowe pole weryfikacji.",
+  "Neplatné pole kontroly."
+ ],
+ "Поясніть пріоритет або рішення перевірки.": [
+  "Explain the priority or review decision.",
+  "Wyjaśnij priorytet lub decyzję weryfikacji.",
+  "Vysvětlete prioritu nebo rozhodnutí kontroly."
+ ],
+ "Вкажіть хоча б одну ознаку для пошуку.": [
+  "Enter at least one search criterion.",
+  "Podaj przynajmniej jedno kryterium.",
+  "Zadejte alespoň jedno kritérium."
+ ],
+ "Неправильний діапазон років.": [
+  "Invalid year range.",
+  "Nieprawidłowy zakres lat.",
+  "Neplatný rozsah let."
+ ],
+ "Обробку зупинено.": [
+  "Processing stopped.",
+  "Przetwarzanie zatrzymane.",
+  "Zpracování zastaveno."
+ ],
+ "Копії для перегляду. Оригінали, записи та розпізнаний текст залишаються без змін.": [
+  "Preview copies. Originals, records and recognized text remain unchanged.",
+  "Kopie podglądowe. Oryginały, wpisy i rozpoznany tekst pozostają bez zmian.",
+  "Kopie pro náhled. Originály, zápisy a rozpoznaný text zůstanou beze změny."
+ ],
+ "Розбіжності з уже збережених порівнянь. Поле невідоме, доки його не прив’язано в розмітці або не вказано вручну.": [
+  "Disagreements from saved comparisons. Fields remain unbound until linked in the layout or explicitly labelled.",
+  "Rozbieżności z zapisanych porównań. Pole pozostaje nieprzypisane do czasu powiązania w układzie lub ręcznego oznaczenia.",
+  "Rozdíly z uložených porovnání. Pole zůstává nepřiřazené do propojení v rozvržení nebo ručního označení."
+ ],
+ "Пошук у збережених полях. Збіги не створюють родинних зв’язків. Часткові збіги показують відмінності.": [
+  "Search saved fields. Matches never create family links. Partial matches show differences.",
+  "Szukaj w zapisanych polach. Dopasowania nie tworzą więzi rodzinnych. Częściowe dopasowania pokazują różnice.",
+  "Hledání v uložených polích. Shody nevytvářejí rodinné vazby. Částečné shody ukazují rozdíly."
+ ],
+ "Пропуски аркушів показуються лише за ручними позначками. Кандидат дубліката потребує підтвердження. Відсутність записів не означає порожню сторінку.": [
+  "Only manually marked missing folios are reported. Duplicate candidates require confirmation. No records does not mean a blank page.",
+  "Pokazywane są tylko ręcznie oznaczone braki kart. Kandydaci na duplikaty wymagają potwierdzenia. Brak wpisów nie oznacza pustej strony.",
+  "Uvádějí se pouze ručně označené chybějící listy. Možné duplicity vyžadují potvrzení. Absence zápisů neznamená prázdnou stránku."
+ ],
+ "Збережені налаштування книги, шаблони й словник. Наявні колонки сторінки зберігаються; винятки виправляйте в розмітці.": [
+  "Saved book settings, templates and vocabulary. Existing page columns are preserved; edit exceptions in the layout.",
+  "Zapisane ustawienia księgi, szablony i słownik. Istniejące kolumny strony pozostają; wyjątki poprawiaj w układzie.",
+  "Uložená nastavení knihy, šablony a slovník. Stávající sloupce stránky zůstávají; výjimky upravte v rozvržení."
+ ],
+ "Вкажіть рік чотирма цифрами.": [
+  "Enter a four-digit year.",
+  "Podaj rok czterema cyframi.",
+  "Zadejte čtyřmístný rok."
+ ],
+ "Роль у наборі": [
+  "Dataset role",
+  "Rola w zbiorze",
+  "Role v sadě"
+ ],
+ "Оброблене зображення": [
+  "Processed image",
+  "Przetworzony obraz",
+  "Upravený snímek"
+ ],
+ "Письмо": [
+  "Writing",
+  "Pismo",
+  "Písmo"
+ ],
+ "Модель": [
+  "Model",
+  "Model",
+  "Model"
+ ],
+ "Календар": [
+  "Calendar",
+  "Kalendarz",
+  "Kalendář"
+ ]
+}

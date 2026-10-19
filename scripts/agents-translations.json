@@ -1,0 +1,132 @@
+{
+  "Помічники розпізнавання": [
+    "Recognition assistants",
+    "Asystenci rozpoznawania",
+    "Pomocníci rozpoznávání"
+  ],
+  "Моделі читають один рядок незалежно. Збіг залишається неперевіреним; виправлення підтверджує людина.": [
+    "Models read the same line independently. Agreement remains unverified; a person confirms corrections.",
+    "Modele niezależnie odczytują ten sam wiersz. Zgodność pozostaje niezweryfikowana; poprawki zatwierdza człowiek.",
+    "Modely čtou stejný řádek nezávisle. Shoda zůstává neověřená; opravy potvrzuje člověk."
+  ],
+  "Збережений рядок": [
+    "Saved line",
+    "Zapisany wiersz",
+    "Uložený řádek"
+  ],
+  "Модель A — Kraken: файл моделі": [
+    "Model A — Kraken: model file",
+    "Model A — Kraken: plik modelu",
+    "Model A — Kraken: soubor modelu"
+  ],
+  "Модель B — TrOCR: локальна папка": [
+    "Model B — TrOCR: local folder",
+    "Model B — TrOCR: folder lokalny",
+    "Model B — TrOCR: místní složka"
+  ],
+  "Створити завдання": [
+    "Create task",
+    "Utwórz zadanie",
+    "Vytvořit úlohu"
+  ],
+  "Наступний крок / повторити": [
+    "Next step / retry",
+    "Następny krok / ponów",
+    "Další krok / opakovat"
+  ],
+  "Скасувати завдання": [
+    "Cancel task",
+    "Anuluj zadanie",
+    "Zrušit úlohu"
+  ],
+  "Моє прочитання оригіналу": [
+    "My reading of the original",
+    "Mój odczyt oryginału",
+    "Moje čtení originálu"
+  ],
+  "Перевірено мною на оригіналі": [
+    "I checked the original",
+    "Sprawdziłem na oryginale",
+    "Ověřeno mnou na originálu"
+  ],
+  "Зберегти навчальний приклад": [
+    "Save teaching example",
+    "Zapisz przykład do nauki",
+    "Uložit výukový příklad"
+  ],
+  "Приклад збережено окремо. Автоматичного донавчання немає.": [
+    "Example saved separately. No automatic training.",
+    "Przykład zapisano oddzielnie. Bez automatycznego trenowania.",
+    "Příklad uložen odděleně. Bez automatického trénování."
+  ],
+  "Стан завдання": [
+    "Task status",
+    "Stan zadania",
+    "Stav úlohy"
+  ],
+  "Перевірка меж рядка": [
+    "Checking line bounds",
+    "Sprawdzanie granic wiersza",
+    "Kontrola hranic řádku"
+  ],
+  "Незалежне розпізнавання": [
+    "Independent recognition",
+    "Niezależne rozpoznawanie",
+    "Nezávislé rozpoznávání"
+  ],
+  "Порівняння прочитань": [
+    "Comparing readings",
+    "Porównywanie odczytów",
+    "Porovnání čtení"
+  ],
+  "Очікує перевірки людиною": [
+    "Awaiting human review",
+    "Oczekuje na weryfikację",
+    "Čeká na lidské ověření"
+  ],
+  "Моделі погодилися. Потрібна перевірка оригіналу.": [
+    "Models agree. Check the original.",
+    "Modele są zgodne. Sprawdź oryginał.",
+    "Modely se shodují. Ověřte originál."
+  ],
+  "Прочитання потребують перевірки оригіналу.": [
+    "Readings need checking against the original.",
+    "Odczyty wymagają sprawdzenia z oryginałem.",
+    "Čtení vyžadují ověření podle originálu."
+  ],
+  "Навчити окрему модель A та перевірити на тестових книгах": [
+    "Train a separate model A and check held-out books",
+    "Wytrenuj oddzielny model A i sprawdź na księgach testowych",
+    "Natrénovat samostatný model A a ověřit na testovacích knihách"
+  ],
+  "Навчання окремої моделі та перевірка можуть тривати довго.": [
+    "Training and evaluation may take a long time.",
+    "Trenowanie i ocena mogą potrwać długo.",
+    "Trénování a vyhodnocení mohou trvat dlouho."
+  ],
+  "Результат перевірки моделі": [
+    "Model evaluation result",
+    "Wynik oceny modelu",
+    "Výsledek ověření modelu"
+  ],
+  "Базова модель залишається активною. Покращення потребує ручної оцінки.": [
+    "The base model remains active. Improvements require human assessment.",
+    "Model bazowy pozostaje aktywny. Poprawa wymaga oceny człowieka.",
+    "Základní model zůstává aktivní. Zlepšení vyžaduje lidské posouzení."
+  ],
+  "Перевірені рядки": [
+    "Verified lines",
+    "Zweryfikowane wiersze",
+    "Ověřené řádky"
+  ],
+  "Невдалі спроби": [
+    "Failed attempts",
+    "Nieudane próby",
+    "Neúspěšné pokusy"
+  ],
+  "Навчальні, валідаційні й тестові приклади": [
+    "Training, validation and test examples",
+    "Przykłady treningowe, walidacyjne i testowe",
+    "Trénovací, validační a testovací příklady"
+  ]
+}

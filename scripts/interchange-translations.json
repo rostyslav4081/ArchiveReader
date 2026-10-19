@@ -1,0 +1,292 @@
+{
+ "Обмін розміткою PAGE / ALTO": [
+  "PAGE / ALTO layout exchange",
+  "Wymiana układu PAGE / ALTO",
+  "Výměna rozvržení PAGE / ALTO"
+ ],
+ "Оберіть XML однієї сторінки. Перевірте розміри, джерело, текст і контури. Наявна розмітка, записи та перевірені тексти залишаться без змін.": [
+  "Choose a single-page XML file. Check dimensions, source, text and outlines. Existing layout, records and verified text remain unchanged.",
+  "Wybierz XML jednej strony. Sprawdź wymiary, źródło, tekst i kontury. Istniejący układ, wpisy i zweryfikowane teksty pozostają bez zmian.",
+  "Vyberte XML jedné stránky. Zkontrolujte rozměry, zdroj, text a obrysy. Stávající rozvržení, zápisy a ověřené texty zůstanou beze změny."
+ ],
+ "Вибрати XML і переглянути": [
+  "Choose XML and preview",
+  "Wybierz XML i podgląd",
+  "Vybrat XML a náhled"
+ ],
+ "Я перевірив, що XML відповідає саме цій сторінці": [
+  "I checked that this XML belongs to this exact page",
+  "Sprawdziłem, że XML dotyczy dokładnie tej strony",
+  "Ověřil jsem, že XML patří právě této stránce"
+ ],
+ "Додати лише нові неперевірені ділянки": [
+  "Add new unverified regions only",
+  "Dodaj tylko nowe niezweryfikowane obszary",
+  "Přidat pouze nové neověřené oblasti"
+ ],
+ "Додати ділянки": [
+  "Add regions",
+  "Dodaj obszary",
+  "Přidat oblasti"
+ ],
+ "Експорт PAGE XML": [
+  "Export PAGE XML",
+  "Eksport PAGE XML",
+  "Export PAGE XML"
+ ],
+ "Експорт ALTO XML": [
+  "Export ALTO XML",
+  "Eksport ALTO XML",
+  "Export ALTO XML"
+ ],
+ "Блакитні контури — текстові ділянки; помаранчеві — базові лінії з XML. Відсутні базові лінії не вигадуються. Експорт підтримує текстові блоки й рядки; складна ієрархія не переноситься повністю.": [
+  "Blue outlines show text regions; orange shows baselines from XML. Missing baselines are never invented. Export supports text blocks and lines; complex hierarchies are not fully transferred.",
+  "Niebieskie kontury oznaczają obszary tekstu; pomarańczowe to linie bazowe z XML. Brakujące linie bazowe nie są wymyślane. Eksport obsługuje bloki tekstu i wiersze; złożone hierarchie nie są przenoszone w całości.",
+  "Modré obrysy označují textové oblasti; oranžové základní linky z XML. Chybějící linky se nevymýšlejí. Export podporuje textové bloky a řádky; složité hierarchie se nepřenášejí úplně."
+ ],
+ "Цільова сторінка": [
+  "Target page",
+  "Strona docelowa",
+  "Cílová stránka"
+ ],
+ "Зображення в XML": [
+  "Image named in XML",
+  "Obraz wskazany w XML",
+  "Obrázek uvedený v XML"
+ ],
+ "Розмір цілі": [
+  "Target dimensions",
+  "Wymiary celu",
+  "Rozměry cíle"
+ ],
+ "Розміри XML не відповідають зображенню": [
+  "XML dimensions do not match the image",
+  "Wymiary XML nie pasują do obrazu",
+  "Rozměry XML neodpovídají obrázku"
+ ],
+ "Контрольна сума джерела не збігається": [
+  "Source checksum mismatch",
+  "Niezgodna suma kontrolna źródła",
+  "Neshodný kontrolní součet zdroje"
+ ],
+ "Контрольна сума зображення не збігається": [
+  "Image checksum mismatch",
+  "Niezgodna suma kontrolna obrazu",
+  "Neshodný kontrolní součet obrázku"
+ ],
+ "Ідентифікатор сторінки не збігається": [
+  "Page identity mismatch",
+  "Niezgodny identyfikator strony",
+  "Neshodný identifikátor stránky"
+ ],
+ "Відповідність сторінки потребує ручного підтвердження": [
+  "Page identity needs manual confirmation",
+  "Tożsamość strony wymaga ręcznego potwierdzenia",
+  "Shoda stránky vyžaduje ruční potvrzení"
+ ],
+ "Джерело та сторінка збігаються за контрольними сумами": [
+  "Source and page match by checksums",
+  "Źródło i strona zgodne według sum kontrolnych",
+  "Zdroj a stránka se shodují podle kontrolních součtů"
+ ],
+ "Рядок": [
+  "Line",
+  "Wiersz",
+  "Řádek"
+ ],
+ "Блок": [
+  "Block",
+  "Blok",
+  "Blok"
+ ],
+ "Порядок": [
+  "Reading order",
+  "Kolejność czytania",
+  "Pořadí čtení"
+ ],
+ "не заданий": [
+  "not specified",
+  "nie określono",
+  "neuvedeno"
+ ],
+ "Додано неперевірених ділянок": [
+  "Unverified regions added",
+  "Dodano niezweryfikowane obszary",
+  "Přidány neověřené oblasti"
+ ],
+ "Експорт збережено разом із зображенням і походженням": [
+  "Export saved with image and provenance",
+  "Eksport zapisany z obrazem i pochodzeniem",
+  "Export uložen s obrázkem a původem"
+ ],
+ "Неправильні координати XML.": [
+  "Invalid XML coordinates.",
+  "Nieprawidłowe współrzędne XML.",
+  "Neplatné souřadnice XML."
+ ],
+ "Координати XML виходять за межі зображення.": [
+  "XML coordinates exceed image bounds.",
+  "Współrzędne XML wychodzą poza obraz.",
+  "Souřadnice XML přesahují obrázek."
+ ],
+ "XML завеликий або порожній.": [
+  "XML is too large or empty.",
+  "XML jest zbyt duży lub pusty.",
+  "XML je příliš velké nebo prázdné."
+ ],
+ "DTD та сутності XML не підтримуються.": [
+  "DTD and XML entities are not supported.",
+  "DTD i encje XML nie są obsługiwane.",
+  "DTD a entity XML nejsou podporovány."
+ ],
+ "Не вдалося прочитати XML.": [
+  "Could not read XML.",
+  "Nie udało się odczytać XML.",
+  "XML nelze načíst."
+ ],
+ "XML має надто глибоку структуру.": [
+  "XML nesting is too deep.",
+  "Zbyt głęboka struktura XML.",
+  "XML je příliš hluboce vnořené."
+ ],
+ "XML містить забагато елементів.": [
+  "XML contains too many elements.",
+  "XML zawiera zbyt wiele elementów.",
+  "XML obsahuje příliš mnoho prvků."
+ ],
+ "Підтримуються лише PAGE XML та ALTO XML.": [
+  "Only PAGE XML and ALTO XML are supported.",
+  "Obsługiwane są tylko PAGE XML i ALTO XML.",
+  "Podporovány jsou pouze PAGE XML a ALTO XML."
+ ],
+ "Виберіть XML лише однієї сторінки.": [
+  "Choose XML for a single page.",
+  "Wybierz XML tylko jednej strony.",
+  "Vyberte XML jediné stránky."
+ ],
+ "У XML немає розмірів зображення.": [
+  "XML has no image dimensions.",
+  "XML nie zawiera wymiarów obrazu.",
+  "XML neobsahuje rozměry obrázku."
+ ],
+ "Неправильні розміри зображення XML.": [
+  "Invalid XML image dimensions.",
+  "Nieprawidłowe wymiary obrazu w XML.",
+  "Neplatné rozměry obrázku v XML."
+ ],
+ "ALTO має використовувати пікселі.": [
+  "ALTO must use pixel units.",
+  "ALTO musi używać pikseli.",
+  "ALTO musí používat pixely."
+ ],
+ "Неправильний порядок читання XML.": [
+  "Invalid XML reading order.",
+  "Nieprawidłowa kolejność czytania w XML.",
+  "Neplatné pořadí čtení v XML."
+ ],
+ "XML містить відсутні або повторені ідентифікатори.": [
+  "XML has missing or duplicate identifiers.",
+  "XML ma brakujące lub powtórzone identyfikatory.",
+  "XML obsahuje chybějící nebo duplicitní identifikátory."
+ ],
+ "Для текстової ділянки XML потрібні координати.": [
+  "XML text regions need coordinates.",
+  "Obszary tekstowe XML wymagają współrzędnych.",
+  "Textové oblasti XML vyžadují souřadnice."
+ ],
+ "Неправильні межі тексту ALTO.": [
+  "Invalid ALTO text bounds.",
+  "Nieprawidłowe granice tekstu ALTO.",
+  "Neplatné hranice textu ALTO."
+ ],
+ "XML містить забагато текстових ділянок.": [
+  "XML contains too many text regions.",
+  "XML zawiera zbyt wiele obszarów tekstu.",
+  "XML obsahuje příliš mnoho textových oblastí."
+ ],
+ "У XML немає підтримуваних текстових ділянок.": [
+  "XML has no supported text regions.",
+  "XML nie zawiera obsługiwanych obszarów tekstu.",
+  "XML neobsahuje podporované textové oblasti."
+ ],
+ "Оригінал джерела змінився. Імпорт заблоковано.": [
+  "The original source changed. Import is blocked.",
+  "Oryginalne źródło zmieniło się. Import zablokowany.",
+  "Původní zdroj se změnil. Import je zablokován."
+ ],
+ "XML завеликий або не знайдений.": [
+  "XML is too large or was not found.",
+  "XML jest zbyt duży lub nie został znaleziony.",
+  "XML je příliš velké nebo nebylo nalezeno."
+ ],
+ "Спочатку перегляньте XML для цієї сторінки.": [
+  "Preview XML for this page first.",
+  "Najpierw wyświetl XML tej strony.",
+  "Nejprve zobrazte náhled XML této stránky."
+ ],
+ "Цей імпорт уже застосовано.": [
+  "This import has already been applied.",
+  "Ten import został już zastosowany.",
+  "Tento import již byl použit."
+ ],
+ "Зображення або джерело XML не відповідає сторінці.": [
+  "The XML image or source does not match this page.",
+  "Obraz lub źródło XML nie odpowiada tej stronie.",
+  "Obrázek nebo zdroj XML neodpovídá této stránce."
+ ],
+ "Підтвердьте додавання неперевірених ділянок.": [
+  "Confirm adding unverified regions.",
+  "Potwierdź dodanie niezweryfikowanych obszarów.",
+  "Potvrďte přidání neověřených oblastí."
+ ],
+ "Підтвердьте відповідність XML саме цій сторінці.": [
+  "Confirm this XML belongs to this exact page.",
+  "Potwierdź, że XML dotyczy dokładnie tej strony.",
+  "Potvrďte, že XML patří právě této stránce."
+ ],
+ "Джерело або розмітка змінилися. Повторіть перегляд XML.": [
+  "Source or layout changed. Preview the XML again.",
+  "Źródło lub układ zmienił się. Ponownie wyświetl XML.",
+  "Zdroj nebo rozvržení se změnilo. Zobrazte XML znovu."
+ ],
+ "Збережений XML пошкоджено.": [
+  "Stored XML is damaged.",
+  "Zapisany XML jest uszkodzony.",
+  "Uložené XML je poškozené."
+ ],
+ "Дочірня ділянка XML виходить за межі батьківської.": [
+  "An XML child region exceeds its parent.",
+  "Podrzędny obszar XML wychodzi poza nadrzędny.",
+  "Podřízená oblast XML přesahuje nadřazenou."
+ ],
+ "Виберіть PAGE XML або ALTO XML.": [
+  "Choose PAGE XML or ALTO XML.",
+  "Wybierz PAGE XML lub ALTO XML.",
+  "Vyberte PAGE XML nebo ALTO XML."
+ ],
+ "Спочатку додайте текстову розмітку сторінки.": [
+  "Add text regions to the page first.",
+  "Najpierw dodaj obszary tekstowe strony.",
+  "Nejprve přidejte textové oblasti stránky."
+ ],
+ "Підтверджую обрізання малих виходів за межі зображення": [
+  "I confirm clipping minor image-boundary overflow",
+  "Potwierdzam przycięcie niewielkich wyjść poza obraz",
+  "Potvrzuji oříznutí malých přesahů obrázku"
+ ],
+ "Обрізаних контурів": [
+  "Clipped outlines",
+  "Przycięte kontury",
+  "Oříznuté obrysy"
+ ],
+ "Створених ідентифікаторів": [
+  "Generated identifiers",
+  "Wygenerowane identyfikatory",
+  "Vygenerované identifikátory"
+ ],
+ "Підтвердьте обрізання невеликих виходів за межі зображення.": [
+  "Confirm clipping minor image-boundary overflow.",
+  "Potwierdź przycięcie niewielkich wyjść poza obraz.",
+  "Potvrďte oříznutí malých přesahů obrázku."
+ ]
+}

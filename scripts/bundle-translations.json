@@ -1,0 +1,102 @@
+{
+  "Переносний пакет дослідження": [
+    "Portable research bundle",
+    "Przenośny pakiet badawczy",
+    "Přenosný výzkumný balíček"
+  ],
+  "Створити пакет": [
+    "Create bundle",
+    "Utwórz pakiet",
+    "Vytvořit balíček"
+  ],
+  "Пакет містить базу, оригінальні скани, результати, перевірені набори й матеріали донавчання. Програму, Python і .NET потрібно встановити окремо.": [
+    "The bundle includes the database, original scans, results, verified datasets and training artifacts. Install the application, Python and .NET separately.",
+    "Pakiet zawiera bazę, oryginalne skany, wyniki, zweryfikowane zbiory i materiały treningowe. Program, Python i .NET zainstaluj osobno.",
+    "Balíček obsahuje databázi, původní skeny, výsledky, ověřené sady a trénovací podklady. Aplikaci, Python a .NET nainstalujte zvlášť."
+  ],
+  "Додати файли моделей (пакет може бути дуже великим)": [
+    "Include model files (the bundle may be very large)",
+    "Dołącz pliki modeli (pakiet może być bardzo duży)",
+    "Přidat soubory modelů (balíček může být velmi velký)"
+  ],
+  "Додаткові локальні моделі: один шлях до файла або папки на рядок": [
+    "Additional local models: one file or folder path per line",
+    "Dodatkowe modele lokalne: jedna ścieżka do pliku lub folderu na wiersz",
+    "Další místní modely: jedna cesta k souboru nebo složce na řádek"
+  ],
+  "Перевірити склад і розмір": [
+    "Check contents and size",
+    "Sprawdź zawartość i rozmiar",
+    "Ověřit obsah a velikost"
+  ],
+  "Створити новий ZIP-пакет": [
+    "Create a new ZIP bundle",
+    "Utwórz nowy pakiet ZIP",
+    "Vytvořit nový ZIP balíček"
+  ],
+  "Відновити пакет": [
+    "Restore bundle",
+    "Przywróć pakiet",
+    "Obnovit balíček"
+  ],
+  "Відновлення створює нову бібліотеку. Наявні бібліотеки не замінюються. Перед відновленням перевіряються всі контрольні суми.": [
+    "Restoration creates a new library. Existing libraries are preserved. All checksums are verified before restoration.",
+    "Przywracanie tworzy nową bibliotekę. Istniejące biblioteki pozostają bez zmian. Przed przywróceniem sprawdzane są wszystkie sumy kontrolne.",
+    "Obnovení vytvoří novou knihovnu. Stávající knihovny zůstanou zachovány. Před obnovením se ověří všechny kontrolní součty."
+  ],
+  "Вибрати ZIP-пакет": [
+    "Choose ZIP bundle",
+    "Wybierz pakiet ZIP",
+    "Vybrat ZIP balíček"
+  ],
+  "Нова папка бібліотеки": [
+    "New library folder",
+    "Nowy folder biblioteki",
+    "Nová složka knihovny"
+  ],
+  "Перевірити пакет": [
+    "Verify bundle",
+    "Sprawdź pakiet",
+    "Ověřit balíček"
+  ],
+  "Відновити в нову папку": [
+    "Restore to a new folder",
+    "Przywróć do nowego folderu",
+    "Obnovit do nové složky"
+  ],
+  "Перевірка та копіювання можуть тривати довго.": [
+    "Verification and copying may take a long time.",
+    "Weryfikacja i kopiowanie mogą potrwać długo.",
+    "Ověření a kopírování mohou trvat dlouho."
+  ],
+  "Файлів": [
+    "Files",
+    "Pliki",
+    "Soubory"
+  ],
+  "Розмір": [
+    "Size",
+    "Rozmiar",
+    "Velikost"
+  ],
+  "Додані моделі": [
+    "Included models",
+    "Dołączone modele",
+    "Přidané modely"
+  ],
+  "Відсутні моделі": [
+    "Missing models",
+    "Brakujące modele",
+    "Chybějící modely"
+  ],
+  "Моделі без вкладених файлів": [
+    "Models whose files are excluded",
+    "Modele bez dołączonych plików",
+    "Modely bez přiložených souborů"
+  ],
+  "Старі черги розпізнавання після перенесення створіть заново. Невкладені моделі встановіть окремо.": [
+    "Recreate old recognition queues after relocation. Install excluded models separately.",
+    "Po przeniesieniu utwórz stare kolejki rozpoznawania ponownie. Wykluczone modele zainstaluj osobno.",
+    "Po přesunu vytvořte staré fronty rozpoznávání znovu. Vynechané modely nainstalujte zvlášť."
+  ]
+}

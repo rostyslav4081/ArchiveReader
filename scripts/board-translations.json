@@ -1,0 +1,177 @@
+{
+  "Дошка родоводу": [
+    "Family board",
+    "Tablica rodzinna",
+    "Rodinná tabule"
+  ],
+  "Відкрити знімок дошки": [
+    "Open board snapshot",
+    "Otwórz zapis tablicy",
+    "Otevřít snímek tabule"
+  ],
+  "Імпортувати вибрані картки": [
+    "Import selected person cards",
+    "Importuj wybrane osoby",
+    "Importovat vybrané osoby"
+  ],
+  "Зберегти дошку та вкладення": [
+    "Export board and attachments",
+    "Eksportuj tablicę i załączniki",
+    "Exportovat tabuli a přílohy"
+  ],
+  "Зв’язки дошки залишаються неперевіреними. Виберіть лише вузли людей; примітки зберігаються окремо.": [
+    "Board connections remain unverified. Select person nodes only; notes are preserved separately.",
+    "Połączenia tablicy pozostają niezweryfikowane. Wybierz tylko osoby; notatki są zachowane oddzielnie.",
+    "Spojení tabule zůstávají neověřená. Vyberte pouze osoby; poznámky se uchovají samostatně."
+  ],
+  "Виберіть вузли людей перед імпортом. Примітки та стрілки зберігаються без припущень.": [
+    "Select person nodes before importing. Notes and arrows are preserved without inferred relationships.",
+    "Przed importem wybierz osoby. Notatki i strzałki są zachowane bez domyślania się relacji.",
+    "Před importem vyberte osoby. Poznámky a šipky se zachovají bez odvozování příbuzenství."
+  ],
+  "Дошку збережено. Родинні зв’язки потребують окремої перевірки.": [
+    "Board saved. Family relationships require separate verification.",
+    "Tablica zapisana. Relacje rodzinne wymagają osobnej weryfikacji.",
+    "Tabule uložena. Rodinné vztahy vyžadují samostatné ověření."
+  ],
+  "Дошку та вкладення збережено.": [
+    "Board and attachments exported.",
+    "Tablica i załączniki wyeksportowane.",
+    "Tabule a přílohy exportovány."
+  ],
+  "Червоний — помилковий; жовтий — невирішений; сірий — логічно узгоджений за дошкою. Це не перевірка архівного доказу.": [
+    "Red: incorrect; yellow: unresolved; grey: logically consistent on the board. This is not archival verification.",
+    "Czerwony: błędny; żółty: nierozstrzygnięty; szary: logicznie spójny na tablicy. To nie jest weryfikacja archiwalna.",
+    "Červená: chybný; žlutá: nevyřešený; šedá: logicky souvislý podle tabule. Nejde o ověření archivního důkazu."
+  ],
+  "Помилковий зв’язок": [
+    "Incorrect connection",
+    "Błędne połączenie",
+    "Chybné spojení"
+  ],
+  "Невирішений зв’язок": [
+    "Unresolved connection",
+    "Nierozstrzygnięte połączenie",
+    "Nevyřešené spojení"
+  ],
+  "Логічно узгоджений за дошкою": [
+    "Logically consistent on the board",
+    "Logicznie spójne na tablicy",
+    "Logicky souvislé podle tabule"
+  ],
+  "Статус не визначено": [
+    "Status not set",
+    "Stan nieokreślony",
+    "Stav neurčen"
+  ],
+  "Архівний доказ не перевірено": [
+    "Archival evidence not verified",
+    "Dowód archiwalny niezweryfikowany",
+    "Archivní důkaz neověřen"
+  ],
+  "Статуси зв’язків збережено за кольорами дошки. Виберіть вузли людей для імпорту карток.": [
+    "Connection statuses follow the board colors. Select person nodes to import cards.",
+    "Statusy powiązań odpowiadają kolorom tablicy. Wybierz osoby, aby zaimportować ich karty.",
+    "Stavy vazeb odpovídají barvám tabule. Vyberte osoby pro import karet."
+  ],
+  "Показати всю дошку": [
+    "Fit entire board",
+    "Pokaż całą tablicę",
+    "Zobrazit celou tabuli"
+  ],
+  "Знайти людину або примітку": [
+    "Find a person or note",
+    "Znajdź osobę lub notatkę",
+    "Najít osobu nebo poznámku"
+  ],
+  "Наступний збіг": [
+    "Next match",
+    "Następne dopasowanie",
+    "Další shoda"
+  ],
+  "Скинути пошук": [
+    "Clear search",
+    "Wyczyść wyszukiwanie",
+    "Vymazat hledání"
+  ],
+  "Лише картки людей": [
+    "Person cards only",
+    "Tylko osoby",
+    "Pouze osoby"
+  ],
+  "Відкрити фото дошки": [
+    "Open board photo",
+    "Otwórz zdjęcie tablicy",
+    "Otevřít fotografii tabule"
+  ],
+  "Документ і джерело": [
+    "Document and source",
+    "Dokument i źródło",
+    "Dokument a zdroj"
+  ],
+  "Відкрити архівне посилання": [
+    "Open archive link",
+    "Otwórz link archiwalny",
+    "Otevřít archivní odkaz"
+  ],
+  "Кінець на полотні": [
+    "Canvas endpoint",
+    "Koniec na płótnie",
+    "Koncový bod plátna"
+  ],
+  "Фото": [
+    "Photo",
+    "Zdjęcie",
+    "Fotografie"
+  ],
+  "Статус за кольором, указаним власником дошки.": [
+    "Status from the board owner’s color legend.",
+    "Stan zgodny z kolorami wskazanymi przez właściciela tablicy.",
+    "Stav podle barev uvedených vlastníkem tabule."
+  ],
+  "Фото з оригінальної дошки": [
+    "Photo from the original board",
+    "Zdjęcie z oryginalnej tablicy",
+    "Fotografie z původní tabule"
+  ],
+  "Для цього вузла ще не прив’язано архівний запис. Фото дошки можна відкрити окремо.": [
+    "No archival record is attached to this node yet. You can open the board photo separately.",
+    "Do tego węzła nie przypisano jeszcze zapisu archiwalnego. Zdjęcie tablicy można otworzyć osobno.",
+    "K tomuto uzlu zatím není připojen archivní záznam. Fotografii tabule lze otevřít samostatně."
+  ],
+  "Виберіть фото або зв’язок, що веде до фото.": [
+    "Select a photo or a connection leading to a photo.",
+    "Wybierz zdjęcie lub połączenie prowadzące do zdjęcia.",
+    "Vyberte fotografii nebo spojení vedoucí k fotografii."
+  ],
+  "Для цього джерела не вказано архівного посилання.": [
+    "No archive link is specified for this source.",
+    "Nie podano linku archiwalnego dla tego źródła.",
+    "Pro tento zdroj není uveden archivní odkaz."
+  ],
+  "Повний скан": [
+    "Full scan",
+    "Pełny skan",
+    "Celý sken"
+  ],
+  "Доказ для цього зв’язку показано окремо нижче.": [
+    "Evidence for this connection is shown separately below.",
+    "Dowód tego połączenia pokazano oddzielnie poniżej.",
+    "Důkaz tohoto spojení je uveden samostatně níže."
+  ],
+  "Архівний доказ цього зв’язку": [
+    "Archival evidence for this relationship",
+    "Dowód archiwalny tej relacji",
+    "Archivní důkaz tohoto vztahu"
+  ],
+  "Контекст людини або фото. Це саме по собі не доводить зв’язок.": [
+    "Person or photo context. This alone does not prove the relationship.",
+    "Kontekst osoby lub zdjęcia. Sam w sobie nie dowodzi relacji.",
+    "Kontext osoby nebo fotografie. Sám o sobě vztah nedokazuje."
+  ],
+  "Запис змінився після прив’язування — перевірте доказ повторно.": [
+    "The record changed after attachment; review the evidence again.",
+    "Zapis zmienił się po przypisaniu; sprawdź dowód ponownie.",
+    "Záznam se po připojení změnil; znovu ověřte důkaz."
+  ]
+}
