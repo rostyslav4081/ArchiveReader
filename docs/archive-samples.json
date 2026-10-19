@@ -1,0 +1,38 @@
+[
+  {
+    "country": "CZ",
+    "file": "cz-andelska-hora-01-0080.jpg",
+    "title": "Andělská Hora 01, image andelska-hora-01_0080-n",
+    "institution": "Státní oblastní archiv v Plzni / Porta fontium",
+    "catalog": "https://www.portafontium.eu/register/soap-pn/andelska-hora-01?language=cs",
+    "url": "https://www.portafontium.eu/fcgi-bin/iipsrv.fcgi?FIF=register/soap-pn/andelska-hora/andelska-hora-01/andelska-hora-01_0080-n.jp2&WID=2000&CVT=jpeg",
+    "sha256": "95baafba5c8b527ee15c23f77fa70c4b10432f2f6ed287912f585835484786ba",
+    "structure": "Handwritten spread: Latin prose left, tabular baptism entries right; stains, bleed-through and uneven margins.",
+    "access": "Public viewing endpoint, 2000-pixel derivative. Redistribution license not asserted; image excluded from Git.",
+    "reference": null
+  },
+  {
+    "country": "PL",
+    "file": "pl-agad-1-2-1-0001.jpg",
+    "title": "Jan Kazimierz, royal proclamation, 1666-08-31; Zbiór Dokumentów Papierowych AGAD nr 1",
+    "institution": "Archiwum Główne Akt Dawnych",
+    "catalog": "https://agad.gov.pl/inwentarze/c02p.xml",
+    "url": "http://agadd2.home.net.pl/metrykalia/2/sygn.%201/album/slides/PL_1_2_1_0001.jpg",
+    "sha256": "cd877dac525d46b4741846f02f2ad2995ae99ff53cc4458fc0bf71576dfff3f5",
+    "structure": "Polish printed proclamation with handwritten insertions, signature and seal; folds and uneven background. Not a vital register.",
+    "access": "Public scan linked from the official inventory; legacy HTTP host. Redistribution license not asserted; image excluded from Git.",
+    "reference": null
+  },
+  {
+    "country": "HU",
+    "file": "hu-urbarioma-1767.pdf",
+    "title": "Urbárium, Zsámbék, 1767",
+    "institution": "Zsámbéki Közművelődési Intézet és Könyvtár / Magyar Nemzeti Digitális Archívum",
+    "catalog": "https://mandadb.hu/tetel/188038/Urbarium",
+    "url": "https://mandadb.hu/dokumentum/332339/Urbarioma.pdf",
+    "sha256": "5b8ba58c3dbef3667c2bb5f668df5f9e9e5ecb75eb960f282eb663ddb48164ff",
+    "structure": "26-page scanned PDF, historical printed Hungarian/German catalog languages; faint type and blank pages. Not a handwritten benchmark.",
+    "access": "Catalog explicitly permits free download and labels PDM. PDF excluded from Git.",
+    "reference": null
+  }
+]
