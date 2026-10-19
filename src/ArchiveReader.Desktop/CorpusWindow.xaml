@@ -1,0 +1,43 @@
+<Window x:Class="ArchiveReader.CorpusWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Перевірка повних записів" Width="1120" Height="850" WindowStartupLocation="CenterOwner">
+ <DockPanel Margin="12">
+  <StackPanel DockPanel.Dock="Bottom"><TextBlock x:Name="Status" TextWrapping="Wrap" Margin="4"/><Button Content="Зупинити" Click="Stop" HorizontalAlignment="Right"/></StackPanel>
+  <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="280"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+   <DockPanel Margin="0,0,10,0"><StackPanel DockPanel.Dock="Top"><Button Content="Імпортувати розмічені записи сторінки" Click="ImportEntries"/><Button Content="Оновити список" Click="RefreshEntries"/><TextBlock Text="Імпорт створює лише чернетки. Уся родина джерела стає тестовою; навчальні книги не допускаються." TextWrapping="Wrap" Margin="0,5"/></StackPanel><ListBox x:Name="References" DisplayMemberPath="Label" SelectionChanged="SelectReference"/></DockPanel>
+   <TabControl x:Name="Tabs" Grid.Column="1">
+    <TabItem Header="Еталон запису"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="8">
+     <TextBlock x:Name="Locator" TextWrapping="Wrap"/>
+     <Image x:Name="Scan" Height="230" Stretch="Uniform"/>
+     <TextBlock Text="Повний текст запису в порядку читання"/><TextBox x:Name="ReferenceText" Height="145" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" TextChanged="TextEdited"/>
+     <Expander x:Name="FieldsPanel" Header="Перевірені поля запису" Margin="0,8"><StackPanel><TextBlock Text="Записуйте лише звірені з оригіналом значення. Порожнє поле означає, що його не оцінюють." TextWrapping="Wrap"/>
+      <TextBlock Text="Ім’я та прізвище"/><TextBox x:Name="FieldPerson" TextChanged="FieldsEdited"/>
+      <TextBlock Text="Дата події"/><TextBox x:Name="FieldDate" TextChanged="FieldsEdited"/>
+      <TextBlock Text="Номер будинку"/><TextBox x:Name="FieldHouse" TextChanged="FieldsEdited"/>
+      <TextBlock Text="Населений пункт"/><TextBox x:Name="FieldPlace" TextChanged="FieldsEdited"/>
+      <TextBlock Text="Родич 1"/><TextBox x:Name="FieldRelative1" TextChanged="FieldsEdited"/>
+      <TextBlock Text="Родич 2"/><TextBox x:Name="FieldRelative2" TextChanged="FieldsEdited"/>
+      <TextBlock Text="Вік"/><TextBox x:Name="FieldAge" TextChanged="FieldsEdited"/>
+      <CheckBox x:Name="FieldsVerified" Content="Я окремо звірив ці поля зі сканом" Margin="0,6"/></StackPanel></Expander>
+     <TextBlock Text="Примітки до прочитання"/><TextBox x:Name="Notes" Height="55" AcceptsReturn="True" TextWrapping="Wrap"/>
+     <CheckBox x:Name="SingleBlock" Content="Це один блок читання без змішаних колонок" Margin="0,7"/>
+     <TextBlock Text="Для складної таблиці збережіть дочірні рядки запису з унікальним порядком читання у вікні розмітки. Інакше доступний лише підтверджений один блок із поділом згори вниз." TextWrapping="Wrap"/>
+     <CheckBox x:Name="Verified" Content="Я звірив повний текст з оригіналом" Margin="0,7"/>
+     <Button Content="Зберегти еталон або чернетку" Click="SaveReference" HorizontalAlignment="Left"/>
+     <TextBlock Text="Модельні прочитання та розібрані поля не стають еталоном автоматично. Непевні або пошкоджені записи виключаються." TextWrapping="Wrap"/>
+     <TextBox x:Name="History" Height="140" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+    </StackPanel></ScrollViewer></TabItem>
+    <TabItem Header="Незалежне порівняння"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="8">
+     <Button Content="Зафіксувати перевірений корпус" Click="Freeze" HorizontalAlignment="Left"/>
+     <DockPanel><Button DockPanel.Dock="Right" Content="Вибрати знімок корпусу" Click="ChooseSnapshot"/><TextBox x:Name="Snapshot" IsReadOnly="True"/></DockPanel>
+     <TextBlock Text="Модель A — Kraken"/><DockPanel><Button DockPanel.Dock="Right" Content="Вибрати" Tag="A" Click="ChooseModel"/><TextBox x:Name="ModelA"/></DockPanel>
+     <TextBlock Text="Модель B"/><DockPanel><ComboBox x:Name="EngineB" SelectedIndex="0" DockPanel.Dock="Left" Width="120"><ComboBoxItem Content="TrOCR" Tag="trocr"/><ComboBoxItem Content="Kraken" Tag="kraken"/></ComboBox><Button DockPanel.Dock="Right" Content="Вибрати" Tag="B" Click="ChooseModel"/><TextBox x:Name="ModelB"/></DockPanel>
+     <Button Content="Порівняти повні записи" Click="CompareEntries" HorizontalAlignment="Left"/>
+     <TextBlock Text="Обидві моделі читають однакові фрагменти в одному порядку. CER/WER повного запису враховують також помилки поділу й порядку читання. Збої показуються окремо; це не доказ якості на всіх книгах." TextWrapping="Wrap"/>
+     <TextBlock x:Name="Summary" TextWrapping="Wrap" Margin="0,10"/>
+     <ListBox x:Name="Results" Height="130" DisplayMemberPath="Label" SelectionChanged="SelectResult"/>
+     <TextBox x:Name="ResultText" Height="260" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+    </StackPanel></ScrollViewer></TabItem>
+    <TabItem Header="Якість окремих полів"><StackPanel Margin="8"><TextBlock Text="Спочатку зафіксуйте корпус із полями, які людина окремо звірила зі сканом. Потім виберіть файл окремих прочитань для порівняння." TextWrapping="Wrap"/><DockPanel Margin="0,8"><Button DockPanel.Dock="Right" Content="Вибрати файл прочитаних полів" Click="ChooseFieldPredictions"/><TextBox x:Name="FieldPredictions" IsReadOnly="True"/></DockPanel><Button Content="Порахувати помилки полів" Click="ScoreFields" HorizontalAlignment="Left"/><TextBlock Text="Це оцінка наданих прочитань, а не автоматичне виділення полів із тексту. Пропуски й збої враховуються окремо; ручне введення прогнозу не доводить якість моделі." TextWrapping="Wrap" Margin="0,8"/><TextBox x:Name="FieldSummary" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Height="340" VerticalScrollBarVisibility="Auto"/></StackPanel></TabItem>
+   </TabControl>
+  </Grid>
+ </DockPanel>
+</Window>

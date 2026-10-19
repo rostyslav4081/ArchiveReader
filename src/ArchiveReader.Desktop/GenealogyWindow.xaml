@@ -1,0 +1,52 @@
+<Window x:Class="ArchiveReader.GenealogyWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Люди та родини" Width="1150" Height="850" MinWidth="850" MinHeight="650" Background="#F3F5F7">
+ <Window.Resources><Style TargetType="Button"><Setter Property="Padding" Value="10,6"/><Setter Property="Margin" Value="0,4,8,4"/></Style><Style TargetType="TextBox"><Setter Property="Margin" Value="0,4,0,8"/><Setter Property="Padding" Value="6"/></Style></Window.Resources>
+ <DockPanel Margin="18"><TextBlock DockPanel.Dock="Bottom" x:Name="Status" TextWrapping="Wrap" Margin="0,10"/>
+ <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="260"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+ <DockPanel Margin="0,0,14,0"><TextBlock DockPanel.Dock="Top" Text="Картки людей" FontSize="20"/><Button DockPanel.Dock="Bottom" Content="Експорт родоводу JSON" Click="ExportGenealogy"/><ListBox x:Name="Persons" DisplayMemberPath="Label" SelectionChanged="SelectPerson"/></DockPanel>
+ <TabControl Grid.Column="1" x:Name="Tabs">
+ <TabItem Header="Картка людини"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+ <TextBlock Text="Ім’я картки"/><TextBox x:Name="PersonName"/><TextBlock Text="Примітки людини"/><TextBox x:Name="PersonNotes" Height="60" AcceptsReturn="True" TextWrapping="Wrap"/>
+ <WrapPanel><Button Content="Створити картку" Click="CreatePerson"/><Button Content="Зберегти картку" Click="SavePerson"/></WrapPanel>
+ <TextBlock Text="Згадки додаються вручну. Події впорядковано за розпізнаним роком; оригінальні дати не змінюються. Відмінності значень не завжди є суперечностями." TextWrapping="Wrap"/>
+ <TextBox x:Name="CardSummary" Height="100" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+ <ListBox x:Name="Members" Height="100" DisplayMemberPath="Label" SelectionChanged="SelectMember"/>
+ <ComboBox x:Name="FactField" SelectedIndex="0" SelectionChanged="ChangeFactField"><ComboBoxItem Content="Увесь запис" Tag="record"/><ComboBoxItem Content="Основна особа" Tag="person"/><ComboBoxItem Content="Дата" Tag="date"/><ComboBoxItem Content="Місце" Tag="place"/><ComboBoxItem Content="Номер будинку" Tag="house"/><ComboBoxItem Content="Вік" Tag="age"/><ComboBoxItem Content="Пов’язана особа 1" Tag="related1"/><ComboBoxItem Content="Пов’язана особа 2" Tag="related2"/></ComboBox>
+ <Grid Margin="0,8"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions><TextBox x:Name="MemberEvidence" Height="170" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/><Image Grid.Column="1" x:Name="FactImage" Height="170" Stretch="Uniform" Margin="8,0"/></Grid><TextBlock x:Name="FactStatus" TextWrapping="Wrap"/>
+ <WrapPanel><Button Content="Виділити фрагмент цього факту" Click="EditFactCrop"/><Button Content="Збільшити фрагмент" Click="EnlargeFact"/></WrapPanel>
+ <WrapPanel><Button Content="Відкрити запис-доказ" Click="OpenMember"/><Button Content="Від’єднати згадку" Click="DetachMember"/></WrapPanel>
+ </StackPanel></ScrollViewer></TabItem>
+ <TabItem Header="Додати згадку"><StackPanel Margin="12">
+ <TextBlock Text="Знайдіть згадку, перевірте оригінал і додайте її до вибраної картки. Автоматичного об’єднання немає." TextWrapping="Wrap"/>
+ <TextBox x:Name="MentionQuery"/><Button Content="Знайти згадки" Click="FindMentions"/>
+ <ListBox x:Name="Mentions" Height="180" DisplayMemberPath="Label" SelectionChanged="SelectMention"/>
+ <TextBox x:Name="MentionEvidence" Height="230" AcceptsReturn="True" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+ <TextBlock Text="Пояснення рішення"/><TextBox x:Name="AttachReason" Height="70" AcceptsReturn="True" TextWrapping="Wrap"/>
+ <Button Content="Додати згадку до картки" Click="AttachMention"/>
+ </StackPanel></TabItem>
+ <TabItem Header="Родинні зв’язки"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+ <TextBlock Text="Для батьківського зв’язку: перша людина — батько або мати, друга — дитина. Доказом стане вибрана згадка з вкладки «Додати згадку»." TextWrapping="Wrap"/>
+ <ComboBox x:Name="FamilyLeft" DisplayMemberPath="Label" Margin="0,8"/><ComboBox x:Name="FamilyRight" DisplayMemberPath="Label" Margin="0,8"/>
+ <ComboBox x:Name="FamilyKind" SelectedIndex="0" Margin="0,8"><ComboBoxItem Content="Батько / мати → дитина" Tag="parent"/><ComboBoxItem Content="Подружжя" Tag="spouse"/></ComboBox>
+ <TextBox x:Name="FamilyReason" Height="65" AcceptsReturn="True" TextWrapping="Wrap"/><Button Content="Підтвердити родинний зв’язок" Click="SaveFamily"/>
+ <ListBox x:Name="Families" Height="180" DisplayMemberPath="Label" SelectionChanged="SelectFamily"/>
+ <TextBox x:Name="FamilyEvidence" Height="160" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+ <Button Content="Відкликати родинний зв’язок" Click="WithdrawFamily"/>
+ </StackPanel></ScrollViewer></TabItem>
+ <TabItem Header="Дерево родини"><DockPanel Margin="12"><TextBlock DockPanel.Dock="Top" Text="Показано підтверджені зв’язки. Сірі пунктирні лінії потребують повторної перевірки; відкликані зв’язки приховані." TextWrapping="Wrap"/><ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"><Canvas x:Name="Tree" Width="800" Height="600" Background="White"/></ScrollViewer></DockPanel></TabItem>
+ <TabItem Header="Виправлення карток"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+ <TextBlock Text="Об’єднання переносить згадки й зв’язки до іншої картки. Розділення переносить лише вибрані згадки; родинні зв’язки потрібно перевірити окремо." TextWrapping="Wrap"/>
+ <TextBlock Text="Картка-призначення"/><ComboBox x:Name="MergeTarget" DisplayMemberPath="Label" Margin="0,10"/><Button Content="Об’єднати вибрану картку з іншою" Click="MergeCards"/>
+ <ListBox x:Name="SplitMembers" SelectionMode="Extended" DisplayMemberPath="Label" Height="140"/><TextBlock Text="Ім’я картки"/><TextBox x:Name="SplitName"/>
+ <TextBlock Text="Пояснення рішення"/>
+ <TextBox x:Name="ChangeReason" Height="65" AcceptsReturn="True" TextWrapping="Wrap"/><Button Content="Винести вибрані згадки в нову картку" Click="SplitCard"/>
+ <ListBox x:Name="CardChanges" DisplayMemberPath="Label" Height="130"/><Button Content="Скасувати вибрану зміну карток" Click="UndoCards"/>
+ </StackPanel></ScrollViewer></TabItem>
+ <TabItem Header="Суперечності та GEDCOM"><StackPanel Margin="12">
+ <TextBlock Text="Підказки не змінюють факти. Неоднозначні календарі й приблизні дати не порівнюються автоматично." TextWrapping="Wrap"/>
+ <TextBlock Text="Для порівняння зазначте календар у профілі книги. Невизначені дати залишаються без висновку." TextWrapping="Wrap"/>
+ <Button Content="Перевірити суперечності" Click="CheckChronology"/><TextBox x:Name="ChronologyReport" Height="190" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+ <WrapPanel><Button Content="Переглянути GEDCOM перед імпортом" Click="PreviewGedcom"/><Button Content="Імпортувати переглянутий GEDCOM" Click="ImportGedcom"/><Button Content="Експорт GEDCOM 7" Click="ExportGedcom"/></WrapPanel>
+ <TextBox x:Name="GedcomReport" Height="230" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+ </StackPanel></TabItem>
+ </TabControl></Grid></DockPanel>
+</Window>

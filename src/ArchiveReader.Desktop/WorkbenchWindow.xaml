@@ -1,0 +1,151 @@
+<Window x:Class="ArchiveReader.WorkbenchWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Майстерня документа" Width="1400" Height="930" MinWidth="1050" MinHeight="650" Background="#F3F5F7">
+ <Window.Resources>
+  <Style TargetType="Button"><Setter Property="Padding" Value="10,6"/><Setter Property="Margin" Value="0,4,8,4"/></Style>
+  <Style TargetType="TextBox"><Setter Property="Padding" Value="6"/><Setter Property="Margin" Value="0,4,0,8"/></Style>
+ </Window.Resources>
+ <DockPanel Margin="18">
+  <TextBlock DockPanel.Dock="Top" x:Name="DocumentTitle" FontSize="21" FontWeight="SemiBold" Margin="0,0,0,12"/>
+  <DockPanel DockPanel.Dock="Bottom"><Button DockPanel.Dock="Right" Content="Зупинити" Click="CancelWork"/><TextBlock x:Name="Status" TextWrapping="Wrap" Margin="0,12,0,0" Foreground="#173B40"/></DockPanel>
+  <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="540"/></Grid.ColumnDefinitions>
+   <DockPanel Margin="0,0,16,0">
+    <TextBlock DockPanel.Dock="Top" Text="Виділіть ділянку мишею. Межі можна замінити повторним виділенням і зберегти." TextWrapping="Wrap" Margin="0,0,0,8"/>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"><Canvas x:Name="Surface" Width="600" Height="700" Background="Transparent" MouseLeftButtonDown="StartDraw" MouseMove="MoveDraw" MouseLeftButtonUp="EndDraw"><Image x:Name="PageImage" Width="600" Height="700" Stretch="Fill" IsHitTestVisible="False"/></Canvas></ScrollViewer>
+   </DockPanel>
+   <TabControl x:Name="Tabs" Grid.Column="1" SelectionChanged="LayoutTabChanged">
+    <TabItem Header="Розмітка"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+     <ComboBox x:Name="Regions" DisplayMemberPath="Label" SelectionChanged="SelectRegion" Margin="0,0,0,12"/>
+     <TextBlock Text="Тип ділянки"/><ComboBox x:Name="RegionKind" SelectedIndex="0"><ComboBoxItem Content="Рядок" Tag="line"/><ComboBoxItem Content="Запис" Tag="entry"/><ComboBoxItem Content="Колонка" Tag="column"/><ComboBoxItem Content="Пошкодження" Tag="damage"/><ComboBoxItem Content="Відсутній фрагмент" Tag="missing"/></ComboBox>
+     <TextBlock Text="Назва ділянки"/><TextBox x:Name="RegionLabel"/>
+     <TextBlock Text="Текст рядка або примітка"/><TextBox x:Name="RegionText" AcceptsReturn="True" Height="90" TextWrapping="Wrap"/>
+     <CheckBox x:Name="RegionVerified" Content="Текст рядка перевірено за оригіналом"/>
+     <TextBlock Text="Позиція в порядку читання" Margin="0,8,0,0"/><TextBox x:Name="ReadingPosition"/>
+     <TextBlock Text="Належить до ділянки" Margin="0,12,0,0"/><ComboBox x:Name="ParentRegion" DisplayMemberPath="Label"/>
+     <TextBlock Text="Пов'язаний метричний запис" Margin="0,12,0,0"/><ComboBox x:Name="LinkedRecord" DisplayMemberPath="Label"/>
+     <TextBlock Text="Поле запису" Margin="0,12,0,0"/><ComboBox x:Name="RegionField" SelectedIndex="0"><ComboBoxItem Content="Увесь запис" Tag=""/><ComboBoxItem Content="Дата" Tag="date"/><ComboBoxItem Content="Особа" Tag="person"/><ComboBoxItem Content="Батько / наречена" Tag="related1"/><ComboBoxItem Content="Мати / свідки" Tag="related2"/><ComboBoxItem Content="№ будинку" Tag="house"/></ComboBox>
+     <WrapPanel><Button Content="Зберегти ділянку" Click="SaveRegion"/><Button Content="Нова ділянка" Click="NewRegion"/><Button Content="Видалити ділянку" Click="DeleteRegion"/></WrapPanel>
+     <TextBlock Text="Зв'язки задає дослідник. Ділянки не заповнюють поля автоматично." TextWrapping="Wrap"/>
+    </StackPanel></ScrollViewer></TabItem>
+    <TabItem Header="HTR"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+     <TextBlock Text="Порівнюються однакові виділені рядки. Еталоном є лише перевірений текст." TextWrapping="Wrap"/>
+     <TextBlock Text="Модель A" Margin="0,12,0,0"/><ComboBox x:Name="EngineA" SelectedIndex="0"><ComboBoxItem Content="Kraken" Tag="kraken"/><ComboBoxItem Content="TrOCR" Tag="trocr"/></ComboBox><TextBox x:Name="ModelA"/><Button Content="Вибрати модель A" Tag="A" Click="ChooseModel"/>
+     <TextBlock Text="Модель B"/><ComboBox x:Name="EngineB" SelectedIndex="0"><ComboBoxItem Content="Kraken" Tag="kraken"/><ComboBoxItem Content="TrOCR" Tag="trocr"/></ComboBox><TextBox x:Name="ModelB"/><Button Content="Вибрати модель B" Tag="B" Click="ChooseModel"/>
+     <WrapPanel><Button Content="Порівняти рядок" Click="CompareLine"/><Button Content="Порівняти рядки сторінки" Click="ComparePage"/><Button Content="Зупинити" Click="CancelWork"/></WrapPanel>
+     <ComboBox x:Name="ComparedLines" DisplayMemberPath="Label" SelectionChanged="SelectComparison"/>
+     <TextBlock x:Name="ComparisonSummary" TextWrapping="Wrap" Margin="0,8"/>
+     <Image x:Name="LinePreview" MaxHeight="120" Stretch="Uniform" Margin="0,8"/>
+     <TextBlock Text="Прочитання A"/><Border Background="White" Padding="7" Margin="0,4,0,8"><ScrollViewer MaxHeight="110"><TextBlock x:Name="ResultA" TextWrapping="Wrap"/></ScrollViewer></Border>
+     <TextBlock Text="Прочитання B"/><Border Background="White" Padding="7" Margin="0,4,0,8"><ScrollViewer MaxHeight="110"><TextBlock x:Name="ResultB" TextWrapping="Wrap"/></ScrollViewer></Border>
+     <TextBlock x:Name="Difference" TextWrapping="Wrap" Foreground="#9C4300"/>
+     <Button Content="Відкрити звіт" Click="OpenReport"/>
+     <TextBlock Text="Горизонтальні прямокутники потрібно виділяти точно. Для похилих рядків спочатку підготуйте копію фото." TextWrapping="Wrap"/>
+    </StackPanel></ScrollViewer></TabItem>
+    <TabItem Header="Фото"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+     <TextBlock Text="Оберіть операцію. Результат спочатку показується як окрема копія." TextWrapping="Wrap"/>
+     <ComboBox x:Name="PhotoMode" SelectedIndex="0" SelectionChanged="PhotoModeChanged"><ComboBoxItem Content="Поворот" Tag="rotate"/><ComboBoxItem Content="Перспектива" Tag="perspective"/><ComboBoxItem Content="Вигин сторінки" Tag="dewarp"/><ComboBoxItem Content="Поділ розвороту" Tag="split"/></ComboBox>
+     <TextBlock Text="Кут повороту" Margin="0,12,0,0"/><Slider x:Name="Angle" Minimum="-180" Maximum="180" Value="0" TickFrequency="1" IsSnapToTickEnabled="True"/><TextBox x:Name="AngleValue" Text="{Binding Value, ElementName=Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+     <TextBlock Text="Положення поділу"/><Slider x:Name="SplitPosition" Minimum="0.1" Maximum="0.9" Value="0.5"/>
+     <TextBlock x:Name="GuideHelp" TextWrapping="Wrap" Margin="0,12"/>
+     <Button Content="Очистити точки" Click="ClearPoints"/>
+     <WrapPanel><Button Content="Підготувати копію" Click="PreparePhoto"/><Button Content="Імпортувати копію" Click="ImportPhoto"/></WrapPanel>
+     <ComboBox x:Name="PhotoCopies" SelectionChanged="SelectPhotoResult"/><Image x:Name="PhotoResult" MaxHeight="400" Stretch="Uniform"/>
+     <TextBlock Text="Вирівнювання за напрямними обрізає область між ними. Перевірте, чи збережено потрібні штрихи. Оригінал доступний окремо." TextWrapping="Wrap" Margin="0,12"/>
+    </StackPanel></ScrollViewer></TabItem>
+    <TabItem Header="Книга"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+     <TextBlock Text="Мови документа"/><TextBox x:Name="BookLanguages"/>
+     <TextBlock Text="Роки"/><TextBox x:Name="BookYears"/>
+     <TextBlock Text="Календар книги"/><ComboBox x:Name="BookCalendar" SelectedIndex="0"><ComboBoxItem Content="Невідомий або змішаний" Tag=""/><ComboBoxItem Content="Григоріанський" Tag="gregorian"/><ComboBoxItem Content="Юліанський" Tag="julian"/></ComboBox>
+     <TextBlock Text="Письмо / почерк"/><TextBox x:Name="BookScript"/>
+     <TextBlock Text="Структура колонок"/><TextBox x:Name="BookLayout" AcceptsReturn="True" Height="80" TextWrapping="Wrap"/>
+     <TextBlock Text="Перевірена модель для книги"/><TextBox x:Name="BookModel"/><Button Content="Модель Kraken…" Tag="Book" Click="ChooseModel"/>
+     <TextBlock Text="Примітки книги"/><TextBox x:Name="BookNotes" AcceptsReturn="True" Height="90" TextWrapping="Wrap"/>
+     <TextBlock Text="Роль усієї книги в наборі"/><ComboBox x:Name="BookSplit" SelectedIndex="0"><ComboBoxItem Content="Не включати до набору" Tag=""/><ComboBoxItem Content="Навчання" Tag="train"/><ComboBoxItem Content="Перевірка під час навчання" Tag="validation"/><ComboBoxItem Content="Незалежний тест" Tag="test"/></ComboBox>
+     <Button Content="Зберегти профіль книги" Click="SaveProfile"/>
+    </StackPanel></ScrollViewer></TabItem>
+    <TabItem Header="Імена"><StackPanel Margin="12">
+     <TextBlock Text="Ім'я або прізвище"/><TextBox x:Name="NameQuery"/><Button Content="Знайти схожі записи" Click="SearchNames"/>
+     <ListBox x:Name="NameResults" DisplayMemberPath="Label" Height="400"/>
+     <Button Content="Перейти до джерела" Click="GoToName"/>
+     <TextBlock Text="Схожість написання не доводить, що це та сама людина. Перевірте дату, родичів і місце." TextWrapping="Wrap"/>
+    </StackPanel></TabItem>
+    <TabItem Header="Навчання"><StackPanel Margin="12">
+     <TextBlock Text="Призначте цілим книгам ролі навчання, перевірки та незалежного тесту. До набору входять перевірені вручну рядки розмітки." TextWrapping="Wrap"/>
+     <Button Content="Експортувати розділений набір" Click="ExportDataset"/>
+     <Button Content="Донавчити модель A" Click="TrainExplicit"/>
+     <Button Content="Перевірити A і B на тестових книгах" Click="CompareHeldout"/>
+     <Button Content="Порівняти на збереженому наборі" Click="CompareFrozen"/>
+     <Button Content="Зупинити" Click="CancelWork"/>
+     <TextBlock Text="Для оцінки нової моделі виберіть стару як A, нову як B. Тестові книги не потрапляють у донавчання. Модель потрібно вибирати вручну після перевірки." TextWrapping="Wrap" Margin="0,12"/>
+    </StackPanel></TabItem>
+    <TabItem Header="Структура"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+     <Expander x:Name="PageReviewPanel" Header="Повна сторінка: обробка й перевірка"><StackPanel>
+      <ComboBox x:Name="PageReadingMode" SelectedIndex="0"><ComboBoxItem Content="Колонка за колонкою" Tag="columns"/><ComboBoxItem Content="Рядок за рядком (таблиця)" Tag="table"/><ComboBoxItem Content="Суцільний текст" Tag="text"/></ComboBox>
+      <CheckBox x:Name="PageUseSaved" Content="Використати збережені записи та порядок"/>
+      <CheckBox x:Name="PageSpread" Content="Розворот: окремо ліва й права половини"/>
+      <TextBlock Text="Поділ навпіл задається вручну. Перевірте, чи середина проходить між сторінками. Без розмітки обробляється вся сторінка." TextWrapping="Wrap"/>
+      <WrapPanel><Button Content="Створити план сторінки" Click="StartPageReview"/><Button Content="Завантажити останнє завдання" Click="LoadPageReview"/></WrapPanel>
+      <WrapPanel><Button Content="Продовжити обробку сторінки" Click="ContinuePageReview"/><Button Content="Повторити лише помилки" Click="RetryPageFailures"/></WrapPanel>
+      <TextBlock x:Name="PageReviewSummary" TextWrapping="Wrap"/>
+      <TextBlock Text="Синій — оброблена ділянка вводу; сірий контур — очікує; зелений — повернутий текст; помаранчевий — порожньо; червоний — збій. Сірий фон поза межами рядків не означає відсутності тексту." TextWrapping="Wrap"/>
+      <TextBox x:Name="PageReviewText" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Height="180" VerticalScrollBarVisibility="Auto"/>
+      <Button Content="Відкрити звіт: скан поруч із текстом" Click="OpenPageReviewReport"/><Button Content="Звірити записи й порівняти моделі" Click="OpenPageCorpus"/>
+     </StackPanel></Expander>
+     <TextBlock Text="Пропозиції меж потрібно перевірити. Табличний рядок не завжди є окремим метричним записом." TextWrapping="Wrap"/>
+     <ComboBox x:Name="LayoutMode" SelectedIndex="0" Margin="0,8"><ComboBoxItem Content="Колонка за колонкою" Tag="columns"/><ComboBoxItem Content="Рядок за рядком (таблиця)" Tag="table"/><ComboBoxItem Content="Суцільний текст" Tag="text"/></ComboBox>
+     <CheckBox x:Name="ReuseLines" Content="Використати наявні рядки OCR" IsChecked="True"/>
+     <TextBlock Text="Модель сегментації (необов’язково)" Margin="0,8,0,0"/><TextBox x:Name="LayoutSegmentation"/><Button Content="Модель сегментації…" Click="ChooseLayoutModel"/>
+     <WrapPanel><Button Content="Запропонувати структуру сторінки" Click="ProposeWholeLayout"/><Button Content="Запропонувати всередині ділянки" Click="ProposeRegionLayout"/></WrapPanel>
+     <TextBlock Text="Виберіть пропозиції через Ctrl/Shift. Батьківські ділянки додаються разом із рядками. Після збереження межі можна виправити в розмітці." TextWrapping="Wrap"/>
+     <ListBox x:Name="LayoutDrafts" SelectionMode="Extended" DisplayMemberPath="Label" Height="145" SelectionChanged="SelectLayoutDraft"/>
+     <WrapPanel><Button Content="Вибрати всі пропозиції" Click="SelectAllDrafts"/><Button Content="Зберегти вибрані пропозиції" Click="ApplyLayout"/></WrapPanel>
+     <CheckBox x:Name="ShowReadingOrder" Content="Показати номери на сторінці" IsChecked="True" Click="ToggleLayoutNumbers"/>
+     <TextBlock Text="Збережений порядок читання" Margin="0,8"/><ListBox x:Name="ReadingOrderRows" SelectionMode="Extended" DisplayMemberPath="Label" Height="125" SelectionChanged="SelectOrderedRegion"/>
+     <WrapPanel><Button Content="Раніше" Tag="-1" Click="MoveReadingOrder"/><Button Content="Пізніше" Tag="1" Click="MoveReadingOrder"/></WrapPanel>
+     <Expander x:Name="LayoutReviewPanel" Header="Перевірка меж і стан книги"><StackPanel>
+      <Button Content="Перевірити межі рядків" Click="CheckLayoutQuality"/>
+      <TextBlock x:Name="LayoutQualityText" TextWrapping="Wrap"/>
+      <WrapPanel><Button Content="Об’єднати вибрані рядки" Click="MergeSelectedLines"/><Button Content="Розділити рядок навпіл по висоті" Click="SplitSelectedLine"/></WrapPanel>
+      <TextBlock Text="Вибирайте рядки через Ctrl у списку порядку. Перевірені рядки й рядки з прив’язаними записами захищені. Після поділу текст треба звірити знову; старий текст залишається в історії та примітці." TextWrapping="Wrap"/>
+      <WrapPanel><Button Content="Стан сторінок книги" Click="LoadBookQuality"/><Button Content="Наступні сторінки" Click="NextBookQuality"/></WrapPanel><TextBox x:Name="BookQualityText" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Height="140" VerticalScrollBarVisibility="Auto"/>
+     </StackPanel></Expander>
+     <Expander x:Name="LayoutComparePanel" Header="Порівняння поділу та зображень"><StackPanel>
+      <TextBlock Text="Друга модель сегментації"/><TextBox x:Name="LayoutSegmentationB"/><Button Content="Вибрати другу модель" Click="ChooseSecondLayoutModel"/>
+      <Button Content="Порівняти поділ двома моделями" Click="CompareLayoutModels"/><ListBox x:Name="LayoutComparisons" Height="90" DisplayMemberPath="Label" SelectionChanged="SelectLayoutComparison"/>
+      <TextBlock Text="Вибір результату показує його межі поверх того самого скану. Збереження пропозицій виконується окремо." TextWrapping="Wrap"/>
+      <Button Content="Прочитати три варіанти фрагмента" Click="RecognizeVariants"/><ListBox x:Name="RegionVariants" Height="85" DisplayMemberPath="Label" SelectionChanged="SelectRecognitionVariant"/><Image x:Name="VariantPreview" Height="130" Stretch="Uniform"/>
+      <TextBlock Text="Оригінал, збільшення ×2 та контраст. Кожне прочитання зберігається окремо; жоден варіант не підтверджується автоматично." TextWrapping="Wrap"/>
+     </StackPanel></Expander>
+     <CheckBox x:Name="UseSavedRecognitionLines" Content="Читати запис за збереженими ручними рядками" IsChecked="True"/>
+     <CheckBox x:Name="ForceRegionRecognition" Content="Виконати наново навіть за наявності збереженого результату"/><Button Content="Розпізнати вибраний рядок, запис або колонку" Click="RecognizeSavedRegion"/>
+     <Button Content="Зібрати текст за збереженим порядком" Click="AssembleRegionText"/>
+     <TextBlock Text="Використовується модель A з вкладки HTR. Результат окремий від OCR сторінки та ручного тексту." TextWrapping="Wrap"/>
+     <TextBox x:Name="RegionOcrResult" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Height="150" VerticalScrollBarVisibility="Auto"/>
+     <WrapPanel><Button Content="Додати рядки результату" Click="ApplyRegionOcr"/><Button Content="Взяти текст для редагування" Click="UseRegionOcrText"/></WrapPanel>
+    </StackPanel></ScrollViewer></TabItem>
+    <TabItem Header="Джерело"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+     <TextBlock Text="Дані книги спільні для її сторінок. Аркуш і посилання на скан належать лише поточній сторінці." TextWrapping="Wrap"/>
+     <TextBlock Text="Архів"/><TextBox x:Name="SourceArchive"/><TextBlock Text="Країна джерела"/><TextBox x:Name="SourceCountry"/>
+     <TextBlock Text="Колекція"/><TextBox x:Name="SourceCollection"/>
+     <WrapPanel><StackPanel Width="155"><TextBlock Text="Фонд"/><TextBox x:Name="SourceFonds"/></StackPanel><StackPanel Width="155" Margin="8,0"><TextBlock Text="Опис"/><TextBox x:Name="SourceInventory"/></StackPanel><StackPanel Width="155"><TextBlock Text="Справа"/><TextBox x:Name="SourceFile"/></StackPanel></WrapPanel>
+     <TextBlock Text="Назва джерела"/><TextBox x:Name="SourceTitle"/><TextBlock Text="Місце джерела"/><TextBox x:Name="SourcePlace"/>
+     <TextBlock Text="Посилання на джерело"/><TextBox x:Name="SourceUrl"/><TextBlock Text="Дата доступу"/><TextBox x:Name="SourceAccessed"/>
+     <TextBlock Text="Права доступу / використання"/><TextBox x:Name="SourceRights"/><TextBlock Text="Примітки джерела"/><TextBox x:Name="SourceNotes" AcceptsReturn="True" Height="60" TextWrapping="Wrap"/>
+     <TextBlock Text="Аркуш (оригінальна нумерація)"/><TextBox x:Name="SourceFolio"/><TextBlock Text="Написаний номер сторінки"/><TextBox x:Name="SourceOriginalPage"/><TextBlock Text="Номер скану в архіві"/><TextBox x:Name="SourceImageNumber"/><TextBlock Text="Позначення зображення"/><TextBox x:Name="SourceScanLabel"/><TextBlock Text="Номер запису в джерелі"/><TextBox x:Name="SourceEntryNumber"/><TextBlock Text="Посилання на поточний скан"/><TextBox x:Name="SourcePageUrl"/>
+     <TextBlock Text="Примітки аркуша"/><TextBox x:Name="SourcePageNotes" AcceptsReturn="True" Height="60" TextWrapping="Wrap"/>
+     <WrapPanel><Button Content="Зберегти картку джерела" Click="SaveSourceCard"/><Button Content="Відкрити архівне посилання" Click="OpenSourceLink"/></WrapPanel>
+     <TextBlock Text="Посилання для цитування"/><TextBox x:Name="SourceCitation" IsReadOnly="True" AcceptsReturn="True" Height="90" TextWrapping="Wrap"/><Button Content="Копіювати посилання для цитування" Click="CopySourceCitation"/>
+     <TextBlock x:Name="SourceInheritance" TextWrapping="Wrap"/>
+    </StackPanel></ScrollViewer></TabItem>
+    <TabItem Header="Зв’язки осіб"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+     <TextBlock Text="Оберіть згадку зі збереженого запису. Схожість імен не доводить, що це та сама особа. Поля родичів можуть містити кілька людей." TextWrapping="Wrap"/>
+     <ComboBox x:Name="PersonOrigin" DisplayMemberPath="Label" Margin="0,8"/>
+     <Button Content="Знайти можливі зв’язки" Click="FindPersonCandidates"/>
+     <ListBox x:Name="PersonCandidates" DisplayMemberPath="Label" Height="130" SelectionChanged="ShowPersonEvidence"/>
+     <TextBox x:Name="PersonEvidence" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Height="280" VerticalScrollBarVisibility="Auto"/>
+     <WrapPanel><Button Content="Відкрити перший запис" Tag="left" Click="OpenPersonEvidence"/><Button Content="Відкрити другий запис" Tag="right" Click="OpenPersonEvidence"/></WrapPanel>
+     <TextBlock Text="Пояснення рішення"/><TextBox x:Name="PersonDecisionNote" AcceptsReturn="True" TextWrapping="Wrap" Height="65"/>
+     <WrapPanel><Button Content="Та сама особа" Tag="confirmed" Click="DecidePersonLink"/><Button Content="Різні особи" Tag="rejected" Click="DecidePersonLink"/><Button Content="Відкликати рішення" Tag="withdrawn" Click="DecidePersonLink"/></WrapPanel>
+    </StackPanel></ScrollViewer></TabItem>
+   </TabControl>
+  </Grid>
+ </DockPanel>
+</Window>

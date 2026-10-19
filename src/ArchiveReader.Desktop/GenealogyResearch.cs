@@ -1,0 +1,31 @@
+using System.Text.Json.Nodes;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using Microsoft.Win32;
+namespace ArchiveReader;
+public partial class GenealogyWindow
+{
+    string? gedcomPath,gedcomSha;
+    string Fact=>(FactField.SelectedItem as ComboBoxItem)?.Tag.ToString() ?? "record";
+    async Task ShowFact()
+    {
+        if(Members.SelectedItem is not GenealogyRow row)return;
+        try{var result=await Call("fact_crop",new(){["mention"]=row.Data["mention"]!.DeepClone(),["fact"]=Fact});if(!ReferenceEquals(Members.SelectedItem,row))return;
+            var image=new BitmapImage();image.BeginInit();image.CacheOption=BitmapCacheOption.OnLoad;image.UriSource=new Uri(result["path"]!.ToString());image.EndInit();image.Freeze();FactImage.Source=image;
+            FactStatus.Text=T(result["whole_page"]!.GetValue<bool>() ? "Межі факту ще не задані: показано всю сторінку." : "Показано збережений фрагмент факту.")+(result["stale"]!.GetValue<bool>() ? " "+T("Записи змінилися: перевірте рішення повторно.") : "");
+        }catch(Exception ex){FactStatus.Text=T(ex.Message);SmokeCapture.Fail(ex);}
+    }
+    async void ChangeFactField(object sender,SelectionChangedEventArgs e){if(IsLoaded)await ShowFact();}
+    async void EditFactCrop(object sender,RoutedEventArgs e){if(Members.SelectedItem is GenealogyRow row){new FactCropWindow(row.Data["mention"]!.DeepClone().AsObject(),Fact,worker){Owner=this}.ShowDialog();await ShowFact();}}
+    void EnlargeFact(object sender,RoutedEventArgs e){if(FactImage.Source!=null)new Window{Owner=this,Title=T("Фрагмент факту"),Width=1000,Height=700,Content=new ScrollViewer{HorizontalScrollBarVisibility=ScrollBarVisibility.Auto,VerticalScrollBarVisibility=ScrollBarVisibility.Auto,Content=new Image{Source=FactImage.Source,Stretch=System.Windows.Media.Stretch.None}}}.ShowDialog();}
+    async Task LoadChanges(){CardChanges.ItemsSource=(await Call("card_operations")).AsArray().Select(n=>new GenealogyRow(n!.AsObject(),n["created"]+" · "+n["note"]+" · "+T(n["undone"]!.GetValue<int>()==1 ? "Скасовано" : "Збережено"))).ToList();}
+    async void MergeCards(object sender,RoutedEventArgs e)=>await Run(async()=>{if(PersonId==null || MergeTarget.SelectedItem is not GenealogyRow target)return;var result=await Call("card_change",new(){["mode"]="merge",["source"]=PersonId,["target"]=target.Data["id"]!.ToString(),["note"]=ChangeReason.Text});await Refresh(result["person"]!.ToString());});
+    async void SplitCard(object sender,RoutedEventArgs e)=>await Run(async()=>{if(PersonId==null)return;var keys=new JsonArray(SplitMembers.SelectedItems.Cast<GenealogyRow>().Select(r=>JsonValue.Create(r.Data["key"]!.ToString())).ToArray());var result=await Call("card_change",new(){["mode"]="split",["source"]=PersonId,["mentions"]=keys,["name"]=SplitName.Text,["note"]=ChangeReason.Text});await Refresh(result["person"]!.ToString());});
+    async void UndoCards(object sender,RoutedEventArgs e)=>await Run(async()=>{if(CardChanges.SelectedItem is GenealogyRow row){await Call("card_undo",new(){["id"]=row.Data["id"]!.ToString()});await Refresh();}});
+    async void CheckChronology(object sender,RoutedEventArgs e)=>await Run(async()=>{var result=await Call("chronology_hints");ChronologyReport.Text=string.Join("\n\n",result["hints"]!.AsArray().Select(n=>people.FirstOrDefault(p=>p.Data["id"]!.ToString()==n!["person"]!.ToString())?.Label+" · "+T(n!["kind"]!.ToString()=="after_death" ? "Подія пізніше за дату смерті: перевірте джерела." : "Незвичний вік батьків: перевірте джерела.")+"\n"+string.Join("\n",n["sources"]!.AsArray().Select(s=>s!.ToString()))));if(ChronologyReport.Text.Length==0)ChronologyReport.Text=T("У порівнюваних датах підказок не знайдено. Це не гарантія відсутності помилок.");ChronologyReport.Text+="\n"+T("Дат без автоматичного порівняння")+": "+result["uncompared"];});
+    async Task PreviewGedcomFile(string path){var report=await Call("gedcom_preview",new(){["path"]=path});gedcomPath=path;gedcomSha=report["sha"]!.ToString();GedcomReport.Text=T("Карток людей")+": "+report["people"]!.AsArray().Count+"\n"+T("Родинних груп")+": "+report["families"]!.AsArray().Count+"\n"+T("Неперенесених структур")+": "+report["unsupported"]!.AsArray().Count+"\n"+string.Join("\n",report["unsupported"]!.AsArray().Select(n=>$"{n!["line"]}: {n["tag"]} · {n["value"]}"))+"\n"+T("Невідомих посилань")+": "+report["unresolved"]!.AsArray().Count+"\n"+string.Join("\n",report["unresolved"]!.AsArray().Select(n=>$"{n!["family"]}: {n["reference"]}"))+"\n"+T("Імпорт зберігає початковий GEDCOM. Люди, події та зв’язки залишаються неперевіреними; зображення не завантажуються.");}
+    async void PreviewGedcom(object sender,RoutedEventArgs e)=>await Run(async()=>{var dialog=new OpenFileDialog{Filter="GEDCOM|*.ged"};if(dialog.ShowDialog()==true)await PreviewGedcomFile(dialog.FileName);});
+    async void ImportGedcom(object sender,RoutedEventArgs e)=>await Run(async()=>{if(gedcomPath==null)return;await Call("gedcom_import",new(){["path"]=gedcomPath,["sha"]=gedcomSha});gedcomPath=null;gedcomSha=null;await Refresh();GedcomReport.Text=T("GEDCOM імпортовано без автоматичного підтвердження фактів.");});
+    async void ExportGedcom(object sender,RoutedEventArgs e)=>await Run(async()=>{var dialog=new SaveFileDialog{Filter="GEDCOM 7|*.ged",FileName="genealogy.ged"};if(dialog.ShowDialog()!=true)return;var report=await Call("gedcom_export",new(){["path"]=dialog.FileName});GedcomReport.Text=report["path"]+"\n"+T("Попереджень експорту")+": "+report["warnings"]!.AsArray().Count+"\n"+T("Докладний звіт збережено поруч із GEDCOM. Файли сканів і повна історія змін не включені.");});
+}

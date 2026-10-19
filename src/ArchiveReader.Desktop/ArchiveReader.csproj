@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework><UseWPF>true</UseWPF><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup>
+  <PropertyGroup><OutputPath>../../bin/$(Configuration)/</OutputPath></PropertyGroup>
+  <ItemGroup>
+    <None Include="../../backend/archivereader/shape_search.py" Link="shape_search.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/recognition_workflow.py" Link="recognition_workflow.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/paddle_local.py" Link="paddle_local.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/recognition_catalog.json" Link="recognition_catalog.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/page_review.py" Link="page_review.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/candidate_models.py" Link="candidate_models.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/tutor.py" Link="tutor.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/agents.py" Link="agents.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/board_import.py" Link="board_import.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/recognizers.py" Link="recognizers.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/books.py" Link="books.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/model_session.py" Link="model_session.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/schema_indexes.py" Link="schema_indexes.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/model_identity.py" Link="model_identity.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/historical_reading.py" Link="historical_reading.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/historical_sources.json" Link="historical_sources.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/global_languages.py" Link="global_languages.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/global_languages.json" Link="global_languages.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/structure_proposals.py" Link="structure_proposals.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/interchange.py" Link="interchange.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/research_hub.py" Link="research_hub.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/paging.py" Link="paging.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/research_bundle.py" Link="research_bundle.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/engine.py" Link="engine.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/workbench.py" Link="workbench.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/library.py" Link="library.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/layout.py" Link="layout.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/review_corpus.py" Link="review_corpus.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/fact_review.py" Link="fact_review.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/board_navigation.py" Link="board_navigation.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/sources.py" Link="sources.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/people.py" Link="people.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/backups.py" Link="backups.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/genealogy.py" Link="genealogy.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/research.py" Link="research.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/gedcom.py" Link="gedcom.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/duplicates.py" Link="duplicates.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/extraction.py" Link="extraction.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/operations.py" Link="operations.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/htr_compare.py" Link="htr_compare.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="translations.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Target Name="UpdateLegacyOutput" AfterTargets="Build">
+    <ItemGroup><LegacyOutputFiles Include="$(TargetDir)*" /></ItemGroup>
+    <Copy SourceFiles="@(LegacyOutputFiles)" DestinationFolder="$(MSBuildProjectDirectory)/bin/$(Configuration)/$(TargetFramework)/" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

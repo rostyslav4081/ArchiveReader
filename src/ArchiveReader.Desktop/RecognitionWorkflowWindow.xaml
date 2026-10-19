@@ -1,0 +1,8 @@
+<Window x:Class="ArchiveReader.RecognitionWorkflowWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Спільна робота з моделями" Width="950" Height="720" WindowStartupLocation="CenterOwner">
+ <DockPanel Margin="16">
+  <StackPanel DockPanel.Dock="Top"><TextBlock Text="Профіль писаря, розмітка та підтверджені тексти належать джерелу й доступні незалежно від моделі." TextWrapping="Wrap"/><TextBlock x:Name="Summary" TextWrapping="Wrap" Margin="0,10"/><TextBlock Text="Позначення писаря"/><DockPanel><Button Content="Зберегти" Click="SaveWriter" DockPanel.Dock="Right" Padding="12,6"/><TextBox x:Name="Writer" Margin="0,4,10,4"/></DockPanel><TextBlock Text="Позначення задається вручну. Зразки іншого писаря не застосовуються автоматично." TextWrapping="Wrap" Margin="0,4,0,10"/>
+  <WrapPanel><Button Content="Почерк і зразки" Tag="historical" Click="Open" Margin="0,0,8,8" Padding="10,6"/><Button Content="Межі рядків" Tag="layout" Click="Open" Margin="0,0,8,8" Padding="10,6"/><Button Content="Підтверджені приклади" Tag="tutor" Click="Open" Margin="0,0,8,8" Padding="10,6"/><Button Content="Незалежна перевірка" Tag="corpus" Click="Open" Margin="0,0,8,8" Padding="10,6"/><Button Content="Експорт прикладів" Click="Export" Margin="0,0,8,8" Padding="10,6"/><Button Content="Моделі за мовою…" Tag="models" Click="Open" Margin="0,0,8,8" Padding="10,6"/></WrapPanel><TextBlock Text="Місця для ручної перевірки" Margin="0,8"/></StackPanel>
+  <TextBlock DockPanel.Dock="Bottom" x:Name="Status" TextWrapping="Wrap" Margin="0,10"/>
+  <ListBox x:Name="Risks" DisplayMemberPath="Label"/>
+ </DockPanel>
+</Window>

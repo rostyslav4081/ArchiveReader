@@ -1,0 +1,7 @@
+<Window x:Class="ArchiveReader.ModelCatalogWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Моделі за мовою та письмом" Width="850" Height="580" WindowStartupLocation="CenterOwner">
+ <DockPanel Margin="16">
+  <StackPanel DockPanel.Dock="Top"><TextBlock Text="Мова документа"/><ComboBox x:Name="DocumentLanguage" Margin="0,6,0,12" SelectionChanged="Filter"/><TextBlock Text="Вибір мови лише фільтрує список. Він не перекладає текст і не доводить точності моделі." TextWrapping="Wrap" Margin="0,0,0,10"/></StackPanel>
+  <StackPanel DockPanel.Dock="Bottom"><TextBlock x:Name="Details" TextWrapping="Wrap" Margin="0,12"/><WrapPanel><Button x:Name="ApplyButton" Content="Використати модель" Click="Apply" Padding="12,8" IsEnabled="False"/><Button Content="Джерело й опис" Click="Source" Padding="12,8" Margin="10,0"/></WrapPanel></StackPanel>
+  <ListBox x:Name="Models" DisplayMemberPath="Label" SelectionChanged="Select"/>
+ </DockPanel>
+</Window>

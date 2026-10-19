@@ -1,0 +1,26 @@
+<Window x:Class="ArchiveReader.OperationsWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Обробка та якість" Width="1000" Height="780" MinWidth="800" MinHeight="650" Background="#F3F5F7">
+ <Window.Resources><Style TargetType="Button"><Setter Property="Padding" Value="10,7"/><Setter Property="Margin" Value="0,5,8,5"/></Style><Style TargetType="TextBox"><Setter Property="Padding" Value="6"/><Setter Property="Margin" Value="0,5,0,10"/></Style></Window.Resources>
+ <DockPanel Margin="18"><DockPanel DockPanel.Dock="Bottom"><Button DockPanel.Dock="Right" Content="Зупинити" Click="Stop"/><TextBlock x:Name="Status" TextWrapping="Wrap" Margin="0,10"/></DockPanel>
+ <TabControl x:Name="Tabs">
+ <TabItem Header="Черга книг"><StackPanel Margin="12">
+ <TextBlock Text="Оберіть книги через Ctrl/Shift. Обробляються незавершені сторінки; сторінки з виправленими рядками пропускаються. Черга зберігається після закриття програми." TextWrapping="Wrap"/>
+ <ListBox x:Name="Books" SelectionMode="Extended" DisplayMemberPath="Label" Height="180"/>
+ <TextBlock Text="Модель для нової черги"/><TextBox x:Name="QueueModel"/><Button Content="Обрати модель" Click="ChooseModel"/>
+ <Button Content="Створити чергу вибраних книг" Click="CreateQueue"/>
+ <ComboBox x:Name="Jobs" DisplayMemberPath="Label" SelectionChanged="SelectJob" Margin="0,8"/>
+ <WrapPanel><Button Content="Продовжити вибрану чергу" Click="StartQueue"/><CheckBox x:Name="RetryErrors" Content="Повторити помилкові сторінки" VerticalAlignment="Center"/></WrapPanel>
+ <TextBox x:Name="QueueReport" IsReadOnly="True" Height="180" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+ </StackPanel></TabItem>
+ <TabItem Header="Покриття тестового набору"><StackPanel Margin="12">
+ <TextBlock Text="Еталоном є тільки вручну перевірений текст. Різні мови, почерки, роки й пошкодження мають бути представлені окремими книгами. Наявність сканів сама по собі не дозволяє оцінити точність." TextWrapping="Wrap"/>
+ <Button Content="Оновити покриття" Click="RefreshCoverage"/><ListBox x:Name="Coverage" DisplayMemberPath="Label" Height="250" SelectionChanged="ShowCoverage"/>
+ <TextBox x:Name="CoverageReport" Height="190" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap"/>
+ <Button Content="Відкрити книгу для підготовки еталона" Click="OpenCoverage"/>
+ <TextBlock Text="Профіль і тестову роль задайте в майстерні книги. Замороження набору та порівняння моделей доступні у «Перевірка бібліотеки». Навчальні й тестові книги мають бути розділені." TextWrapping="Wrap"/>
+ </StackPanel></TabItem>
+ <TabItem Header="Перевірка налаштувань"><StackPanel Margin="12">
+ <TextBlock Text="Перевірте локальні залежності та вибрану модель перед обробкою. Модель має відповідати мові й письму; її якість перевіряється на окремому еталоні." TextWrapping="Wrap"/>
+ <Button Content="Перевірити середовище й модель" Click="CheckRuntime"/><TextBox x:Name="RuntimeReport" IsReadOnly="True" Height="350" AcceptsReturn="True" TextWrapping="Wrap"/>
+ </StackPanel></TabItem>
+ </TabControl></DockPanel>
+</Window>

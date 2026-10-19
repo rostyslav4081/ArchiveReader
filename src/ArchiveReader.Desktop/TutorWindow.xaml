@@ -1,0 +1,34 @@
+<Window x:Class="ArchiveReader.TutorWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Навчання на прикладах" Width="1060" Height="820" WindowStartupLocation="CenterOwner">
+ <DockPanel Margin="12">
+  <StackPanel DockPanel.Dock="Bottom"><TextBlock x:Name="Status" TextWrapping="Wrap" Margin="4"/><Button Content="Зупинити" Click="Stop" HorizontalAlignment="Right"/></StackPanel>
+  <TabControl x:Name="Tabs">
+   <TabItem Header="Показати й пояснити"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="8">
+    <TextBlock Text="Виберіть один рядок. Моделі читають той самий фрагмент, а ви вводите власне прочитання. Збіг моделей ще не підтверджує правильність." TextWrapping="Wrap"/>
+    <Button Content="Вибрати рядок на скані" Click="Pick" HorizontalAlignment="Left"/>
+    <Image x:Name="Scan" Height="190" Stretch="Uniform"/>
+    <TextBlock Text="Модель A — Kraken"/><DockPanel><Button DockPanel.Dock="Right" Content="Вибрати" Tag="A" Click="Choose"/><TextBox x:Name="ModelA"/></DockPanel>
+    <TextBlock Text="Модель B"/><DockPanel><ComboBox x:Name="EngineB" SelectedIndex="0" Width="120" DockPanel.Dock="Left"><ComboBoxItem Content="TrOCR" Tag="trocr"/><ComboBoxItem Content="Kraken" Tag="kraken"/></ComboBox><Button DockPanel.Dock="Right" Content="Вибрати" Tag="B" Click="Choose"/><TextBox x:Name="ModelB"/></DockPanel>
+    <Button Content="Прочитати той самий рядок" Click="Recognize" HorizontalAlignment="Left"/>
+    <TextBox x:Name="Readings" Height="100" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+    <TextBlock Text="Ваше прочитання рядка"/><TextBox x:Name="HumanText" Height="70" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="TextChanged"/>
+    <TextBlock Text="Пояснення або правило цього почерку"/><TextBox x:Name="Notes" Height="45" AcceptsReturn="True" TextWrapping="Wrap"/>
+    <CheckBox x:Name="Verified" Content="Я звірив кожен знак з оригіналом" Margin="0,6"/>
+    <Button Content="Зберегти приклад" Click="SaveLesson" HorizontalAlignment="Left"/>
+    <TextBlock Text="Приклад зберігається одразу. Ваги моделей зміняться лише після окремого навчання; пояснення зберігаються для людини, а не як автоматична зміна моделі." TextWrapping="Wrap"/>
+   </StackPanel></ScrollViewer></TabItem>
+   <TabItem Header="Приклади та історія"><Grid Margin="8"><Grid.RowDefinitions><RowDefinition/><RowDefinition Height="Auto"/><RowDefinition/></Grid.RowDefinitions><ListBox x:Name="Lessons" DisplayMemberPath="Label" SelectionChanged="SelectLesson"/><Button Grid.Row="1" Content="Новий приклад" Click="NewLesson" HorizontalAlignment="Left"/><TextBox Grid.Row="2" x:Name="History" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/></Grid></TabItem>
+   <TabItem Header="Навчання й незалежна перевірка"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="8">
+    <TextBlock Text="Роль усієї книги"/><ComboBox x:Name="Role" SelectedIndex="0"><ComboBoxItem Content="Не призначено" Tag=""/><ComboBoxItem Content="Навчання" Tag="train"/><ComboBoxItem Content="Перевірка під час навчання" Tag="validation"/><ComboBoxItem Content="Незалежний тест" Tag="test"/></ComboBox>
+    <Button Content="Зберегти роль книги" Click="SaveRole" HorizontalAlignment="Left"/>
+    <TextBlock Text="Тестові книги не навчають модель. Потрібні окремі книги для навчання і перевірки. Непевні та пошкоджені рядки виключаються." TextWrapping="Wrap"/>
+    <Button Content="Експортувати перевірений набір" Click="Export" HorizontalAlignment="Left"/>
+    <TextBlock Text="Кількість епох Kraken"/><TextBox x:Name="Epochs" Text="1" Width="80" HorizontalAlignment="Left"/>
+    <CheckBox x:Name="TrainConfirmed" Content="Навчити окрему копію моделі A, зберігши оригінал" Margin="0,8"/>
+    <Button Content="Навчити копію Kraken" Click="Train" HorizontalAlignment="Left"/>
+    <TextBlock Text="Навчання TrOCR у цьому вікні не підтримується. Новий файл Kraken не стає активною моделлю автоматично: виберіть його як модель B і порівняйте на окремих тестових книгах." TextWrapping="Wrap"/>
+    <Button Content="Порівняти A і B на тестових книгах" Click="Heldout" HorizontalAlignment="Left"/>
+    <TextBox x:Name="TrainingReport" Height="280" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+   </StackPanel></ScrollViewer></TabItem>
+  </TabControl>
+ </DockPanel>
+</Window>

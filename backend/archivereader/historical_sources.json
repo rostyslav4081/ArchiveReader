@@ -1,0 +1,1941 @@
+{
+  "version": 1,
+  "policy": "Довідковий каталог зберігає всі посилання й буквальні бібліографічні відомості добірки. Наявність або прочитання сторінки не підтверджує правило для іншої епохи, руки чи документа. checked=false: користувач ще має перевірити конкретний локатор. Немає автоматичних виправлень, навчальних еталонів, прав на масове копіювання чи твердження про прочитання всіх книг. Порожні датування не виводяться з назв; буквальні дати збережені в описі походження.",
+  "sources": [
+    {
+      "id": "2d7552c6e829fcad",
+      "title": "Wokabularz trydencki",
+      "url": "https://www.staropolska.pl/teksty/proza.pdf",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Wokabularz trydencki: близько 1424; передрук тексту, не підтверджений повний скан рукопису.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Wokabularz trydencki: близько 1424; передрук тексту, не підтверджений повний скан рукопису."
+        }
+      ]
+    },
+    {
+      "id": "2e813120c2319fbc",
+      "title": "Bartłomiej z Bydgoszczy",
+      "url": "https://www.wbc.poznan.pl/dlibra/doccontent?id=3664",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Bartłomiej z Bydgoszczy: видання за рукописом 1532.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Bartłomiej z Bydgoszczy: видання за рукописом 1532."
+        }
+      ]
+    },
+    {
+      "id": "39dbc4e01e628455",
+      "title": "Mączyński, Lexicon Latino Polonicum",
+      "url": "https://www.wbc.poznan.pl/dlibra/publication/14839/edition/23849?language=pl",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Mączyński, Lexicon Latino Polonicum: стародрук 1564.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Mączyński, Lexicon Latino Polonicum: стародрук 1564."
+        }
+      ]
+    },
+    {
+      "id": "c41273722114f264",
+      "title": "Кларет",
+      "url": "https://titus.uni-frankfurt.de/texte/etcs/slav/acech/klaret/klare.htm",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Кларет: електронне видання латинсько-чеських текстів XIVст.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Кларет: електронне видання латинсько-чеських текстів XIVст."
+        }
+      ]
+    },
+    {
+      "id": "8962e1ea2e723a92",
+      "title": "Rešl",
+      "url": "https://vokabular-test.ujc.cas.cz/materialy/ResSlovLatCes_uvod.html",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Rešl: електронне видання словника 1560.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Rešl: електронне видання словника 1560."
+        }
+      ]
+    },
+    {
+      "id": "4e2ab13019426033",
+      "title": "Nomenclator quadrilinguis",
+      "url": "https://digital.francke-halle.de/fsaad/content/titleinfo/1244904",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Nomenclator quadrilinguis:1598, чеська/латина/грецька/німецька.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Nomenclator quadrilinguis:1598, чеська/латина/грецька/німецька."
+        }
+      ]
+    },
+    {
+      "id": "2cd2c4e6698161ce",
+      "title": "Kamaldulský slovník",
+      "url": "https://beliana.sav.sk/heslo/kamaldulsky-slovnik",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Kamaldulský slovník: опис рукопису 1763, повний відкритий скан не підтверджено.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Kamaldulský slovník: опис рукопису 1763, повний відкритий скан не підтверджено."
+        }
+      ]
+    },
+    {
+      "id": "c1b9da351f7a53b1",
+      "title": "Bernolák",
+      "url": "https://books.google.com/books?id=MQ8JAAAAQAAJ",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Bernolák: видання від 1825, основний напрямок від словацької до відповідників.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Bernolák: видання від 1825, основний напрямок від словацької до відповідників."
+        }
+      ]
+    },
+    {
+      "id": "d09ba931fa19afa3",
+      "title": "Słownik staropolski, IJP PAN",
+      "url": "https://pjs.ijppan.pl/sstp.html",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Słownik staropolski, IJP PAN.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "search_presence_only: наявність академічної сторінки/статей підтверджена пошуком 2026-10-15; пряме відкриття домашньої сторінки не вдалося; конкретний відповідник не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Słownik staropolski, IJP PAN."
+        }
+      ]
+    },
+    {
+      "id": "d7133fc54bf37966",
+      "title": "Vokabulář webový, ÚJČ",
+      "url": "https://novy.vokabular.ujc.cas.cz/",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Vokabulář webový, ÚJČ: історичні словники та електронні тексти; це сучасний портал.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "search_presence_only: наявність академічної сторінки/статей підтверджена пошуком 2026-10-15; пряме відкриття домашньої сторінки не вдалося; конкретний відповідник не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Vokabulář webový, ÚJČ: історичні словники та електронні тексти; це сучасний портал."
+        }
+      ]
+    },
+    {
+      "id": "ed1e858a6bba2484",
+      "title": "Словниковий портал JÚĽŠ SAV",
+      "url": "https://slovnik.juls.savba.sk/",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Словниковий портал JÚĽŠ SAV: вибирати конкретний історичний словник, не змішувати з сучасними.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Словниковий портал JÚĽŠ SAV: вибирати конкретний історичний словник, не змішувати з сучасними."
+        }
+      ]
+    },
+    {
+      "id": "89199ccd49502c93",
+      "title": "Du Cange",
+      "url": "https://ducange.enc.sorbonne.fr/",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Du Cange: пізніше наукове видання середньовічної латини.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "search_presence_only: наявність академічної сторінки/статей підтверджена пошуком 2026-10-15; пряме відкриття домашньої сторінки не вдалося; конкретний відповідник не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Латина, польська, чеська, словацька",
+          "description": "Du Cange: пізніше наукове видання середньовічної латини."
+        }
+      ]
+    },
+    {
+      "id": "8f47d751453c5ef7",
+      "title": "Vocabularius ex quo, Clm 235",
+      "url": "https://www.digitale-sammlungen.de/en/details/bsb00120603",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Vocabularius ex quo, Clm 235: рукопис 1465.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Німецька, угорська та ранні латинські словники",
+          "description": "Vocabularius ex quo, Clm 235: рукопис 1465."
+        }
+      ]
+    },
+    {
+      "id": "1be8cc95114d2158",
+      "title": "Catholicon",
+      "url": "https://www.loc.gov/resource/rbc0001.2012rosen0031/?st=image",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Catholicon: стародрук 1460.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Німецька, угорська та ранні латинські словники",
+          "description": "Catholicon: стародрук 1460."
+        }
+      ]
+    },
+    {
+      "id": "fbd86dfdc68fb08d",
+      "title": "Schlägli magyar szójegyzék",
+      "url": "https://digitalia.lib.pte.hu/hu/pub/szamota-istvan-a-schlagli-magyar-szojegyzek-a-xv-sz-elso-negyedebol-mta-bp-1894-3698",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Schlägli magyar szójegyzék: видання 1894 глосаріяXVст.; PDF.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Німецька, угорська та ранні латинські словники",
+          "description": "Schlägli magyar szójegyzék: видання 1894 глосаріяXVст.; PDF."
+        }
+      ]
+    },
+    {
+      "id": "bcd27bd8f9ef9eef",
+      "title": "Schlägli magyar szójegyzék — PDF",
+      "url": "https://real-eod.mtak.hu/8508/1/MTA_EgyediKonyvek_204329.pdf",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Schlägli magyar szójegyzék: видання 1894 глосаріяXVст.; PDF.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Німецька, угорська та ранні латинські словники",
+          "description": "Schlägli magyar szójegyzék: видання 1894 глосаріяXVст.; PDF."
+        }
+      ]
+    },
+    {
+      "id": "2b7ac04e09414def",
+      "title": "Frühneuhochdeutsches Wörterbuch",
+      "url": "https://fwb-online.de/",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Frühneuhochdeutsches Wörterbuch.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Німецька, угорська та ранні латинські словники",
+          "description": "Frühneuhochdeutsches Wörterbuch."
+        }
+      ]
+    },
+    {
+      "id": "c2ef3042f87f1c81",
+      "title": "Trierer Wörterbuchnetz",
+      "url": "https://woerterbuchnetz.de/",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Trierer Wörterbuchnetz: збірка різних словників, потрібна назва конкретного.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Німецька, угорська та ранні латинські словники",
+          "description": "Trierer Wörterbuchnetz: збірка різних словників, потрібна назва конкретного."
+        }
+      ]
+    },
+    {
+      "id": "c2698975a6cc09ba",
+      "title": "Diefenbach,1857",
+      "url": "https://archive.org/details/glossariumlatino00dief",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Diefenbach,1857.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Німецька, угорська та ранні латинські словники",
+          "description": "Diefenbach,1857."
+        }
+      ]
+    },
+    {
+      "id": "5e2c288a3404b983",
+      "title": "Словник староукраїнської мови XIV–XVст.",
+      "url": "https://litopys.org.ua/djvu/starukr_slovnyk.htm",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Словник староукраїнської мови XIV–XVст.: пізніше наукове видання.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Українська й церковнослов’янська",
+          "description": "Словник староукраїнської мови XIV–XVст.: пізніше наукове видання."
+        }
+      ]
+    },
+    {
+      "id": "2bc42e98416e5f6d",
+      "title": "Зизаній, Лексис 1596",
+      "url": "https://litopys.org.ua/zyzlex/zyz.htm",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Зизаній, Лексис 1596.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Українська й церковнослов’янська",
+          "description": "Зизаній, Лексис 1596."
+        }
+      ]
+    },
+    {
+      "id": "7dc1ee47b468200b",
+      "title": "Беринда, Лексикон 1627",
+      "url": "https://izbornyk.org.ua/berlex/be.htm",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Беринда, Лексикон 1627.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Українська й церковнослов’янська",
+          "description": "Беринда, Лексикон 1627."
+        }
+      ]
+    },
+    {
+      "id": "e86f74b2fadd6f73",
+      "title": "Словник староукраїнської мови, том 1 — Інститут українознавства",
+      "url": "https://www.inst-ukr.lviv.ua/uk/publications/materials/documents/?newsid=1408",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Словник староукраїнської мови, том 1 — Інститут українознавства: додаткове посилання користувача; конкретну сторінку та зміст у цьому кроці не перевірено.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Українська й церковнослов’янська",
+          "description": "Словник староукраїнської мови, том 1 — Інститут українознавства: додаткове посилання користувача; конкретну сторінку та зміст у цьому кроці не перевірено."
+        }
+      ]
+    },
+    {
+      "id": "6e8ad0ea6545d9b0",
+      "title": "Wokabularz trydencki — наукова стаття",
+      "url": "https://rcin.org.pl/Content/116146",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Wokabularz trydencki — наукова стаття: додаткове посилання користувача на дослідження, не сам рукопис; зміст у цьому кроці не перевірено.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Українська й церковнослов’янська",
+          "description": "Wokabularz trydencki — наукова стаття: додаткове посилання користувача на дослідження, не сам рукопис; зміст у цьому кроці не перевірено."
+        }
+      ]
+    },
+    {
+      "id": "f0f5a5b177fcc854",
+      "title": "Опатовицький гоміліарій та ранні словнички",
+      "url": "https://www.czechency.org/slovnik/SLOVN%C3%8DKY%20%C4%8CE%C5%A0TINY",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Опатовицький гоміліарій та ранні словнички: глоси й приписки, не обов’язково окремий словник.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Ранні чеські глоси: датування кожного шару",
+          "description": "Опатовицький гоміліарій та ранні словнички: глоси й приписки, не обов’язково окремий словник."
+        }
+      ]
+    },
+    {
+      "id": "df1e68a37683a4b2",
+      "title": "Mater verborum, музейний каталог",
+      "url": "https://www.esbirky.cz/predmet/mater-verborum-182364",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Mater verborum, музейний каталог: зображення рукопису; дата кодексу не датує кожну приписку.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Ранні чеські глоси: датування кожного шару",
+          "description": "Mater verborum, музейний каталог: зображення рукопису; дата кодексу не датує кожну приписку."
+        }
+      ]
+    },
+    {
+      "id": "efbd1d72f7f29b93",
+      "title": "Rostlinář olomoucký",
+      "url": "https://nase-rec.ujc.cas.cz/archiv.php?art=7835&lang=en",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Rostlinář olomoucký: тематичний словничок рослин.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Ранні чеські глоси: датування кожного шару",
+          "description": "Rostlinář olomoucký: тематичний словничок рослин."
+        }
+      ]
+    },
+    {
+      "id": "cb80f66be529197c",
+      "title": "Критичний огляд BOHEMIKA",
+      "url": "https://www.czechency.org/slovnik/BOHEMIKA",
+      "category": "dictionary",
+      "resource_type": "catalogued_reference",
+      "scope": "Критичний огляд BOHEMIKA: перевірено 2026-10-15. Огляд розрізняє середньовічні й молодші справжні глоси Mater verborum та пізні підробки. Також датує оломоуцькі глоси XII ст., а ширші приписки гоміліарія другою половиною XIII ст.; не зводити всі матеріали до єдиної дати.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "academic_overview_read_by_parent: перевірено 2026-10-15; розрізняти шари глос і підробки, не переносити дату кодексу на кожну приписку.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_LEXICONS.uk.md",
+          "section": "Ранні чеські глоси: датування кожного шару",
+          "description": "Критичний огляд BOHEMIKA: перевірено 2026-10-15. Огляд розрізняє середньовічні й молодші справжні глоси Mater verborum та пізні підробки. Також датує оломоуцькі глоси XII ст., а ширші приписки гоміліарія другою половиною XIII ст.; не зводити всі матеріали до єдиної дати."
+        }
+      ]
+    },
+    {
+      "id": "3d2ca0ea89e76a7e",
+      "title": "UW: Jakub Parkoszowic, Traktat o ortografii polskiej",
+      "url": "https://gramatyki.uw.edu.pl/book/3",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "UW: Jakub Parkoszowic, Traktat o ortografii polskiej. Академічний опис підтверджує пропозиції написання носового голосного через ø/øø та обмежену рецепцію проєкту. Не переносити їх на всю польську писемність. Приклад у програмі лише заповнює форму для перевірки, а не змінює текст документа.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "official_page_read_by_parent: академічний опис перевірено 2026-10-15; приклад ø/øø є пропозицією реформи з обмеженою рецепцією, не загальним правилом.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Перевірені в цьому кроці сторінки",
+          "description": "UW: Jakub Parkoszowic, Traktat o ortografii polskiej. Академічний опис підтверджує пропозиції написання носового голосного через ø/øø та обмежену рецепцію проєкту. Не переносити їх на всю польську писемність. Приклад у програмі лише заповнює форму для перевірки, а не змінює текст документа."
+        }
+      ]
+    },
+    {
+      "id": "5a850f2b4561bfcb",
+      "title": "Університет Ґіссена: Niclas von Wyle, Vorrede (1478)",
+      "url": "https://www.uni-giessen.de/de/fbz/fb05/germanistik/absprache/sprachverwendung/gloning/tx/wyl_trvo.htm",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Університет Ґіссена: Niclas von Wyle, Vorrede (1478). Електронний текст передмови доступний; конкретні правила ще не вилучені в базу.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "official_text_presence_read_by_parent: електронна передмова доступна, перевірено 2026-10-15; усі правила не вилучено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Перевірені в цьому кроці сторінки",
+          "description": "Університет Ґіссена: Niclas von Wyle, Vorrede (1478). Електронний текст передмови доступний; конкретні правила ще не вилучені в базу."
+        }
+      ]
+    },
+    {
+      "id": "7eceb32ec4e927e7",
+      "title": "Zaborowski",
+      "url": "https://gramatyki.uw.edu.pl/book/2?lang=en",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Zaborowski, близько 1514–1515.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Польська й чеська",
+          "description": "Zaborowski, близько 1514–1515."
+        }
+      ]
+    },
+    {
+      "id": "a7eba3502a485ac0",
+      "title": "Statorius-Stojeński",
+      "url": "https://gramatyki.uw.edu.pl/book/168?lang=en",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Statorius-Stojeński, 1568.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Польська й чеська",
+          "description": "Statorius-Stojeński, 1568."
+        }
+      ]
+    },
+    {
+      "id": "29aa1319c75d43cb",
+      "title": "Orthographia Bohemica, оцифроване пізніше видання",
+      "url": "https://kramerius.nkp.cz/kramerius/MShowMonograph.do?id=22538",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Orthographia Bohemica, оцифроване пізніше видання; сучасне критичне видання. Не вважати традиційне авторство остаточно доведеним.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Польська й чеська",
+          "description": "Orthographia Bohemica, оцифроване пізніше видання; сучасне критичне видання. Не вважати традиційне авторство остаточно доведеним."
+        }
+      ]
+    },
+    {
+      "id": "28a572661a975bc8",
+      "title": "Orthographia Bohemica, оцифроване пізніше видання — сучасне критичне видання",
+      "url": "https://akropolis.info/kniha/orthographia-bohemica/",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Orthographia Bohemica, оцифроване пізніше видання; сучасне критичне видання. Не вважати традиційне авторство остаточно доведеним.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Польська й чеська",
+          "description": "Orthographia Bohemica, оцифроване пізніше видання; сучасне критичне видання. Не вважати традиційне авторство остаточно доведеним."
+        }
+      ]
+    },
+    {
+      "id": "017381661dbc32fe",
+      "title": "Gramatika česká 1533",
+      "url": "https://vokabular.ujc.cas.cz/moduly/mluvnice/digitalni-kopie-detail/NamGram1533",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Gramatika česká 1533.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Польська й чеська",
+          "description": "Gramatika česká 1533."
+        }
+      ]
+    },
+    {
+      "id": "c61bd296de571af3",
+      "title": "Benedikt z Nudožer, 1603",
+      "url": "https://books.google.cz/books?id=FmlcAAAAcAAJ",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Benedikt z Nudožer, 1603: чеська граматика, не окремий словацький правопис.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Польська й чеська",
+          "description": "Benedikt z Nudožer, 1603: чеська граматика, не окремий словацький правопис."
+        }
+      ]
+    },
+    {
+      "id": "2aedf6d327bc5254",
+      "title": "Doležal, 1746",
+      "url": "https://vokabular.ujc.cas.cz/moduly/mluvnice/digitalni-kopie-detail/DolGram1746/strana-1",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Doležal, 1746.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Польська й чеська",
+          "description": "Doležal, 1746."
+        }
+      ]
+    },
+    {
+      "id": "023121838769ba95",
+      "title": "Bernolák, Dissertatio та Orthographia, 1787",
+      "url": "https://leopolitana.ossolineum.pl/uk/dlibra/publication/3425/edition/2925",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Bernolák, Dissertatio та Orthographia, 1787.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Словацька, угорська й німецька",
+          "description": "Bernolák, Dissertatio та Orthographia, 1787."
+        }
+      ]
+    },
+    {
+      "id": "9ecdc9ea77d0990e",
+      "title": "Bernolák, Grammatica Slavica, 1790",
+      "url": "https://books.google.com/books?id=XHNkAAAAcAAJ",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Bernolák, Grammatica Slavica, 1790.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Словацька, угорська й німецька",
+          "description": "Bernolák, Grammatica Slavica, 1790."
+        }
+      ]
+    },
+    {
+      "id": "83116226d326c6a8",
+      "title": "Sylvester, Grammatica Hungarolatina, 1539",
+      "url": "https://szovegtar.iti.mta.hu/hu/muvek/grammatica-hungarolatina/",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Sylvester, Grammatica Hungarolatina, 1539; PDF.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Словацька, угорська й німецька",
+          "description": "Sylvester, Grammatica Hungarolatina, 1539; PDF."
+        }
+      ]
+    },
+    {
+      "id": "9b9143476558e603",
+      "title": "Sylvester, Grammatica Hungarolatina, 1539 — PDF",
+      "url": "https://mek.oszk.hu/05700/05725/05725.pdf",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Sylvester, Grammatica Hungarolatina, 1539; PDF.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Словацька, угорська й німецька",
+          "description": "Sylvester, Grammatica Hungarolatina, 1539; PDF."
+        }
+      ]
+    },
+    {
+      "id": "4d526fb31a8ef365",
+      "title": "Dévai Bíró, Orthographia Vngarica, збережене видання 1549",
+      "url": "https://opac.elte.hu/Search2Record/MEK-27085",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Dévai Bíró, Orthographia Vngarica, збережене видання 1549.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Словацька, угорська й німецька",
+          "description": "Dévai Bíró, Orthographia Vngarica, збережене видання 1549."
+        }
+      ]
+    },
+    {
+      "id": "ef08fc120d87791c",
+      "title": "Ickelsamer, Teutsche Grammatica",
+      "url": "https://epub.ub.uni-muenchen.de/12188/",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Ickelsamer, Teutsche Grammatica.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Словацька, угорська й німецька",
+          "description": "Ickelsamer, Teutsche Grammatica."
+        }
+      ]
+    },
+    {
+      "id": "3fc687f41737242e",
+      "title": "Hegendorff, багатомовна редакція Rudimenta, 1527",
+      "url": "https://diglib.hab.de/content.php?dir=ebooks%2Fed000171&distype=optional&metsID=hegendorff&xml=texts%2Fhegendorff.xml&xsl=scripts%2Ftei-introduction.xsl",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Hegendorff, багатомовна редакція Rudimenta, 1527: граматика латини з іншомовними поясненнями, не окремі правописи кожної мови.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Словацька, угорська й німецька",
+          "description": "Hegendorff, багатомовна редакція Rudimenta, 1527: граматика латини з іншомовними поясненнями, не окремі правописи кожної мови."
+        }
+      ]
+    },
+    {
+      "id": "0bb1c47c04daa3e2",
+      "title": "Bern, Cod.330, опис",
+      "url": "https://www.e-codices.unifr.ch/de/description/bbb/0330/Mittenhuber",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Bern, Cod.330, опис.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Латинські рукописи",
+          "description": "Bern, Cod.330, опис."
+        }
+      ]
+    },
+    {
+      "id": "6b4637cc5ebfe551",
+      "title": "Priscianus, Cod. Sang.903",
+      "url": "https://e-codices.unifr.ch/en/list/one/csg/0903",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Priscianus, Cod. Sang.903.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Латинські рукописи",
+          "description": "Priscianus, Cod. Sang.903."
+        }
+      ]
+    },
+    {
+      "id": "f0907224af817292",
+      "title": "Чорноризець Храбр, сучасний болгарський переклад",
+      "url": "https://istorianasveta.eu/ct-menu-item-17/литература/506-за-буквите.html",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Чорноризець Храбр, сучасний болгарський переклад; опис збірника 1348. Трактат про абетку, не універсальний український правопис.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Чорноризець Храбр, сучасний болгарський переклад; опис збірника 1348. Трактат про абетку, не універсальний український правопис."
+        }
+      ]
+    },
+    {
+      "id": "c8c4bdfe7aa42d1f",
+      "title": "Чорноризець Храбр, сучасний болгарський переклад — опис збірника 1348",
+      "url": "https://sesdiva.eu/virtualni-stai/individualno-chetene/item/181-lavrentiy-miscellany-bg",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Чорноризець Храбр, сучасний болгарський переклад; опис збірника 1348. Трактат про абетку, не універсальний український правопис.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Чорноризець Храбр, сучасний болгарський переклад; опис збірника 1348. Трактат про абетку, не універсальний український правопис."
+        }
+      ]
+    },
+    {
+      "id": "f62e98bcfe2e4d82",
+      "title": "«О осмихъ частехъ слова» і видання 1586, науковий розбір",
+      "url": "https://litopys.org.ua/nimchuk/nim05.htm",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "«О осмихъ частехъ слова» і видання 1586, науковий розбір: атрибуцію й датування перевіряти критично.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "«О осмихъ частехъ слова» і видання 1586, науковий розбір: атрибуцію й датування перевіряти критично."
+        }
+      ]
+    },
+    {
+      "id": "ef759f13f338d48f",
+      "title": "Костенецький, науковий розбір",
+      "url": "https://litopys.org.ua/nimchuk/nim06.htm",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Костенецький, науковий розбір; окремий пізніший рукописний список.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Костенецький, науковий розбір; окремий пізніший рукописний список."
+        }
+      ]
+    },
+    {
+      "id": "eb701db0a806c1d6",
+      "title": "Костенецький, науковий розбір — окремий пізніший рукописний список",
+      "url": "https://kp.rusneb.ru/item/material/skazanie-o-pismenah-slovesa-v-kratce",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Костенецький, науковий розбір; окремий пізніший рукописний список.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Костенецький, науковий розбір; окремий пізніший рукописний список."
+        }
+      ]
+    },
+    {
+      "id": "a77457aef10bac00",
+      "title": "Федорович, Буквар 1574",
+      "url": "https://litopys.org.ua/fedorovych/bf.htm",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Федорович, Буквар 1574.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Федорович, Буквар 1574."
+        }
+      ]
+    },
+    {
+      "id": "f2deeb77aaeb072b",
+      "title": "Зизаній, Граматика 1596",
+      "url": "https://izbornyk.org.ua/zyzgram/zy.htm",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Зизаній, Граматика 1596.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Зизаній, Граматика 1596."
+        }
+      ]
+    },
+    {
+      "id": "6d82e26d65a9adcd",
+      "title": "Зизаній, Граматика — бібліографічний каталог",
+      "url": "https://rusneb.ru/catalog/000200_000018_RU_NLR_DIGIT_117018/",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Зизаній, Граматика — бібліографічний каталог: додаткове посилання користувача; опис і наявність повного скану в цьому кроці не перевірено.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Зизаній, Граматика — бібліографічний каталог: додаткове посилання користувача; опис і наявність повного скану в цьому кроці не перевірено."
+        }
+      ]
+    },
+    {
+      "id": "3ee37fb89da51589",
+      "title": "Грамматика слов'янська 1619 — електронний текст",
+      "url": "https://uk.wikisource.org/wiki/Грамматика_слов%27янська_1619",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Грамматика слов'янська 1619 — електронний текст: додаткове посилання користувача; електронна транскрипція не є автоматично перевіреним прочитанням оригіналу, зміст у цьому кроці не перевірено.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Грамматика слов'янська 1619 — електронний текст: додаткове посилання користувача; електронна транскрипція не є автоматично перевіреним прочитанням оригіналу, зміст у цьому кроці не перевірено."
+        }
+      ]
+    },
+    {
+      "id": "b73a11d76d91a4f8",
+      "title": "Смотрицький, матеріали",
+      "url": "https://litopys.org.ua/stsl/stsl.htm",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Смотрицький, матеріали; науковий опис.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Смотрицький, матеріали; науковий опис."
+        }
+      ]
+    },
+    {
+      "id": "5d2f3970109ca779",
+      "title": "Смотрицький, матеріали — науковий опис",
+      "url": "https://litopys.org.ua/smotrgram/sm01.htm",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Смотрицький, матеріали; науковий опис.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Смотрицький, матеріали; науковий опис."
+        }
+      ]
+    },
+    {
+      "id": "b4c6b97de57b7954",
+      "title": "Ужевич, рукописи 1643 та 1645",
+      "url": "https://litopys.org.ua/uzhgram/uz.htm",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Ужевич, рукописи 1643 та 1645; скан пізнішого видання.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Ужевич, рукописи 1643 та 1645; скан пізнішого видання."
+        }
+      ]
+    },
+    {
+      "id": "4274280693f575c1",
+      "title": "Ужевич, рукописи 1643 та 1645 — скан пізнішого видання",
+      "url": "https://archive.org/details/IvanUzhevychGrammaticaSclavonica",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Ужевич, рукописи 1643 та 1645; скан пізнішого видання.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Ужевич, рукописи 1643 та 1645; скан пізнішого видання."
+        }
+      ]
+    },
+    {
+      "id": "dc591cc1abf31493",
+      "title": "Ягич, Codex slovenicus rerum grammaticarum, 1896",
+      "url": "https://books.google.com/books?id=e3hhAAAAMAAJ",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "Ягич, Codex slovenicus rerum grammaticarum, 1896: пізніше видання старіших текстів.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "Ягич, Codex slovenicus rerum grammaticarum, 1896: пізніше видання старіших текстів."
+        }
+      ]
+    },
+    {
+      "id": "d249c9fdc186c716",
+      "title": "GORAZD",
+      "url": "https://gorazd.org/",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "GORAZD; картотека: сучасні словникові ресурси, не давній підручник.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "GORAZD; картотека: сучасні словникові ресурси, не давній підручник."
+        }
+      ]
+    },
+    {
+      "id": "0148a67ab2d45def",
+      "title": "GORAZD — картотека",
+      "url": "https://gorazd.org/kartoteka/?envLang=ru",
+      "category": "grammar",
+      "resource_type": "catalogued_reference",
+      "scope": "GORAZD; картотека: сучасні словникові ресурси, не давній підручник.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Не встановлено для конкретного рукопису, глоси або правила.",
+      "verification": "user_provided_unverified: бібліографічні відомості користувача; конкретну сторінку не перевірено.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/HISTORICAL_GRAMMARS.uk.md",
+          "section": "Кириличні традиції",
+          "description": "GORAZD; картотека: сучасні словникові ресурси, не давній підручник."
+        }
+      ]
+    },
+    {
+      "id": "19a84884a4dd26fa",
+      "title": "Ad fontes — Introduction",
+      "url": "https://www.adfontes.uzh.ch/en/ad-fontes/introduction",
+      "category": "paleography",
+      "resource_type": "university_tutorial",
+      "scope": "Навчальні розділи читання, транскрибування, датування та роботи з джерелами; не універсальна модель розпізнавання.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Перевірено офіційне розміщення; це не підтвердження автентичності кожного прикладу чи застосовності до іншого документа.",
+      "verification": "official_page_read: відкрито й прочитано релевантний розділ 2026-10-15; не прочитано всі книги й не перевірено конкретне правило для користувацького документа. Наданий хост повернув помилку доступу; прочитано офіційний www-хост того самого розділу.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "official_web_read_2026-10-15",
+          "section": "Ad fontes — Introduction",
+          "description": "Навчальні розділи читання, транскрибування, датування та роботи з джерелами; не універсальна модель розпізнавання."
+        }
+      ],
+      "supplied_url": "https://adfontes.uzh.ch/en/ad-fontes/introduction"
+    },
+    {
+      "id": "812a358129cddfb4",
+      "title": "Ad fontes — Schriften lesen",
+      "url": "https://www.adfontes.uzh.ch/tutorium/schriften-lesen",
+      "category": "paleography",
+      "resource_type": "university_tutorial",
+      "scope": "Читання письма, історія письма, скорочення й правила транскрибування; застосування до конкретної руки перевіряє людина.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Перевірено офіційне розміщення; це не підтвердження автентичності кожного прикладу чи застосовності до іншого документа.",
+      "verification": "official_page_read: відкрито й прочитано релевантний розділ 2026-10-15; не прочитано всі книги й не перевірено конкретне правило для користувацького документа. Наданий хост повернув помилку доступу; прочитано офіційний www-хост того самого розділу.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "official_web_read_2026-10-15",
+          "section": "Ad fontes — Schriften lesen",
+          "description": "Читання письма, історія письма, скорочення й правила транскрибування; застосування до конкретної руки перевіряє людина."
+        }
+      ],
+      "supplied_url": "https://adfontes.uzh.ch/tutorium/schriften-lesen"
+    },
+    {
+      "id": "b3127cbf75de2778",
+      "title": "Ad fontes — Cappelli online",
+      "url": "https://www.adfontes.uzh.ch/ressourcen/abkuerzungen/cappelli-online",
+      "category": "abbreviation",
+      "resource_type": "university_reference_database",
+      "scope": "Пошук скорочень із посиланням на скан сторінки Cappelli. Сайт прямо попереджає про можливі помилки; окреме скорочення потребує перевірки.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Перевірено офіційне розміщення; це не підтвердження автентичності кожного прикладу чи застосовності до іншого документа.",
+      "verification": "official_page_read: відкрито й прочитано релевантний розділ 2026-10-15; не прочитано всі книги й не перевірено конкретне правило для користувацького документа.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "official_web_read_2026-10-15",
+          "section": "Ad fontes — Cappelli online",
+          "description": "Пошук скорочень із посиланням на скан сторінки Cappelli. Сайт прямо попереджає про можливі помилки; окреме скорочення потребує перевірки."
+        }
+      ]
+    },
+    {
+      "id": "53439794eec0480a",
+      "title": "The National Archives — Latin Palaeography activities and documents",
+      "url": "https://cdn.nationalarchives.gov.uk/documents/latin-palaeography-activities-and-documents.pdf",
+      "category": "paleography",
+      "resource_type": "archive_tutorial_pdf",
+      "scope": "108-сторінковий навчальний PDF із конкретними документами, скороченнями, запитаннями й відповідями. Читано вступ і приклади, не весь посібник; дати кожного документа окремі.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Перевірено офіційне розміщення; це не підтвердження автентичності кожного прикладу чи застосовності до іншого документа.",
+      "verification": "official_page_read: відкрито й прочитано релевантний розділ 2026-10-15; не прочитано всі книги й не перевірено конкретне правило для користувацького документа.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "official_web_read_2026-10-15",
+          "section": "The National Archives — Latin Palaeography activities and documents",
+          "description": "108-сторінковий навчальний PDF із конкретними документами, скороченнями, запитаннями й відповідями. Читано вступ і приклади, не весь посібник; дати кожного документа окремі."
+        }
+      ]
+    },
+    {
+      "id": "ed25b32641d7ffea",
+      "title": "Ad fontes — Transcription Guidelines",
+      "url": "https://www.adfontes.uzh.ch/en/ressourcen/schriften-lesen/transkriptionsregeln-pdf",
+      "category": "transcription",
+      "resource_type": "university_guidelines",
+      "scope": "Вказівки щодо структури тексту, приміток, пропусків, пошкоджень, рук писарів і опису носія; вибір конвенції потребує явної перевірки.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Перевірено офіційне розміщення; це не підтвердження автентичності кожного прикладу чи застосовності до іншого документа.",
+      "verification": "official_page_read: відкрито й прочитано релевантний розділ 2026-10-15; не прочитано всі книги й не перевірено конкретне правило для користувацького документа. Наданий хост повернув помилку доступу; прочитано офіційний www-хост того самого розділу.",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "official_web_read_2026-10-15",
+          "section": "Ad fontes — Transcription Guidelines",
+          "description": "Вказівки щодо структури тексту, приміток, пропусків, пошкоджень, рук писарів і опису носія; вибір конвенції потребує явної перевірки."
+        }
+      ],
+      "supplied_url": "https://histadfontes03.uzh.ch/en/ressourcen/schriften-lesen/transkriptionsregeln-pdf"
+    },
+    {
+      "id": "66be01e1768430ad",
+      "title": "Glottolog: каталог мов і різновидів",
+      "url": "https://glottolog.org/glottolog/language",
+      "category": "language_catalog",
+      "resource_type": "language_catalog",
+      "scope": "Glottolog: каталог мов і різновидів: офіційна сторінка відкрита 2026-10-15. Ідентифікує мовні різновиди; це не словник і не модель письма.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_global_page_read: перевірено офіційну сторінку 2026-10-15; конкретні словникові статті, правила і повні тексти не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "official_page_read",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Каталоги й бібліографії",
+          "description": "Glottolog: каталог мов і різновидів: офіційна сторінка відкрита 2026-10-15. Ідентифікує мовні різновиди; це не словник і не модель письма."
+        }
+      ]
+    },
+    {
+      "id": "923f272be39845f5",
+      "title": "Glottolog: бібліографія Langdoc",
+      "url": "https://glottolog.org/langdoc",
+      "category": "bibliography",
+      "resource_type": "bibliography",
+      "scope": "Glottolog: бібліографія Langdoc: офіційна таблиця пошуку відкрита. Дає бібліографічні описи; доступність повного тексту й застосовність кожного видання перевіряються окремо. Поточну кількість записів не фіксуємо як гарантію покриття.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_global_page_read: перевірено офіційну сторінку 2026-10-15; конкретні словникові статті, правила і повні тексти не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "official_page_read",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Каталоги й бібліографії",
+          "description": "Glottolog: бібліографія Langdoc: офіційна таблиця пошуку відкрита. Дає бібліографічні описи; доступність повного тексту й застосовність кожного видання перевіряються окремо. Поточну кількість записів не фіксуємо як гарантію покриття."
+        }
+      ]
+    },
+    {
+      "id": "e1bc581fef2d2b6d",
+      "title": "OLAC: пошук архівних мовних ресурсів",
+      "url": "https://search.language-archives.org/",
+      "category": "metadata_search",
+      "resource_type": "metadata_search",
+      "scope": "OLAC: пошук архівних мовних ресурсів: офіційна пошукова оболонка доступна, потребує JavaScript; виконання пошуку й окремі ресурси не перевірені.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_shell_only: доступна оболонка з вимогою JavaScript; пошукові результати не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "javascript_shell_only",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Каталоги й бібліографії",
+          "description": "OLAC: пошук архівних мовних ресурсів: офіційна пошукова оболонка доступна, потребує JavaScript; виконання пошуку й окремі ресурси не перевірені."
+        }
+      ]
+    },
+    {
+      "id": "dbd84bd034bea0b0",
+      "title": "OLAC: індекс мов",
+      "url": "https://search.language-archives.org/language",
+      "category": "metadata_search",
+      "resource_type": "metadata_search",
+      "scope": "OLAC: індекс мов: індекс знайдений пошуком на офіційному домені; пряме відкриття завершилося помилкою кешу. Це покажчик метаданих, не набір транскрипцій усіх мов.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_search_presence_only: індекс мов знайдений на офіційному домені, пряме відкриття не вдалося; записи не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "search_presence_only",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Каталоги й бібліографії",
+          "description": "OLAC: індекс мов: індекс знайдений пошуком на офіційному домені; пряме відкриття завершилося помилкою кешу. Це покажчик метаданих, не набір транскрипцій усіх мов."
+        }
+      ]
+    },
+    {
+      "id": "b121cf00c763f8c5",
+      "title": "WALS: мови",
+      "url": "https://wals.info/languoid",
+      "category": "language_catalog",
+      "resource_type": "language_catalog",
+      "scope": "WALS: мови: офіційна таблиця відкрита; типологічні описи й мовні коди не визначають мову конкретного рукопису.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_global_page_read: перевірено офіційну сторінку 2026-10-15; конкретні словникові статті, правила і повні тексти не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "official_page_read",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Каталоги й бібліографії",
+          "description": "WALS: мови: офіційна таблиця відкрита; типологічні описи й мовні коди не визначають мову конкретного рукопису."
+        }
+      ]
+    },
+    {
+      "id": "8f747364d14b5eb0",
+      "title": "WALS: бібліографія",
+      "url": "https://wals.info/refdb",
+      "category": "bibliography",
+      "resource_type": "bibliography",
+      "scope": "WALS: бібліографія: офіційна таблиця відкрита; бібліографічне посилання не замінює перевірки правила на сторінці видання.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_global_page_read: перевірено офіційну сторінку 2026-10-15; конкретні словникові статті, правила і повні тексти не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "official_page_read",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Каталоги й бібліографії",
+          "description": "WALS: бібліографія: офіційна таблиця відкрита; бібліографічне посилання не замінює перевірки правила на сторінці видання."
+        }
+      ]
+    },
+    {
+      "id": "d91746b9152663b0",
+      "title": "Trübner's catalogue of dictionaries and grammars — наданий PDF",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Trubner%27s_catalogue_of_dictionaries_and_grammars_of_the_principal_languages_and_dialects_of_the_world_-_Cornell_University_digitization_%28IA_cu31924029610379%29.pdf",
+      "category": "bibliography",
+      "resource_type": "bibliography",
+      "scope": "Trübner's catalogue of dictionaries and grammars — наданий PDF: URL користувача збережено без рекламних параметрів; PDF не завантажувався й не перевірявся. Це бібліографічний каталог, не тексти перелічених словників. Дату видання не виводимо з назви.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "user_provided_unverified: збережено буквальний URL без utm-параметрів; PDF не завантажено, сторінки не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "user_provided_unverified_pdf",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Каталоги й бібліографії",
+          "description": "Trübner's catalogue of dictionaries and grammars — наданий PDF: URL користувача збережено без рекламних параметрів; PDF не завантажувався й не перевірявся. Це бібліографічний каталог, не тексти перелічених словників. Дату видання не виводимо з назви."
+        }
+      ]
+    },
+    {
+      "id": "a99e3d363f3775fe",
+      "title": "Dictionaria: словникові публікації",
+      "url": "https://dictionaria.clld.org/contributions",
+      "category": "dictionary_collection",
+      "resource_type": "dictionary_collection",
+      "scope": "Dictionaria: словникові публікації: офіційна таблиця відкрита; окремі словники мають власні авторство, мову, версію й цитування. Записи всіх словників не імпортовані.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_global_page_read: перевірено офіційну сторінку 2026-10-15; конкретні словникові статті, правила і повні тексти не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "official_page_read",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Лексичні дані й тексти",
+          "description": "Dictionaria: словникові публікації: офіційна таблиця відкрита; окремі словники мають власні авторство, мову, версію й цитування. Записи всіх словників не імпортовані."
+        }
+      ]
+    },
+    {
+      "id": "4399efb1042881a1",
+      "title": "Intercontinental Dictionary Series",
+      "url": "https://ids.clld.org/",
+      "category": "comparative_wordlists",
+      "resource_type": "comparative_wordlists",
+      "scope": "Intercontinental Dictionary Series: офіційний опис прочитано; порівняльні тематичні списки слів, не повна граматика кожної мови. Порожня клітинка не доводить відсутності слова.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_global_page_read: перевірено офіційну сторінку 2026-10-15; конкретні словникові статті, правила і повні тексти не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "official_page_read",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Лексичні дані й тексти",
+          "description": "Intercontinental Dictionary Series: офіційний опис прочитано; порівняльні тематичні списки слів, не повна граматика кожної мови. Порожня клітинка не доводить відсутності слова."
+        }
+      ]
+    },
+    {
+      "id": "25dc5367dd71a190",
+      "title": "Corpus Corporum",
+      "url": "https://mlat.uzh.ch/",
+      "category": "text_corpus",
+      "resource_type": "text_corpus",
+      "scope": "Corpus Corporum: офіційна оболонка доступна; опис проєкту підтверджений індексом офіційного сайту, повний вміст через цей переглядач не отримано. Текстовий корпус і словникові посилання не є доказом правильного прочитання рисок на скані.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_shell_and_index_description: оболонку відкрито, опис проєкту прочитано у пошуковому індексі офіційного домену; повні корпуси не прочитано.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "official_shell_and_search_description",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Лексичні дані й тексти",
+          "description": "Corpus Corporum: офіційна оболонка доступна; опис проєкту підтверджений індексом офіційного сайту, повний вміст через цей переглядач не отримано. Текстовий корпус і словникові посилання не є доказом правильного прочитання рисок на скані."
+        }
+      ]
+    },
+    {
+      "id": "d4488303f889c0f3",
+      "title": "UW: давні польські граматики, ортографії й підручники",
+      "url": "https://gramatyki.uw.edu.pl/books",
+      "category": "grammar_collection",
+      "resource_type": "grammar_collection",
+      "scope": "UW: давні польські граматики, ортографії й підручники: офіційний список видань відкрито; кожне правило має власний локатор, епоху й межі рецепції.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_global_page_read: перевірено офіційну сторінку 2026-10-15; конкретні словникові статті, правила і повні тексти не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "official_page_read",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Лексичні дані й тексти",
+          "description": "UW: давні польські граматики, ортографії й підручники: офіційний список видань відкрито; кожне правило має власний локатор, епоху й межі рецепції."
+        }
+      ]
+    },
+    {
+      "id": "64e8df734d8f0b78",
+      "title": "Vokabulář webový: початковий портал",
+      "url": "https://vokabular.ujc.cas.cz/",
+      "category": "historical_language_portal",
+      "resource_type": "historical_language_portal",
+      "scope": "Vokabulář webový: початковий портал: пряме відкриття не вдалося; офіційний опис нового порталу підтверджує існування історичних словників, видань, корпусів і граматик. Доступ до конкретного старого розділу перевіряється окремо.",
+      "work_period": "",
+      "witness_period": "",
+      "edition_period": "",
+      "authenticity": "Каталог або офіційне розміщення не підтверджує автентичність кожного прикладу чи застосовність до іншої епохи.",
+      "verification": "official_cross_reference_only: пряма адреса недоступна; існування і склад старого порталу підтверджено прочитаним офіційним описом https://novy.vokabular.ujc.cas.cz/Home/About; конкретні ресурси не перевірено.",
+      "languages": [],
+      "scripts": [],
+      "access_status": "direct_access_failed_official_cross_reference",
+      "checked": false,
+      "auto_apply": false,
+      "gt_eligible": false,
+      "training_eligible": false,
+      "provenance": [
+        {
+          "document": "docs/GLOBAL_SOURCES.uk.md",
+          "section": "Лексичні дані й тексти",
+          "description": "Vokabulář webový: початковий портал: пряме відкриття не вдалося; офіційний опис нового порталу підтверджує існування історичних словників, видань, корпусів і граматик. Доступ до конкретного старого розділу перевіряється окремо."
+        }
+      ]
+    }
+  ]
+}

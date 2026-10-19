@@ -1,0 +1,16 @@
+<Window x:Class="ArchiveReader.ResearchBundleWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Переносний пакет дослідження" Width="970" Height="720" MinWidth="760" MinHeight="560">
+ <DockPanel Margin="15"><TextBlock x:Name="Status" DockPanel.Dock="Bottom" TextWrapping="Wrap" Margin="0,8"/><TabControl x:Name="Tabs">
+  <TabItem Header="Створити пакет"><DockPanel Margin="10"><StackPanel DockPanel.Dock="Top">
+   <TextBlock Text="Пакет містить базу, оригінальні скани, результати, перевірені набори й матеріали донавчання. Програму, Python і .NET потрібно встановити окремо." TextWrapping="Wrap"/>
+   <CheckBox x:Name="Weights" Content="Додати файли моделей (пакет може бути дуже великим)" Margin="0,10"/>
+   <TextBlock Text="Додаткові локальні моделі: один шлях до файла або папки на рядок"/><TextBox x:Name="ModelPaths" Height="65" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+   <WrapPanel Margin="0,8"><Button Content="Перевірити склад і розмір" Click="Preview" Padding="10,5"/><Button Content="Створити новий ZIP-пакет" Click="Create" Padding="10,5"/></WrapPanel>
+  </StackPanel><TextBox x:Name="PreviewReport" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/></DockPanel></TabItem>
+  <TabItem Header="Відновити пакет"><DockPanel Margin="10"><StackPanel DockPanel.Dock="Top">
+   <TextBlock Text="Відновлення створює нову бібліотеку. Наявні бібліотеки не замінюються. Перед відновленням перевіряються всі контрольні суми." TextWrapping="Wrap"/>
+   <DockPanel Margin="0,10"><Button Content="Вибрати ZIP-пакет" Click="Choose" DockPanel.Dock="Right"/><TextBox x:Name="Package"/></DockPanel>
+   <TextBlock Text="Нова папка бібліотеки"/><TextBox x:Name="Destination"/>
+   <WrapPanel Margin="0,8"><Button Content="Перевірити пакет" Click="Inspect" Padding="10,5"/><Button Content="Відновити в нову папку" Click="Restore" Padding="10,5"/></WrapPanel>
+  </StackPanel><TextBox x:Name="RestoreReport" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/></DockPanel></TabItem>
+ </TabControl></DockPanel>
+</Window>

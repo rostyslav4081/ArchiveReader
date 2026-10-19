@@ -1,0 +1,62 @@
+<Window x:Class="ArchiveReader.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="ArchiveReader • Архівна майстерня" Width="1450" Height="900" MinWidth="1050" MinHeight="650" Background="#F3F5F7" Closing="OnClosing" PreviewKeyDown="HandleShortcut">
+ <Window.Resources>
+  <Style TargetType="Button"><Setter Property="Padding" Value="13,8"/><Setter Property="Margin" Value="0,0,8,0"/><Setter Property="Background" Value="#E6ECEF"/><Setter Property="BorderThickness" Value="0"/></Style>
+  <Style TargetType="TextBox"><Setter Property="Padding" Value="7"/><Setter Property="Margin" Value="0,3,0,8"/></Style>
+ </Window.Resources>
+ <DockPanel Margin="22">
+  <StackPanel DockPanel.Dock="Top">
+   <DockPanel><TextBlock Text="Мова інтерфейсу" VerticalAlignment="Center" Margin="0,0,10,0"/><ComboBox x:Name="InterfaceLanguage" Width="160" HorizontalAlignment="Right" SelectedIndex="0" SelectionChanged="ChangeLanguage"><ComboBoxItem Content="Українська" Tag="uk"/><ComboBoxItem Content="English" Tag="en"/><ComboBoxItem Content="Polski" Tag="pl"/><ComboBoxItem Content="Čeština" Tag="cs"/></ComboBox></DockPanel>
+   <TextBlock Text="ArchiveReader" FontSize="30" FontWeight="SemiBold" Foreground="#173B40"/>
+   <TextBlock Text="Оригінал збережено. Кожне прочитання можна перевірити." Margin="0,3,0,18" Foreground="#59676C"/>
+   <WrapPanel Margin="0,0,0,12">
+    <Button Content="Майстерня документа" Click="OpenWorkbench"/><Button Content="Навчити на прикладі" Click="OpenTutor"/><Button Content="Агенти розпізнавання" Click="OpenAgents"/><Button Content="Дошки родоводу" Click="OpenBoard"/><Button Content="Перевірка фактів" Click="OpenFactReview"/><Button Content="Перевірка повних записів" Click="OpenCorpus"/><Button Content="Пропозиції полів" Click="OpenExtraction"/><Button Content="Збіги сканів і словник" Click="OpenResearch"/>
+    <Button Content="Книги з фото" Click="OpenBooks"/><Button Content="Перевірка бібліотеки" Click="OpenLibrary"/><Button Content="Люди та родини" Click="OpenGenealogy"/><Button Content="Обробка та якість" Click="OpenOperations"/><Button Content="Резервні копії" Click="OpenBackups"/><Button Content="Переносний пакет дослідження" Click="OpenBundle"/><Button Content="Помічник дослідника" Click="OpenResearchHub"/><Button Content="Обмін PAGE / ALTO" Click="OpenInterchange"/><Button Content="Історичне читання" Click="OpenHistorical"/>
+    <Button Content="＋ Імпорт документів" Click="Import"/><Button Content="Розпізнати книгу" Click="Recognize"/><Button Content="Зупинити" Click="Cancel"/><Button Content="Зберегти запис" Click="Save"/><Button Content="Експорт" Click="Export"/><Button Content="Відкрити оригінал" Click="OpenOriginal"/><Button Content="Навчальні дані" Click="Training"/><Button Content="CER / WER" Click="Quality"/><Button Content="Донавчити копію моделі" Click="TrainModel"/>
+   </WrapPanel>
+   <WrapPanel Margin="0,0,0,12" VerticalAlignment="Center">
+    <Button Content="Схожі написання" Click="OpenShapeSearch"/><ComboBox x:Name="OcrEngine" SelectedIndex="0" Width="110" Margin="0,0,8,0" SelectionChanged="EngineChanged"><ComboBoxItem Content="kraken"/><ComboBoxItem Content="tesseract"/><ComboBoxItem Content="trocr"/><ComboBoxItem Content="paddle"/></ComboBox>
+    <TextBlock Text="Шлях OCR" VerticalAlignment="Center"/><TextBox x:Name="OcrPath" Width="210" Text="kraken" Margin="8,0,12,0"/>
+    <TextBlock Text="Мови" VerticalAlignment="Center"/><TextBox x:Name="Languages" Width="95" Text="eng" Margin="8,0,12,0"/>
+    <CheckBox x:Name="UseTextLayer" Content="Використовувати текстовий шар PDF" IsChecked="True" VerticalAlignment="Center"/>
+    <Button Content="OCR цієї сторінки" Click="RecognizePage" Margin="10,0,0,0"/>
+   </WrapPanel>
+   <WrapPanel Margin="0,0,0,12">
+    <Button Content="Модель розпізнавання…" Click="ChooseModel"/><Button Content="Моделі за мовою…" Click="ChooseLanguageModel"/><Button Content="Спільна робота з моделями" Click="OpenRecognitionWorkflow"/><TextBox x:Name="ModelPath" Width="260" Margin="0,0,8,0" ToolTip="Файл Kraken або папка моделі TrOCR"/>
+    <Button Content="Модель сегментації…" Click="ChooseSegmentation"/><TextBox x:Name="SegmentationPath" Width="180" Margin="0,0,8,0"/>
+    <ComboBox x:Name="Preprocessing" SelectedIndex="0" Width="185"><ComboBoxItem Content="Оригінал"/><ComboBoxItem Content="Контраст і шум"/><ComboBoxItem Content="Бінаризація"/><ComboBoxItem Content="Вирівняти освітлення"/></ComboBox>
+    <Button Content="Переглянути обробку" Click="PreviewProcessing" Margin="8,0,0,0"/><Button Content="Стан зображення" Click="ImageQuality" Margin="8,0,0,0"/>
+   </WrapPanel>
+  </StackPanel>
+  <Border DockPanel.Dock="Bottom" Background="#173B40" Padding="12" Margin="0,12,0,0"><TextBlock x:Name="Status" Foreground="White" Text="Запуск локальної бібліотеки…" TextWrapping="Wrap"/></Border>
+  <Grid>
+   <Grid.ColumnDefinitions><ColumnDefinition Width="230"/><ColumnDefinition Width="5*"/><ColumnDefinition Width="4*"/></Grid.ColumnDefinitions>
+   <DockPanel Margin="0,0,12,0"><TextBlock DockPanel.Dock="Top" Text="ДОКУМЕНТИ / СТОРІНКИ" FontWeight="Bold" Margin="0,0,0,10"/><TextBox DockPanel.Dock="Top" x:Name="SearchText" ToolTip="Пошук у назвах, транскрипціях і записах"/><Button DockPanel.Dock="Top" Content="Знайти" Click="Search" Margin="0,0,0,8"/><StackPanel DockPanel.Dock="Bottom" Margin="0,6,0,0"><TextBlock x:Name="PageRange" HorizontalAlignment="Center"/><WrapPanel HorizontalAlignment="Center"><Button x:Name="PreviousPages" Content="◀" ToolTip="Попередні сторінки" Click="MovePageWindow"/><Button x:Name="NextPages" Content="▶" ToolTip="Наступні сторінки" Click="MovePageWindow"/></WrapPanel></StackPanel><ListBox x:Name="Pages" SelectionChanged="SelectPage" DisplayMemberPath="Label" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"/></DockPanel>
+   <DockPanel Grid.Column="1" Background="#DDE3E6" Margin="0,0,12,0">
+    <WrapPanel DockPanel.Dock="Top" Margin="10"><TextBlock Text="Масштаб" VerticalAlignment="Center"/><Slider x:Name="Zoom" Minimum="0.2" Maximum="3" Value="0.65" Width="120" Margin="12,0" ValueChanged="ZoomChanged"/><CheckBox x:Name="RegionMode" Content="Виділити область OCR" VerticalAlignment="Center" Margin="0,0,8,0"/><Button Content="Уся сторінка" Click="ClearRegion" Padding="6,3"/></WrapPanel>
+    <ScrollViewer x:Name="ImageScroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"><Grid HorizontalAlignment="Left" VerticalAlignment="Top"><Grid.LayoutTransform><ScaleTransform x:Name="Scale" ScaleX="0.65" ScaleY="0.65"/></Grid.LayoutTransform><Image x:Name="Preview" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonDown="SelectImageLine" MouseMove="MoveRegion" MouseLeftButtonUp="FinishRegion"/><Canvas x:Name="Overlay" IsHitTestVisible="False"/></Grid></ScrollViewer>
+   </DockPanel>
+   <ScrollViewer x:Name="Editor" Grid.Column="2" VerticalScrollBarVisibility="Auto"><StackPanel>
+    <TextBlock Text="Транскрипція та метричний запис" FontSize="20" FontWeight="SemiBold"/>
+    <TextBlock Text="F8 — наступний неперевірений рядок; Ctrl+Enter — перевірити й далі; Ctrl+S — зберегти; Ctrl +/− — масштаб." TextWrapping="Wrap" Margin="0,5"/>
+    <TextBlock Text="Непевні фрагменти позначайте […]. Не доповнюйте втрачені дані припущеннями." TextWrapping="Wrap" Margin="0,8" Foreground="#59676C"/>
+    <TextBox x:Name="Transcript" Height="230" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" TextChanged="Edited"/>
+    <WrapPanel Margin="0,0,0,8"><Button Content="Фрагмент відсутній" Tag="[lacuna]" Click="InsertUncertain"/><Button Content="Нерозбірливо" Tag="[illegible]" Click="InsertUncertain"/></WrapPanel>
+    <Expander x:Name="OcrLines" Header="Рядки OCR: координати, впевненість, виправлення" Margin="0,0,0,10"><StackPanel><ListBox x:Name="LineList" Height="120" DisplayMemberPath="Label" SelectionChanged="SelectLine"/><TextBox x:Name="LineText" AcceptsReturn="True" TextWrapping="Wrap"/><Button Content="Зберегти перевірений рядок для навчання" Click="SaveLine"/></StackPanel></Expander>
+    <TextBlock Text="Тип запису (визначається дослідником)"/><ComboBox x:Name="Kind" SelectedIndex="0" Margin="0,5,0,10" SelectionChanged="Edited"><ComboBoxItem Content="Інші записи та примітки"/><ComboBoxItem Content="Народження"/><ComboBoxItem Content="Шлюби"/><ComboBoxItem Content="Смерті"/><ComboBoxItem Content="Нерозбірливі записи"/></ComboBox>
+    <TextBlock Text="Номер запису"/><TextBox x:Name="RecordNumber" TextChanged="Edited"/>
+    <TextBlock Text="Дата (оригінальне написання)"/><TextBox x:Name="RecordDate" TextChanged="Edited"/>
+    <TextBlock Text="Особа / дитина / наречений"/><TextBox x:Name="Person" TextChanged="Edited"/>
+    <TextBlock Text="Батько / наречена"/><TextBox x:Name="Related1" TextChanged="Edited"/>
+    <TextBlock Text="Мати / свідки"/><TextBox x:Name="Related2" TextChanged="Edited"/>
+    <TextBlock Text="Вік"/><TextBox x:Name="Age" TextChanged="Edited"/>
+    <TextBlock Text="Причина смерті"/><TextBox x:Name="Cause" TextChanged="Edited"/>
+    <TextBlock Text="Примітки"/><TextBox x:Name="Notes" TextChanged="Edited"/>
+    <TextBlock Text="Населений пункт"/><TextBox x:Name="Place" TextChanged="Edited"/>
+    <TextBlock Text="№ будинку"/><TextBox x:Name="House" TextChanged="Edited"/>
+    <CheckBox x:Name="Verified" Content="Перевірено за оригіналом" Margin="0,6,0,12" Checked="Edited" Unchecked="Edited"/>
+    <Button Content="＋ Наступний запис на цій сторінці" Click="NewRecord"/>
+    <TextBlock Text="Збережені записи цієї сторінки" Margin="0,14,0,6"/><ListBox x:Name="Records" DisplayMemberPath="Label" Height="100" SelectionChanged="SelectRecord"/>
+   </StackPanel></ScrollViewer>
+  </Grid>
+ </DockPanel>
+</Window>
