@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json
 from pathlib import Path
 import tempfile
@@ -17,7 +18,7 @@ class CandidateTests(unittest.TestCase):
         result=candidate_verdict([scored(4,2),{'results':{'base':{'text':'a'},'candidate':{'error':'failed'}}}])
         self.assertEqual(result['status'],'rejected');self.assertEqual(result['characters'],10);self.assertFalse(result['promoted'])
     def test_train_and_heldout_check_keeps_base_and_persists(self):
-        with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output') as temp:
+        with workspace_tempdir() as temp:
             root=Path(temp);engine=Engine(root/'library');tools=CandidateTools(engine);base=root/'base.mlmodel';base.write_bytes(b'base');candidate=root/'candidate.safetensors';candidate.write_bytes(b'candidate')
             frozen=root/'frozen';frozen.mkdir();run=root/'run';(run/'dataset').mkdir(parents=True)
             rows=[{'document':role,'split':role,'text':'human','image_sha256':role} for role in ['train','validation','test']]

@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json
 from pathlib import Path
 import tempfile
@@ -13,7 +14,7 @@ from backend.archivereader.engine import Engine, KINDS, error_rate, parse_alto, 
 class EngineTests(unittest.TestCase):
     def setUp(self):
         (Path(__file__).resolve().parents[1]/'test-output').mkdir(exist_ok=True)
-        self.temp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output')
+        self.temp=workspace_tempdir()
         self.root=Path(self.temp.name)
         self.engine=Engine(self.root/'library')
 

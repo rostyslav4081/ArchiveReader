@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json
 from pathlib import Path
 import tempfile
@@ -19,7 +20,7 @@ class RecognizerTests(unittest.TestCase):
             self.assertEqual(kraken_page('scan.png','medium.safetensors',alto_path='result.xml'),expected)
             self.assertEqual(run.call_args.args,('scan.png','medium.safetensors','result.xml',None))
     def setUp(self):
-        self.tmp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.tmp.name);self.engine=Engine(self.root/'library')
+        self.tmp=workspace_tempdir();self.root=Path(self.tmp.name);self.engine=Engine(self.root/'library')
         source=self.root/'image.png';Image.new('RGB',(100,100),'white').save(source);self.engine.import_file({'path':str(source)});self.page=self.engine.list_pages({})[0]['id']
     def tearDown(self):self.engine.db.close();self.tmp.cleanup()
 

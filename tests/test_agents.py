@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json
 from pathlib import Path
 import tempfile
@@ -10,7 +11,7 @@ from backend.archivereader.agents import AgentTools
 
 class AgentTests(unittest.TestCase):
     def setUp(self):
-        self.temp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/"test-output");self.root=Path(self.temp.name);self.engine=Engine(self.root/'library')
+        self.temp=workspace_tempdir();self.root=Path(self.temp.name);self.engine=Engine(self.root/'library')
         source=self.root/'image.png';Image.new('RGB',(400,200),'white').save(source)
         self.engine.import_file({'path':str(source)});self.page=self.engine.list_pages({})[0]['id'];self.tools=AgentTools(self.engine)
         self.region=self.tools.save_annotation({'page':self.page,'data':{'kind':'line','rect':[.1,.1,.8,.2],'text':'','verified':False}})['id']

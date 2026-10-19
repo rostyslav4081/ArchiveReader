@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -16,7 +17,7 @@ class GlobalLanguagesTests(unittest.TestCase):
  def test_invalid_queries_and_broken_catalog_rejected(self):
   for args in [{'query':[]},{'query':'x'*201},{'query':'name\ntext'},{'limit':True},{'limit':101},{'offset':-1},{'offset':100001}]:
    with self.subTest(args=args),self.assertRaises(ValueError):self.tools.historical_languages(args)
-  with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output') as tmp:
+  with workspace_tempdir() as tmp:
    p=Path(tmp)/'registry.json'
    for value in ['invalid',json.dumps({'version':2,'rows':[]}),json.dumps({'version':1,'dataset':{},'rows':[{'id':'a'}]})]:
     p.write_text(value,encoding='utf-8')

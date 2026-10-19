@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json
 from pathlib import Path
 import tempfile
@@ -10,7 +11,7 @@ from backend.archivereader.tutor import TutorTools
 
 class TutorTests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output')
+        self.tmp=workspace_tempdir()
         self.root=Path(self.tmp.name)
         self.engine=Engine(self.root/'library')
         source=self.root/'sample.png';Image.new('RGB',(100,100),'white').save(source)

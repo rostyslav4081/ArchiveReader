@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json,tempfile,unittest
 from pathlib import Path
 from PIL import Image
@@ -6,7 +7,7 @@ from backend.archivereader.library import LibraryTools
 
 class IncrementalIndexTests(unittest.TestCase):
  def setUp(self):
-  self.tmp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.tmp.name);f=self.root/'pages.tif';Image.new('RGB',(20,20),'white').save(f,save_all=True,append_images=[Image.new('RGB',(20,20),'red') for _ in range(11)]);self.e=Engine(self.root/'library');self.e.import_file({'path':str(f)});self.t=LibraryTools(self.e);self.pages=self.e.list_pages({})
+  self.tmp=workspace_tempdir();self.root=Path(self.tmp.name);f=self.root/'pages.tif';Image.new('RGB',(20,20),'white').save(f,save_all=True,append_images=[Image.new('RGB',(20,20),'red') for _ in range(11)]);self.e=Engine(self.root/'library');self.e.import_file({'path':str(f)});self.t=LibraryTools(self.e);self.pages=self.e.list_pages({})
  def tearDown(self):self.e.db.close();self.tmp.cleanup()
  def test_bounded_progress_resumes_and_excludes_stale_search_hits(self):
   page=self.e.db.execute('SELECT page FROM search_dirty ORDER BY rowid LIMIT 1').fetchone()['page'];record=self.e.save_record({'page':page,'kind':KINDS[0],'person':'OldSurname'})['id']

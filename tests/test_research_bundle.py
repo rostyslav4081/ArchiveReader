@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json
 from contextlib import closing
 from pathlib import Path
@@ -15,7 +16,7 @@ from backend.archivereader.backups import digest
 
 class ResearchBundleTests(unittest.TestCase):
     def setUp(self):
-        self.temp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.temp.name);self.engine=Engine(self.root/'library');self.tools=ResearchBundleTools(self.engine)
+        self.temp=workspace_tempdir();self.root=Path(self.temp.name);self.engine=Engine(self.root/'library');self.tools=ResearchBundleTools(self.engine)
         source=self.root/'source.png';image=Image.new('RGB',(200,150),'ivory');ImageDraw.Draw(image).text((20,30),'Alpha beta',fill='black');image.save(source);self.original=source.read_bytes();self.engine.import_file({'path':str(source)});self.page=self.engine.list_pages({})[0]['id']
         (self.engine.root/'results/report.html').write_text('<h1>Research result</h1>',encoding='utf8')
         self.models=self.root/'external-model';self.models.mkdir();(self.models/'model.safetensors').write_bytes(b'weights');(self.models/'config.json').write_text('{}');self.engine.settings({'values':{'model':str(self.models)}})

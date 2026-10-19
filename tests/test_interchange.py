@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import hashlib,json,tempfile,unittest
 from pathlib import Path
 from PIL import Image
@@ -5,7 +6,7 @@ from backend.archivereader.engine import Engine
 from backend.archivereader.interchange import InterchangeTools,parse_xml,PAGE,MAX_XML
 class InterchangeTests(unittest.TestCase):
  def setUp(self):
-  self.tmp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.tmp.name);self.e=Engine(self.root/'library');self.t=InterchangeTools(self.e);p=self.root/'image.png';Image.new('RGB',(200,150),'white').save(p);self.e.import_file({'path':str(p)});self.page=self.e.list_pages({})[0]['id'];self.xml=self.root/'external.xml'
+  self.tmp=workspace_tempdir();self.root=Path(self.tmp.name);self.e=Engine(self.root/'library');self.t=InterchangeTools(self.e);p=self.root/'image.png';Image.new('RGB',(200,150),'white').save(p);self.e.import_file({'path':str(p)});self.page=self.e.list_pages({})[0]['id'];self.xml=self.root/'external.xml'
   self.raw=f'''<PcGts xmlns="{PAGE}"><Metadata/><Page imageFilename="renamed.png" imageWidth="200" imageHeight="150"><ReadingOrder><OrderedGroup id="order"><RegionRefIndexed index="0" regionRef="r"/></OrderedGroup></ReadingOrder><TextRegion id="r"><Coords points="10,10 190,10 190,100 10,100"/><TextLine id="l" custom="readingOrder {{index:1;}}"><Coords points="20,20 180,20 180,60 20,60"/><Baseline points="20,50 180,52"/><TextEquiv><Unicode>Philippus &amp; Anna</Unicode></TextEquiv></TextLine></TextRegion></Page></PcGts>'''.encode();self.xml.write_bytes(self.raw)
  def tearDown(self):self.e.db.close();self.tmp.cleanup()
  def preview(self):return self.t.interchange_preview({'id':self.page,'path':str(self.xml)})

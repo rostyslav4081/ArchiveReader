@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import hashlib,json,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -7,7 +8,7 @@ from backend.archivereader.historical_reading import HistoricalTools,ROLES
 from backend.archivereader.books import BookTools
 class HistoricalReadingTests(unittest.TestCase):
  def setUp(self):
-  self.tmp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.tmp.name);self.e=Engine(self.root/'library');self.h=HistoricalTools(self.e);self.source=self.root/'one.png';im=Image.new('RGB',(400,300),'white');ImageDraw.Draw(im).rectangle((50,50,180,150),fill='black');im.save(self.source);self.e.import_file({'path':str(self.source)});self.page=self.e.list_pages({})[0]['id'];self.annotation=self.h.save_annotation({'page':self.page,'data':{'kind':'line','rect':[.1,.1,.8,.6],'text':'Joannes János Joannis ignotus','verified':False}})['id']
+  self.tmp=workspace_tempdir();self.root=Path(self.tmp.name);self.e=Engine(self.root/'library');self.h=HistoricalTools(self.e);self.source=self.root/'one.png';im=Image.new('RGB',(400,300),'white');ImageDraw.Draw(im).rectangle((50,50,180,150),fill='black');im.save(self.source);self.e.import_file({'path':str(self.source)});self.page=self.e.list_pages({})[0]['id'];self.annotation=self.h.save_annotation({'page':self.page,'data':{'kind':'line','rect':[.1,.1,.8,.6],'text':'Joannes János Joannis ignotus','verified':False}})['id']
  def tearDown(self):self.e.db.close();self.tmp.cleanup()
  def term(self,form='Joannes',lemma='Іван',language='la',**kwargs):return self.h.historical_term({'page':self.page,'form':form,'lemma':lemma,'meaning':'Human declared name equivalent','language':language,'note':'Personally checked on this book','checked':True,'kind':'name'}|kwargs)
  def analyze(self):return self.h.historical_analyze({'page':self.page,'annotation':self.annotation})

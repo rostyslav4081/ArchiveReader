@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import hashlib
 import json
 from pathlib import Path
@@ -16,7 +17,7 @@ from backend.archivereader.sources import SourceTools
 
 class BookTests(unittest.TestCase):
     def setUp(self):
-        self.temp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.temp.name)
+        self.temp=workspace_tempdir();self.root=Path(self.temp.name)
         self.photos=self.root/'photos';self.photos.mkdir()
         for n in [10,2,1]:
             im=Image.new('RGB',(300,500),'white');ImageDraw.Draw(im).text((20,30),'page '+str(n),fill='black');im.save(self.photos/f'page{n}.jpg')

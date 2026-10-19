@@ -7,7 +7,7 @@ name = "archivereader-engine"
 version = "0.1.0"
 description = "Local document import, isolated OCR, archival transcription and register export"
 requires-python = ">=3.10,<3.14"
-dependencies = ["Pillow==12.3.0", "PyMuPDF==1.28.2"]
+dependencies = ["Pillow==12.3.0", "PyMuPDF==1.28.2", "numpy==2.4.6"]
 
 [project.optional-dependencies]
 ocr = ["kraken==7.1.1"]

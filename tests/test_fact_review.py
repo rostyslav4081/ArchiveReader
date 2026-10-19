@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 from pathlib import Path
 import tempfile
 import unittest
@@ -9,7 +10,7 @@ from backend.archivereader.fact_review import FactReviewTools
 
 class FactReviewTests(unittest.TestCase):
     def setUp(self):
-        self.temp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.temp.name);self.engine=Engine(self.root/'library');self.tools=FactReviewTools(self.engine);self.pages=[];self.records=[]
+        self.temp=workspace_tempdir();self.root=Path(self.temp.name);self.engine=Engine(self.root/'library');self.tools=FactReviewTools(self.engine);self.pages=[];self.records=[]
         for i in range(2):
             path=self.root/f'{i}.png';Image.new('RGB',(300,300),['white','ivory'][i]).save(path);self.engine.import_file({'path':str(path)})
         self.pages=[p['id'] for p in self.engine.list_pages({})]

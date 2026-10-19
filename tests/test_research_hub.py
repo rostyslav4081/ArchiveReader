@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json,tempfile,unittest,hashlib
 from pathlib import Path
 from unittest.mock import patch
@@ -6,7 +7,7 @@ from backend.archivereader.engine import Engine
 from backend.archivereader.research_hub import HubTools
 class ResearchHubTests(unittest.TestCase):
  def setUp(self):
-  self.tmp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.tmp.name);self.e=Engine(self.root/'library');self.h=HubTools(self.e);self.source=self.root/'photo.png';Image.new('RGB',(120,150),'white').save(self.source);self.e.import_file({'path':str(self.source)});self.page=self.e.list_pages({})[0]['id'];self.doc=self.e.page(self.page)['doc'];self.annotation=self.h.save_annotation({'page':self.page,'data':{'kind':'line','rect':[.1,.1,.7,.1]}})['id']
+  self.tmp=workspace_tempdir();self.root=Path(self.tmp.name);self.e=Engine(self.root/'library');self.h=HubTools(self.e);self.source=self.root/'photo.png';Image.new('RGB',(120,150),'white').save(self.source);self.e.import_file({'path':str(self.source)});self.page=self.e.list_pages({})[0]['id'];self.doc=self.e.page(self.page)['doc'];self.annotation=self.h.save_annotation({'page':self.page,'data':{'kind':'line','rect':[.1,.1,.7,.1]}})['id']
  def tearDown(self):self.e.db.close();self.tmp.cleanup()
  def comparison(self):
   folder=self.e.root/'results'/'saved';folder.mkdir(parents=True,exist_ok=True);(folder/'report.json').write_text(json.dumps({'rows':[{'id':self.annotation,'rect':[.1,.1,.7,.1],'results':{'a':{'text':'1838 Skowyra 34'},'b':{'text':'1839 Skowyra 35'}}}]}),'utf-8');self.e.db.execute('INSERT OR REPLACE INTO comparison_runs(id,doc,path) VALUES (?,?,?)',('run',self.doc,str(folder)));self.e.db.commit()

@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import json
 import os
 from pathlib import Path
@@ -12,7 +13,7 @@ from backend.archivereader.model_identity import fingerprint_path,fingerprint_mo
 
 class ModelIdentityTests(unittest.TestCase):
     def setUp(self):
-        self.temp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.temp.name);self.engine=Engine(self.root/'library');self.tools=Operations(self.engine)
+        self.temp=workspace_tempdir();self.root=Path(self.temp.name);self.engine=Engine(self.root/'library');self.tools=Operations(self.engine)
         source=self.root/'page.png';Image.new('RGB',(100,100),'white').save(source);self.doc=self.engine.import_file({'path':str(source)})['id']
         self.model=self.root/'model.mlmodel';self.model.write_bytes(b'original');self.seg=self.root/'segment.mlmodel';self.seg.write_bytes(b'segmentation')
     def tearDown(self):self.engine.db.close();self.temp.cleanup()

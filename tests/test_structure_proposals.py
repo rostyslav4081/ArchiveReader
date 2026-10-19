@@ -1,3 +1,4 @@
+from tests.support import workspace_tempdir
 import tempfile,unittest
 from pathlib import Path
 from PIL import Image,ImageDraw
@@ -5,7 +6,7 @@ from backend.archivereader.structure_proposals import suggest_structure
 
 
 class StructureProposalsTests(unittest.TestCase):
- def setUp(self):self.temp=tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'test-output');self.root=Path(self.temp.name)
+ def setUp(self):self.temp=workspace_tempdir();self.root=Path(self.temp.name)
  def tearDown(self):self.temp.cleanup()
  def test_ruled_grid_remains_an_unverified_proposal(self):
   image=Image.new('RGB',(600,800),'white');draw=ImageDraw.Draw(image)
