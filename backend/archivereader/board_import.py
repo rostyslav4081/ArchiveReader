@@ -102,6 +102,10 @@ class BoardTools(GenealogyTools):
         row=self.db.execute('SELECT * FROM board_imports WHERE id=?',(a['id'],)).fetchone()
         if not row: raise ValueError('Board import not found.')
         data=json.loads(row['data']);snapshot=json.loads(row['raw'])
+        data['person_styles']={}
+        for node,person in data.get('persons',{}).items():
+            stored=self.db.execute('SELECT data FROM persons WHERE id=?',(person,)).fetchone()
+            if stored and json.loads(stored['data']).get('board_style'):data['person_styles'][node]=json.loads(stored['data'])['board_style']
         semantics=self.db.execute('SELECT * FROM board_semantics WHERE board=?',(a['id'],)).fetchone()
         if semantics:data['semantics']=json.loads(semantics['data'])|{'revision':semantics['revision']}
         assets=[dict(r) for r in self.db.execute('SELECT id,node,kind,sha FROM board_assets WHERE board=?',(a['id'],))]

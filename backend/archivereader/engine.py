@@ -115,7 +115,7 @@ class Engine:
             raise ValueError('Файл змінився під час імпорту. Спробуйте ще раз.')
         os.replace(temp, dest)
         with self.db:
-            self.db.execute('INSERT INTO documents VALUES (?,?,?,?)', (ident, src.name, str(dest), sha))
+            self.db.execute('INSERT INTO documents VALUES (?,?,?,?)', (ident, str(a.get('name') or src.name), str(dest), sha))
             self.db.executemany('INSERT INTO pages(id,doc,num) VALUES (?,?,?)', [(uuid.uuid4().hex, ident, n) for n in range(count)])
         return {'id': ident, 'pages': count, 'duplicate': False}
 
@@ -762,7 +762,7 @@ def handle_request(request):
             ('research','ResearchTools',['card_change','card_undo','card_operations','fact_crop','chronology_hints','book_dictionary']),
             ('gedcom','GedcomTools',['gedcom_preview','gedcom_import','gedcom_export']),
             ('duplicates','DuplicateTools',['duplicate_index','duplicate_find','duplicate_decide']),
-            ('genealogy','GenealogyTools',['genealogy_mentions','person_list','person_save','person_attach','person_detach','person_card','family_list','family_save','genealogy_export']),
+            ('genealogy','GenealogyTools',['genealogy_mentions','person_list','person_save','person_attach','person_detach','person_card','family_list','family_save','family_tree','genealogy_export']),
             ('extraction','ExtractionTools',['field_propose','field_apply']),
             ('operations','Operations',['evaluation_coverage','runtime_check','batch_books','batch_create','batch_status','batch_recover','batch_step']),
         ]

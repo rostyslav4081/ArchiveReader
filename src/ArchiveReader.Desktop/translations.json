@@ -6503,5 +6503,45 @@
     "Unverified whole-line text",
     "Niezweryfikowany tekst całego wiersza",
     "Neověřený text celého řádku"
+  ],
+  "Додати імпортовані зв’язки як неперевірені твердження": [
+    "Include imported links as unverified claims",
+    "Uwzględnij importowane powiązania jako niezweryfikowane twierdzenia",
+    "Zahrnout importované vazby jako neověřená tvrzení"
+  ],
+  "Скопіювати фото поруч із GEDCOM": [
+    "Copy photos alongside GEDCOM",
+    "Skopiuj zdjęcia obok GEDCOM",
+    "Zkopírovat fotografie vedle GEDCOM"
+  ],
+  "Докладний звіт збережено поруч із GEDCOM. Фото копіюються за вибраною опцією; повна історія змін не включена.": [
+    "A detailed report is saved alongside GEDCOM. Photos are copied when selected; full change history is not included.",
+    "Szczegółowy raport zapisano obok GEDCOM. Zdjęcia są kopiowane po wybraniu opcji; pełna historia zmian nie jest uwzględniona.",
+    "Podrobná zpráva je uložena vedle GEDCOM. Fotografie se kopírují podle zvolené možnosti; úplná historie změn není zahrnuta."
+  ],
+  "Документи пари": [
+    "Couple documents",
+    "Dokumenty pary",
+    "Dokumenty páru"
+  ],
+  "Відкрити документ пари": [
+    "Open couple document",
+    "Otwórz dokument pary",
+    "Otevřít dokument páru"
+  ],
+  "Дошка з фото як у Figma": [
+    "Original Figma board with photos",
+    "Oryginalna tablica Figma ze zdjęciami",
+    "Původní tabule Figma s fotografiemi"
+  ],
+  "Зв’язок з основною гілкою ще не встановлено": [
+    "Connection to the main branch is not established",
+    "Powiązanie z główną gałęzią nie zostało ustalone",
+    "Vazba na hlavní větev zatím není doložena"
+  ],
+  "Ти зверху, предки нижче; подружжя поруч. Пунктир — неперевірений зв’язок. Натисни лінію пари, щоб відкрити документи.": [
+    "You are at the top, ancestors below, couples side by side. Dashed links are unverified. Click a couple link to open its documents.",
+    "Ty na górze, przodkowie poniżej, pary obok siebie. Linie przerywane oznaczają niezweryfikowane powiązania. Kliknij połączenie pary, aby otworzyć dokumenty.",
+    "Vy nahoře, předci níže, páry vedle sebe. Přerušované čáry jsou neověřené. Kliknutím na vazbu páru otevřete dokumenty."
   ]
 }

@@ -82,6 +82,6 @@ class GenealogyTests(unittest.TestCase):
 
     def test_new_commands_are_registered_in_the_real_worker_bridge(self):
         worker=Path(__file__).resolve().parents[1]/'backend/archivereader/engine.py'
-        for command,args in [('person_list',{}),('family_list',{}),('genealogy_mentions',{'page':self.page}),('field_propose',{'page':self.page,'record':self.record}),('batch_books',{}),('batch_status',{}),('evaluation_coverage',{})]:
+        for command,args in [('person_list',{}),('family_list',{}),('family_tree',{}),('genealogy_mentions',{'page':self.page}),('field_propose',{'page':self.page,'record':self.record}),('batch_books',{}),('batch_status',{}),('evaluation_coverage',{})]:
             result=subprocess.run([sys.executable,'-X','utf8',str(worker)],input=json.dumps({'command':command,'root':str(self.engine.root)}|args),text=True,encoding='utf8',capture_output=True,check=True)
             self.assertTrue(json.loads(result.stdout)['ok'],command+result.stdout)

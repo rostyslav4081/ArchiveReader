@@ -113,6 +113,12 @@ class GenealogyTools(PeopleTools):
             result.append(data|{'id':row['id'],'stale':stale})
         return result
 
+    def family_tree(self,a):
+        try:from .genealogy_layout import layout_tree
+        except ImportError:from genealogy_layout import layout_tree
+        # "root" is reserved for the library directory in the worker protocol.
+        return layout_tree(self.person_list({}),self.family_list({}),a.get('focus_person'))
+
     def family_save(self,a):
         left,right=a['left'],a['right'];self.require_person(left);self.require_person(right)
         if left==right or a.get('kind') not in ['parent','spouse']: raise ValueError('Неправильний родинний зв’язок.')

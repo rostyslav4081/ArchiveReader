@@ -76,6 +76,12 @@ public partial class MainWindow : Window
             Status.Text = F("Готово • CPU: {0} • RAM: {1} ГБ • OCR-процесів: {2} • Дані: {3}",profile["cpu"],profile["ramGB"],workers,root);
             loading = false;
             await InitializeBackups();
+            if (arguments.Contains("--smoke-tree")||arguments.Contains("--show-tree"))
+            {
+                var treeWindow=new GenealogyWindow(null,Call){Owner=this};treeWindow.ShowDialog();
+                await NavigateGenealogySelection(treeWindow);
+                if(arguments.Contains("--smoke-tree")){SmokeCapture.Save(this,"genealogy-ui","opened-document.png");closing=true;Close();return;}
+            }
             if (Environment.GetCommandLineArgs().Contains("--smoke-test"))
             {
                 if(Environment.GetCommandLineArgs().Contains("--smoke-model-catalog"))

@@ -7,7 +7,7 @@ internal static class SmokeCapture
 {
     internal static void Fail(Exception exception)
     {
-        if(!Environment.GetCommandLineArgs().Contains("--smoke-roadmap"))return;
+        if(!Environment.GetCommandLineArgs().Contains("--smoke-roadmap")&&!Environment.GetCommandLineArgs().Contains("--smoke-tree"))return;
         File.WriteAllText(Path.Combine(Environment.GetEnvironmentVariable("ARCHIVEREADER_DATA")!,"roadmap-error.txt"),exception.ToString());Application.Current.Shutdown(1);
     }
     internal static void Save(Window window,string directory,string name)

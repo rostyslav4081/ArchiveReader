@@ -11,12 +11,12 @@ public record GenealogyRow(JsonObject Data,string Label);
 public partial class GenealogyWindow:Window
 {
     readonly Func<string,JsonObject?,CancellationToken,Task<JsonNode>> worker;
-    readonly string? page; bool busy,filling; List<GenealogyRow> people=[]; List<JsonObject> families=[];
+    readonly string? page; Point? treeRootPoint; bool busy,filling,gedcomOptionsInitialized; List<GenealogyRow> people=[]; List<JsonObject> families=[];
     public string? SelectedPageId{get;private set;} public string? SelectedRecordId{get;private set;}
     static string T(string s)=>Localizer.Text(s);
     Task<JsonNode> Call(string command,JsonObject? args=null)=>worker(command,args,default);
     public GenealogyWindow(string? page,Func<string,JsonObject?,CancellationToken,Task<JsonNode>> worker)
-    {this.page=page;this.worker=worker;InitializeComponent();Loaded+=async(_,_)=>await Run(async()=>{Localizer.Apply(this,Localizer.Language);await Refresh();await LoadMentions();if(Environment.GetCommandLineArgs().Contains("--smoke-roadmap")){FactField.SelectedIndex=2;await ShowFact();await PreviewGedcomFile(System.IO.Path.Combine(Environment.GetEnvironmentVariable("ARCHIVEREADER_DATA")!,"smoke-tree.ged"));Tabs.IsEnabled=true;Families.SelectedIndex=0;for(int i=0;i<Tabs.Items.Count;i++){Tabs.SelectedIndex=i;SmokeCapture.Save(this,"genealogy-ui",$"tab-{i}.png");}Close();}});}
+    {this.page=page;this.worker=worker;InitializeComponent();Loaded+=async(_,_)=>await Run(async()=>{Localizer.Apply(this,Localizer.Language);await Refresh();await LoadMentions();if(Environment.GetCommandLineArgs().Contains("--show-tree"))Tabs.SelectedIndex=3;if(Environment.GetCommandLineArgs().Contains("--smoke-tree")){Tabs.IsEnabled=true;Tabs.SelectedIndex=3;await Dispatcher.InvokeAsync(()=>{},System.Windows.Threading.DispatcherPriority.ContextIdle);SmokeCapture.Save(this,"genealogy-ui","tree.png");Tabs.SelectedIndex=2;Families.SelectedItem=Families.Items.Cast<GenealogyRow>().FirstOrDefault(r=>r.Data["kind"]!.ToString()=="spouse"&&r.Data["status"]!.ToString()=="confirmed");FamilyDocuments.SelectedItem=FamilyDocuments.Items.Cast<GenealogyRow>().FirstOrDefault(r=>r.Data["text"]?.ToString().Contains("Zobowiązani")==true);SmokeCapture.Save(this,"genealogy-ui","couple-documents.png");Tabs.SelectedIndex=5;SmokeCapture.Save(this,"genealogy-ui","gedcom.png");if(FamilyDocuments.SelectedItem!=null)OpenFamilyRecord(this,new RoutedEventArgs());else Close();return;}if(Environment.GetCommandLineArgs().Contains("--smoke-roadmap")){FactField.SelectedIndex=2;await ShowFact();await PreviewGedcomFile(System.IO.Path.Combine(Environment.GetEnvironmentVariable("ARCHIVEREADER_DATA")!,"smoke-tree.ged"));Tabs.IsEnabled=true;Families.SelectedIndex=0;for(int i=0;i<Tabs.Items.Count;i++){Tabs.SelectedIndex=i;SmokeCapture.Save(this,"genealogy-ui",$"tab-{i}.png");}Close();}});}
     async Task Run(Func<Task> action){if(busy)return;busy=true;Tabs.IsEnabled=false;try{await action();}catch(Exception ex){Status.Text=T("Помилка: ")+T(ex.Message);SmokeCapture.Fail(ex);}finally{Tabs.IsEnabled=true;busy=false;}}
     string? PersonId=>(Persons.SelectedItem as GenealogyRow)?.Data["id"]?.ToString();
     async Task Refresh(string? ident=null)
@@ -24,12 +24,13 @@ public partial class GenealogyWindow:Window
         ident??=PersonId;filling=true;
         people=(await Call("person_list")).AsArray().Select(n=>new GenealogyRow(n!.AsObject(),n["name"]!.ToString())).ToList();
         Persons.ItemsSource=people;FamilyLeft.ItemsSource=people;FamilyRight.ItemsSource=people;MergeTarget.ItemsSource=people;MergeTarget.SelectedIndex=0;
-        Persons.SelectedItem=people.FirstOrDefault(p=>p.Data["id"]!.ToString()==ident) ?? people.FirstOrDefault();
+        Persons.SelectedItem=people.FirstOrDefault(p=>p.Data["id"]!.ToString()==ident) ?? people.FirstOrDefault(p=>p.Data["tree_root"]?.GetValue<bool>()==true) ?? people.FirstOrDefault();
+        if(!gedcomOptionsInitialized){IncludeImportedGedcom.IsChecked=people.Any(p=>p.Data["tree_root"]?.GetValue<bool>()==true);IncludeGedcomMedia.IsChecked=IncludeImportedGedcom.IsChecked;gedcomOptionsInitialized=true;}
         FamilyLeft.SelectedIndex=0;FamilyRight.SelectedIndex=Math.Min(1,people.Count-1);filling=false;
         families=(await Call("family_list")).AsArray().Select(n=>n!.AsObject()).ToList();
         string Name(JsonNode? id)=>people.FirstOrDefault(p=>p.Data["id"]!.ToString()==id?.ToString())?.Label ?? "?";
         Families.ItemsSource=families.Select(f=>new GenealogyRow(f,$"{Name(f["left"])} {(f["kind"]!.ToString()=="parent" ? "→" : "↔")} {Name(f["right"])} · {T(f["status"]!.ToString() switch {"confirmed"=>"Підтверджено","imported"=>"Імпортовано, не підтверджено",_=>"Рішення відкликано"})} {(f["stale"]!.GetValue<bool>() ? "⚠" : "")}")).ToList();
-        await LoadCard();DrawTree();await LoadChanges();
+        await LoadCard();DrawTree((await Call("family_tree")).AsObject());await LoadChanges();
     }
     async Task LoadCard()
     {
@@ -59,20 +60,93 @@ public partial class GenealogyWindow:Window
         if(Families.SelectedItem is GenealogyRow selected && selected.Data["status"]!.ToString()=="imported")arguments["id"]=selected.Data["id"]!.ToString();
         await Call("family_save",arguments);await Refresh();
     });
-    void SelectFamily(object sender,SelectionChangedEventArgs e){if(Families.SelectedItem is GenealogyRow row){FamilyEvidence.Text=$"{row.Data["citation"]}\n{row.Data["note"]}\n{RecordText(row.Data["evidence"]!)}";if(row.Data["status"]!.ToString()=="imported"){FamilyLeft.SelectedItem=people.FirstOrDefault(p=>p.Data["id"]!.ToString()==row.Data["left"]!.ToString());FamilyRight.SelectedItem=people.FirstOrDefault(p=>p.Data["id"]!.ToString()==row.Data["right"]!.ToString());FamilyKind.SelectedIndex=row.Data["kind"]!.ToString()=="parent" ? 0 : 1;}}}
+    void SelectFamily(object sender,SelectionChangedEventArgs e)
+    {
+        if(Families.SelectedItem is not GenealogyRow row)return;
+        Families.ScrollIntoView(row);
+        FamilyLeft.SelectedItem=people.FirstOrDefault(p=>p.Data["id"]!.ToString()==row.Data["left"]!.ToString());
+        FamilyRight.SelectedItem=people.FirstOrDefault(p=>p.Data["id"]!.ToString()==row.Data["right"]!.ToString());
+        FamilyKind.SelectedIndex=row.Data["kind"]!.ToString()=="parent"?0:1;
+        FamilyReason.Text=row.Data["note"]?.ToString();
+        FamilyEvidence.Text=$"{row.Data["citation"]}\n{row.Data["note"]}\n{RecordText(row.Data["evidence"]!)}";
+        var documents=(row.Data["documents"] as JsonArray??new JsonArray()).Select(d=>new GenealogyRow(d!.AsObject(),d["title"]?.ToString()??d["citation"]!.ToString())).ToList();
+        FamilyDocuments.ItemsSource=documents;
+        FamilyDocuments.SelectedItem=documents.FirstOrDefault(d=>d.Data["record"]?.ToString()==row.Data["record"]?.ToString())??documents.FirstOrDefault();
+    }
     async void WithdrawFamily(object sender,RoutedEventArgs e)=>await Run(async()=>
     {
         if(Families.SelectedItem is not GenealogyRow row)return;var data=row.Data.DeepClone().AsObject();data["status"]="withdrawn";data["note"]=FamilyReason.Text;await Call("family_save",data);await Refresh();
     });
     async void ExportGenealogy(object sender,RoutedEventArgs e)=>await Run(async()=>{var dialog=new SaveFileDialog{Filter="JSON|*.json",FileName="genealogy.json"};if(dialog.ShowDialog()==true)await Call("genealogy_export",new(){["path"]=dialog.FileName});});
-    void DrawTree()
+    async void TreeTabChanged(object sender,SelectionChangedEventArgs e)
     {
-        Tree.Children.Clear();var levels=people.ToDictionary(p=>p.Data["id"]!.ToString(),_=>0);var active=families.Where(f=>f["status"]!.ToString()=="confirmed").ToList();
-        for(int i=0;i<people.Count;i++)foreach(var f in active.Where(f=>f["kind"]!.ToString()=="parent"))if(levels.ContainsKey(f["left"]!.ToString()) && levels.ContainsKey(f["right"]!.ToString()))levels[f["right"]!.ToString()]=Math.Max(levels[f["right"]!.ToString()],levels[f["left"]!.ToString()]+1);
-        var positions=new Dictionary<string,Point>();var counts=new Dictionary<int,int>();
-        foreach(var p in people){int level=levels[p.Data["id"]!.ToString()];int column=counts.GetValueOrDefault(level);counts[level]=column+1;positions[p.Data["id"]!.ToString()]=new Point(25+column*220,35+level*130);}
-        Tree.Width=Math.Max(800,(counts.Values.DefaultIfEmpty(0).Max())*220+40);Tree.Height=Math.Max(600,(levels.Values.DefaultIfEmpty(0).Max()+1)*130+40);
-        foreach(var f in active){if(!positions.TryGetValue(f["left"]!.ToString(),out var left) || !positions.TryGetValue(f["right"]!.ToString(),out var right))continue;var line=new Line{X1=left.X+90,Y1=left.Y+25,X2=right.X+90,Y2=right.Y+25,Stroke=f["stale"]!.GetValue<bool>() ? Brushes.Gray : f["kind"]!.ToString()=="parent" ? Brushes.Teal : Brushes.MediumPurple,StrokeThickness=2};if(f["stale"]!.GetValue<bool>())line.StrokeDashArray=new DoubleCollection{4,3};Tree.Children.Add(line);}
-        foreach(var p in people){var point=positions[p.Data["id"]!.ToString()];var button=new Button{Content=p.Label,Width=185,Height=50,Background=Brushes.AliceBlue};button.Click+=(_,_)=>{Persons.SelectedItem=p;Tabs.SelectedIndex=0;};Canvas.SetLeft(button,point.X);Canvas.SetTop(button,point.Y);Tree.Children.Add(button);}
+        if(Tabs.SelectedIndex!=3)return;
+        await Dispatcher.InvokeAsync(()=>
+        {
+            if(treeRootPoint is not Point point)return;
+            TreeViewport.UpdateLayout();
+            TreeViewport.ScrollToHorizontalOffset(Math.Max(0,point.X+112-TreeViewport.ViewportWidth/2));
+            TreeViewport.ScrollToVerticalOffset(0);
+        },System.Windows.Threading.DispatcherPriority.Loaded);
+    }
+    void OpenSourceBoard(object sender,RoutedEventArgs e)=>new BoardWindow(worker){Owner=this}.ShowDialog();
+    void SelectFamilyDocument(object sender,SelectionChangedEventArgs e)
+    {
+        if(FamilyDocuments.SelectedItem is GenealogyRow document)
+            FamilyEvidence.Text=document.Data["citation"]+"\n\n"+document.Data["text"];
+    }
+    void OpenFamilyRecord(object sender,RoutedEventArgs e)
+    {
+        JsonObject? data=(FamilyDocuments.SelectedItem as GenealogyRow)?.Data ?? (Families.SelectedItem as GenealogyRow)?.Data;
+        if(data?["page"]==null)return;
+        SelectedPageId=data["page"]!.ToString();SelectedRecordId=data["record"]?.ToString();DialogResult=true;
+    }
+    void ShowFamily(string id)
+    {
+        Families.SelectedItem=Families.Items.Cast<GenealogyRow>().FirstOrDefault(r=>r.Data["id"]!.ToString()==id);
+        Tabs.SelectedIndex=2;
+    }
+    void DrawTree(JsonObject layout)
+    {
+        Tree.Children.Clear();Tree.Width=layout["width"]?.GetValue<double>()??800;Tree.Height=layout["height"]?.GetValue<double>()??600;
+        var positions=layout["nodes"]!.AsArray().ToDictionary(n=>n!["id"]!.ToString(),n=>new Point(n!["x"]!.GetValue<double>(),n["y"]!.GetValue<double>()));
+        treeRootPoint=positions.TryGetValue(layout["root"]?.ToString()??"",out var focus)?focus:null;
+        var active=families.Where(f=>f["status"]!.ToString() is "confirmed" or "imported").ToList();
+        foreach(var f in active)
+        {
+            if(!positions.TryGetValue(f["left"]!.ToString(),out var left)||!positions.TryGetValue(f["right"]!.ToString(),out var right))continue;
+            bool imported=f["status"]!.ToString()=="imported",stale=f["stale"]!.GetValue<bool>();
+            var line=new Line{X1=left.X+112,Y1=left.Y+88,X2=right.X+112,Y2=right.Y+88,
+                Stroke=imported?new SolidColorBrush(Color.FromRgb(179,179,179)):stale?Brushes.Gray:Brushes.SlateGray,StrokeThickness=3,
+                ToolTip=T(imported?"Імпортовано, не підтверджено":"Підтверджено")};
+            if(imported||stale)line.StrokeDashArray=new DoubleCollection{4,3};
+            line.MouseLeftButtonDown+=(_,_)=>ShowFamily(f["id"]!.ToString());Tree.Children.Add(line);
+            if(f["kind"]!.ToString()=="spouse" && f["documents"] is JsonArray documents && documents.Count>0)
+            {
+                var proof=new Button{Content=T("Документи пари")+" ("+documents.Count+")",Height=28,Padding=new Thickness(8,2,8,2)};
+                proof.Click+=(_,_)=>ShowFamily(f["id"]!.ToString());Canvas.SetLeft(proof,Math.Min(left.X,right.X)+100);Canvas.SetTop(proof,Math.Max(left.Y,right.Y)+180);Tree.Children.Add(proof);
+            }
+        }
+        foreach(var person in people)
+        {
+            if(!positions.TryGetValue(person.Data["id"]!.ToString(),out var point))continue;
+            var style=person.Data["board_style"];var color=style?["color"];
+            byte Channel(string key,double fallback)=>(byte)Math.Round((color?[key]?.GetValue<double>()??fallback)*255);
+            var fill=new SolidColorBrush(Color.FromRgb(Channel("r",.89411765),Channel("g",.8),Channel("b",1)));
+            string label=person.Data["tree_label"]?.ToString()??style?["text"]?.ToString()??person.Label;
+            if(label.Split('\n')[0]!=person.Label)label=person.Label;
+            var text=new TextBlock{Text=label,TextWrapping=TextWrapping.Wrap,TextAlignment=TextAlignment.Center,
+                FontFamily=new FontFamily("Inter, Segoe UI"),FontSize=16,FontWeight=FontWeights.Medium,Foreground=new SolidColorBrush(Color.FromArgb(204,0,0,0))};
+            var button=new Button{Content=text,Background=Brushes.Transparent,BorderThickness=new Thickness(0),Padding=new Thickness(16),ToolTip=person.Data["notes"]?.ToString()};
+            button.Click+=(_,_)=>{Persons.SelectedItem=person;Tabs.SelectedIndex=0;};
+            // Dimensions, palette and typography are taken from the owner's FigJam cards.
+            var card=new Border{Width=224,Height=176,CornerRadius=new CornerRadius(12),Background=fill,Child=button};
+            Canvas.SetLeft(card,point.X);Canvas.SetTop(card,point.Y);Tree.Children.Add(card);
+        }
+        if(layout["unconnected_generation"] is JsonNode generation)
+        {
+            var label=new TextBlock{Text=T("Зв’язок з основною гілкою ще не встановлено"),Foreground=Brushes.DimGray};
+            Canvas.SetLeft(label,25);Canvas.SetTop(label,generation.GetValue<int>()*230+20);Tree.Children.Add(label);
+        }
     }
 }

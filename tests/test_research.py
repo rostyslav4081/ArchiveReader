@@ -90,6 +90,53 @@ class ResearchTests(unittest.TestCase):
         duplicates.duplicate_decide({'left':results[0]['left'],'right':results[0]['right'],'status':'related_fragment','note':'Only a crop'})
         self.assertEqual(duplicates.duplicate_find({'page':self.page})[0]['decision']['status'],'related_fragment')
 
+    def test_gedcom_imported_claims_are_opt_in_and_coparents_form_one_family(self):
+        gedcom=GedcomTools(self.engine)
+        for i,(left,right,kind) in enumerate([(0,1,'spouse'),(0,2,'parent'),(1,2,'parent')]):
+            gedcom.write('family_links','claim'+str(i),{'left':self.people[left],'right':self.people[right],'kind':kind,'status':'imported','record':None,'signature':None,'note':'User board, not verified','citation':'Board source'})
+        path=self.root/'claims.ged'
+        self.assertEqual(gedcom.gedcom_export({'path':str(path)})['relationships'],0)
+        result=gedcom.gedcom_export({'path':str(path),'include_imported':True})
+        self.assertEqual((result['relationships'],result['family_groups']),(3,1))
+        preview=gedcom.gedcom_preview({'path':str(path)})
+        self.assertEqual(len(preview['families'][0]['parents']),2)
+        self.assertEqual(len(preview['families'][0]['children']),1)
+        self.assertIn('not independently verified',path.read_text('utf-8'))
+        self.assertTrue(all(f['status']=='imported' for f in gedcom.family_list({})))
+
+    def test_gedcom_spouse_does_not_imply_parentage_of_a_child(self):
+        gedcom=GedcomTools(self.engine)
+        for i,(left,right,kind) in enumerate([(0,1,'spouse'),(0,2,'parent')]):
+            gedcom.write('family_links','claim'+str(i),{'left':self.people[left],'right':self.people[right],'kind':kind,'status':'imported','record':None,'signature':None,'note':'Unverified','citation':'Board'})
+        path=self.root/'single-parent.ged';gedcom.gedcom_export({'path':str(path),'include_imported':True})
+        families=gedcom.gedcom_preview({'path':str(path)})['families']
+        self.assertEqual(len(families),2)
+        self.assertTrue(all(len(f['parents'])==1 for f in families if f['children']))
+
+    def test_gedcom_media_is_portable_deduplicated_and_never_overwrites_changed_files(self):
+        gedcom=GedcomTools(self.engine);person=gedcom.require_person(self.people[0]);person['media_pages']=[self.page,self.page]
+        gedcom.write('persons',self.people[0],person)
+        path=self.root/'photos.ged';before=Path(self.engine.page(self.page)['path']).read_bytes()
+        self.assertEqual(gedcom.gedcom_export({'path':str(path)})['media_files'],0)
+        result=gedcom.gedcom_export({'path':str(path),'include_media':True,'extra_media_pages':[self.page]})
+        self.assertEqual(result['media_files'],1)
+        media=next(n for n in parse(path.read_bytes()) if n['tag']=='OBJE')
+        file=next(n for n in media['children'] if n['tag']=='FILE')
+        self.assertEqual(next(n['value'] for n in file['children'] if n['tag']=='FORM'),'image/png')
+        copied=path.parent/file['value'];self.assertEqual(copied.read_bytes(),before)
+        copied.write_bytes(b'Changed outside ArchiveReader')
+        with self.assertRaises(ValueError):gedcom.gedcom_export({'path':str(path),'include_media':True})
+        self.assertEqual(Path(self.engine.page(self.page)['path']).read_bytes(),before)
+
+    def test_gedcom_document_mentions_have_required_generic_event_payload_and_type(self):
+        rec=self.engine.save_record({'page':self.page,'kind':'Інші записи та примітки','person':'Jan','text':'Court record, not a birth or a death'})['id']
+        gedcom=GedcomTools(self.engine);mention=next(m for m in gedcom.mentions(records=[rec]) if m['field']=='person')
+        gedcom.person_attach({'person':self.people[0],'mention':mention,'signature':mention['signature'],'note':'Court source'})
+        path=self.root/'court.ged';gedcom.gedcom_export({'path':str(path)})
+        events=[child for node in parse(path.read_bytes()) if node['tag']=='INDI' for child in node['children'] if child['tag']=='EVEN']
+        self.assertTrue(events)
+        self.assertTrue(all(e['value'] and any(c['tag']=='TYPE' and c['value'] for c in e['children']) for e in events))
+
     def test_only_confirmed_full_duplicate_with_done_source_is_skipped(self):
         from backend.archivereader.operations import Operations
         other=self.root/'other.png';self.image.resize((200,300)).save(other);doc=self.engine.import_file({'path':str(other)})['id'];target=next(p for p in self.engine.list_pages({}) if p['doc']==doc)['id']

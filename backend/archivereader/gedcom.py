@@ -1,5 +1,7 @@
 """Reviewable UTF-8 GEDCOM subset import/export; preserve raw imports and report losses."""
 import hashlib
+import mimetypes
+import shutil
 import json
 from pathlib import Path
 import re
@@ -107,20 +109,35 @@ class GedcomTools(ResearchTools):
         return {'id':ident,'people':len(mapping),'unsupported':report['unsupported'],'unresolved':report['unresolved']}
 
     def gedcom_export(self,a):
-        people=self.person_list({});ids={p['id']:'@I'+str(i+1)+'@' for i,p in enumerate(people)};lines=['0 HEAD','1 SOUR ArchiveReader','1 GEDC','2 VERS 7.0'];warnings=[];sources={};links=[]
+        destination=Path(a['path']).resolve();destination.parent.mkdir(parents=True,exist_ok=True);media={};include_imported=a.get('include_imported') is True
+        people=self.person_list({});ids={p['id']:'@I'+str(i+1)+'@' for i,p in enumerate(people)};lines=['0 HEAD','1 SOUR ArchiveReader','1 GEDC','2 VERS 7.0'];warnings=[];sources={};source_pages={};links=[]
         def put(level,tag,text=''):
             parts=str(text).replace('\r','').replace('@','@@').split('\n');lines.append(f'{level} {tag}'+(' '+parts[0] if parts[0] else ''))
             for part in parts[1:]:lines.append(f'{level+1} CONT '+part)
-        def cite(level,text):
+        def attach_media(level,page):
+            if not a.get('include_media') or not page:return
+            source=Path(self.engine.page(page)['path'])
+            digest=hashlib.sha256(source.read_bytes()).hexdigest()
+            if digest not in media:
+                folder=destination.parent/(destination.stem+'.media');folder.mkdir(exist_ok=True)
+                target=folder/(digest+source.suffix.lower())
+                if target.exists() and hashlib.sha256(target.read_bytes()).hexdigest()!=digest:raise ValueError('Existing media file has changed.')
+                if not target.exists():shutil.copyfile(source,target)
+                media[digest]={'ref':'@M'+str(len(media)+1)+'@','path':target.relative_to(destination.parent).as_posix(),'mime':mimetypes.guess_type(source.name)[0] or 'application/octet-stream','title':self.engine.page(page)['name']}
+            lines.append(f"{level} OBJE {media[digest]['ref']}")
+        def cite(level,text,page=None):
             if not text:return
             if text not in sources:sources[text]='@S'+str(len(sources)+1)+'@'
+            if page:source_pages[text]=page
             lines.append(f'{level} SOUR {sources[text]}')
-        def event(level,tag,data):
-            marriage=tag=='MARR'
+        def event(level,tag,data,family_event=False):
+            marriage=tag=='MARR' and not family_event
             if marriage:tag='EVEN'
             if tag not in ['BIRT','DEAT','MARR','EVEN']:tag='EVEN'
-            lines.append(f'{level} {tag}')
-            if marriage:put(level+1,'TYPE','Marriage mention')
+            if tag=='EVEN':
+                label='Marriage mention' if marriage else data.get('type') or 'Document mention'
+                put(level,'EVEN',label);put(level+1,'TYPE',label)
+            else:lines.append(f'{level} {tag}')
             raw_date=data.get('date','');bounds=date_bounds(raw_date) if data.get('calendar','gregorian')=='gregorian' or raw_date.strip().upper().startswith('GREGORIAN ') else None
             if bounds:
                 if re.fullmatch(r'\d{4}',raw_date.strip()) or raw_date.upper().startswith('BET '):put(level+1,'DATE',raw_date.upper())
@@ -129,15 +146,31 @@ class GedcomTools(ResearchTools):
                 put(level+1,'NOTE','Original date: '+raw_date);warnings.append({'kind':'unparsed_date_preserved_as_note','value':raw_date})
             if data.get('place'):put(level+1,'PLAC',data['place'])
             if data.get('note'):put(level+1,'NOTE',data['note'])
-            cite(level+1,data.get('citation','') or (data.get('source_file','')+' '+str(data.get('person_xref','')) if data.get('import_id') else ''))
-        families=[f for f in self.family_list({}) if f['status']=='confirmed' and not f['stale'] and f['left'] in ids and f['right'] in ids]
-        for i,family in enumerate(families):
-            ref='@F'+str(i+1)+'@';links.append((ref,family))
+            cite(level+1,data.get('citation','') or (data.get('source_file','')+' '+str(data.get('person_xref','')) if data.get('import_id') else ''),data.get('page'))
+        families=[f for f in self.family_list({}) if (f['status']=='confirmed' and not f['stale'] or include_imported and f['status']=='imported' and (not f['stale'] or not f.get('record'))) and f['left'] in ids and f['right'] in ids]
+        for family in families:
+            if family['status']=='imported':warnings.append({'kind':'unverified_imported_relationship_included','id':family['id']})
+        parent_claims={(f['left'],f['right']):f for f in families if f['kind']=='parent'}
+        used=set();groups=[]
+        for spouse in (f for f in families if f['kind']=='spouse'):
+            left,right=spouse['left'],spouse['right']
+            children=sorted(child for parent,child in parent_claims if parent==left and (right,child) in parent_claims)
+            claims=[spouse]+[parent_claims[parent,child] for child in children for parent in (left,right)]
+            used.update(f['id'] for f in claims)
+            groups.append({'parents':[left,right],'children':children,'claims':claims})
+        for parent in dict.fromkeys(f['left'] for f in families if f['kind']=='parent' and f['id'] not in used):
+            claims=[f for f in families if f['kind']=='parent' and f['left']==parent and f['id'] not in used]
+            groups.append({'parents':[parent],'children':[f['right'] for f in claims],'claims':claims})
+        # A shared child enters a couple's family only when BOTH parent claims exist.
+        # A spouse link alone must never imply parentage of the other person's children.
+        links=[('@F'+str(i+1)+'@',group) for i,group in enumerate(groups)]
         for person in people:
             lines.append('0 '+ids[person['id']]+' INDI');put(1,'NAME',person['name'])
             for alias in person.get('aliases',[]):put(1,'NAME',alias)
             if person.get('sex') in ['M','F','X','U']:put(1,'SEX',person['sex'])
             if person.get('notes'):put(1,'NOTE',person['notes'])
+            if person.get('source_url'):cite(1,person['source_url']+' node '+person.get('source_node',''))
+            for page in person.get('media_pages',[]):attach_media(1,page)
             for data in person.get('events',[]):event(1,data.get('tag','EVEN'),data)
             card=self.person_card({'id':person['id']})
             for member in card['members']:
@@ -145,18 +178,45 @@ class GedcomTools(ResearchTools):
                 if member['stale'] or mention['field']!='person':
                     put(1,'NOTE',mention['name']+' — '+mention['citation']);warnings.append({'kind':'stale_or_related_mention_as_note','person':person['id']});continue
                 calendar=self.book_profile({'id':mention['page']}).get('calendar','')
-                event(1,{'Народження':'BIRT','Смерті':'DEAT','Шлюби':'MARR'}.get(record['kind'],'EVEN'),{'date':record.get('date',''),'place':record.get('place',''),'note':record.get('text',''),'citation':mention['citation'],'calendar':calendar})
-            for ref,family in links:
-                if family['kind']=='parent' and family['right']==person['id']:lines.append('1 FAMC '+ref)
-                elif person['id'] in [family['left'],family['right']]:lines.append('1 FAMS '+ref)
-        for ref,family in links:
-            lines.append('0 '+ref+' FAM');lines.append('1 HUSB '+ids[family['left']])
-            lines.append(('1 CHIL ' if family['kind']=='parent' else '1 WIFE ')+ids[family['right']])
-            put(1,'NOTE',family['note']+'\nRole placement does not assert sex; parent links are exported as separate partial families.');cite(1,family['citation'])
-        for title,ref in sources.items():lines.append('0 '+ref+' SOUR');put(1,'TITL',title)
+                event(1,{'Народження':'BIRT','Смерті':'DEAT','Шлюби':'MARR'}.get(record['kind'],'EVEN'),{'date':record.get('date',''),'place':record.get('place',''),'note':record.get('text',''),'citation':mention['citation'],'calendar':calendar,'page':mention['page']})
+                attach_media(2,mention['page'])
+            for ref,group in links:
+                if person['id'] in group['children']:lines.append('1 FAMC '+ref)
+                if person['id'] in group['parents']:lines.append('1 FAMS '+ref)
+        for ref,group in links:
+            lines.append('0 '+ref+' FAM')
+            for role,parent in zip(['HUSB','WIFE'],group['parents']):lines.append('1 '+role+' '+ids[parent])
+            for child in group['children']:lines.append('1 CHIL '+ids[child])
+            put(1,'NOTE','Role placement does not assert sex. Only explicitly selected relationship claims are exported.')
+            for family in group['claims']:
+                if family['status']=='imported':put(1,'NOTE','Imported research assertion; not independently verified. Inclusion was explicitly requested.')
+                put(1,'NOTE',family['note']);cite(1,family['citation'])
+                for item in family.get('events',[]):
+                    event(1,item.get('tag','EVEN'),item,family_event=True);attach_media(2,item.get('page'))
+                for document in family.get('documents',[]):
+                    cite(1,document.get('citation',''),document.get('page'));attach_media(1,document.get('page'))
+        for page in dict.fromkeys(list(a.get('extra_media_pages',[]))+[page for person in people for page in person.get('collection_pages',[])]):
+            # Documents may belong to the research collection without an identity link.
+            title=self.source_card({'id':page})['citation']
+            if title not in sources:sources[title]='@S'+str(len(sources)+1)+'@'
+            source_pages[title]=page
+        for title,ref in sources.items():
+            lines.append('0 '+ref+' SOUR');put(1,'TITL',title)
+            page=source_pages.get(title)
+            if page:
+                records=[json.loads(row['data']) for row in self.db.execute('SELECT data FROM records WHERE page=? ORDER BY id',(page,))]
+                texts=[r.get('text','') for r in records if r.get('text')]
+                if texts:put(1,'TEXT','\n\n'.join(texts))
+                for record in records:
+                    if record.get('notes'):put(1,'NOTE',record['notes'])
+                card=self.source_card({'id':page})
+                for note in [card['book'].get('notes'),card['page_values'].get('page_notes')]:
+                    if note:put(1,'NOTE',note)
+                attach_media(1,page)
+        for item in media.values():
+            lines.append('0 '+item['ref']+' OBJE');put(1,'FILE',item['path']);put(2,'FORM',item['mime']);put(2,'TITL',item['title'])
         lines.append('0 TRLR');path=Path(a['path']);path.parent.mkdir(parents=True,exist_ok=True)
         path.write_text('\n'.join(lines)+'\n',encoding='utf8')
         omitted=[{'kind':'unconfirmed_or_stale_relationship','id':f['id']} for f in self.family_list({}) if f not in families]
-        result={'path':str(path),'people':len(people),'warnings':warnings+omitted,'scope':'Names, notes, selected events, citations and confirmed pairwise parent/spouse links. Crops, scan files and complete audit history are not embedded.'}
-        if families:result['warnings'].append({'kind':'partial_family_groups','message':'Pairwise parent links are separate partial families; gender is not inferred.'})
+        result={'path':str(path),'people':len(people),'media_files':len(media),'relationships':len(families),'family_groups':len(groups),'warnings':warnings+omitted,'scope':'GEDCOM 7.0: names, notes, events, citations and explicit family groups. Imported claims and adjacent media files require explicit options. Full audit history is not embedded.'}
         path.with_suffix(path.suffix+'.report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8');return result

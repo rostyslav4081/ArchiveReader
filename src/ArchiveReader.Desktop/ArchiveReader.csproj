@@ -36,6 +36,7 @@
     <None Include="../../backend/archivereader/people.py" Link="people.py" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../backend/archivereader/backups.py" Link="backups.py" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../backend/archivereader/genealogy.py" Link="genealogy.py" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../backend/archivereader/genealogy_layout.py" Link="genealogy_layout.py" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../backend/archivereader/research.py" Link="research.py" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../backend/archivereader/gedcom.py" Link="gedcom.py" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../backend/archivereader/duplicates.py" Link="duplicates.py" CopyToOutputDirectory="PreserveNewest" />

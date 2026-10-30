@@ -18,6 +18,15 @@ public partial class MainWindow
     async void OpenGenealogy(object sender,RoutedEventArgs e)=>await Guard(async()=>
     {
         if(busy)return;await SaveCurrent();var window=new GenealogyWindow(current?.Id,Call){Owner=this};window.ShowDialog();
-        if(window.SelectedPageId!=null){await RefreshPages(window.SelectedPageId);current=allPages.FirstOrDefault(p=>p.Id==window.SelectedPageId);if(current!=null)await LoadPage(current);if(window.SelectedRecordId!=null && Records.Items.Cast<RecordItem>().FirstOrDefault(r=>r.Data["id"]?.ToString()==window.SelectedRecordId) is RecordItem record){loading=true;Records.SelectedItem=record;Fill(record.Data);loading=false;}}
+        await NavigateGenealogySelection(window);
     });
+    async Task NavigateGenealogySelection(GenealogyWindow window)
+    {
+        if(window.SelectedPageId==null)return;
+        await RefreshPages(window.SelectedPageId);
+        current=allPages.FirstOrDefault(p=>p.Id==window.SelectedPageId);
+        if(current!=null)await LoadPage(current);
+        if(window.SelectedRecordId!=null && Records.Items.Cast<RecordItem>().FirstOrDefault(r=>r.Data["id"]?.ToString()==window.SelectedRecordId) is RecordItem record)
+        {loading=true;Records.SelectedItem=record;Fill(record.Data);loading=false;}
+    }
 }
