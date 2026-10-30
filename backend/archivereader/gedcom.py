@@ -166,13 +166,15 @@ class GedcomTools(ResearchTools):
         links=[('@F'+str(i+1)+'@',group) for i,group in enumerate(groups)]
         for person in people:
             lines.append('0 '+ids[person['id']]+' INDI');put(1,'NAME',person['name'])
-            for alias in person.get('aliases',[]):put(1,'NAME',alias)
+            card=self.person_card({'id':person['id']})
+            aliases=person.get('aliases',[])+[m['mention']['name'] for m in card['members'] if not m['stale']]
+            for alias in dict.fromkeys(aliases):
+                if alias!=person['name']:put(1,'NAME',alias)
             if person.get('sex') in ['M','F','X','U']:put(1,'SEX',person['sex'])
             if person.get('notes'):put(1,'NOTE',person['notes'])
             if person.get('source_url'):cite(1,person['source_url']+' node '+person.get('source_node',''))
             for page in person.get('media_pages',[]):attach_media(1,page)
             for data in person.get('events',[]):event(1,data.get('tag','EVEN'),data)
-            card=self.person_card({'id':person['id']})
             for member in card['members']:
                 mention=member['mention'];record=mention['evidence']
                 if member['stale'] or mention['field']!='person':

@@ -137,6 +137,14 @@ class ResearchTests(unittest.TestCase):
         self.assertTrue(events)
         self.assertTrue(all(e['value'] and any(c['tag']=='TYPE' and c['value'] for c in e['children']) for e in events))
 
+    def test_gedcom_keeps_names_from_explicitly_attached_source_mentions(self):
+        rec=self.engine.save_record({'page':self.page,'kind':'Народження','person':'Johannes','text':'Johannes in original source'})['id']
+        gedcom=GedcomTools(self.engine);mention=next(m for m in gedcom.mentions(records=[rec]) if m['field']=='person')
+        gedcom.person_attach({'person':self.people[0],'mention':mention,'signature':mention['signature'],'note':'Explicit identity decision'})
+        path=self.root/'names.ged';gedcom.gedcom_export({'path':str(path)})
+        jan=next(p for p in gedcom.gedcom_preview({'path':str(path)})['people'] if p['name']=='Jan')
+        self.assertIn('Johannes',jan['aliases'])
+
     def test_only_confirmed_full_duplicate_with_done_source_is_skipped(self):
         from backend.archivereader.operations import Operations
         other=self.root/'other.png';self.image.resize((200,300)).save(other);doc=self.engine.import_file({'path':str(other)})['id'];target=next(p for p in self.engine.list_pages({}) if p['doc']==doc)['id']

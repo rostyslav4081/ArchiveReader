@@ -2,7 +2,7 @@
 
 ## Genealogy and GEDCOM update — 2026-10-30
 
-- Full automated run:235 tests passed using a workspace-local temporary directory. The affected genealogy, worker-command, GEDCOM, layout and localization subset was rerun after integration fixes:23 passed.
+- Full automated run:235 tests passed using a workspace-local temporary directory. The affected genealogy, worker-command, GEDCOM, layout and localization subset was rerun after integration and attested-name export fixes:24 passed.
 - Release WPF build:zero warnings and errors. The native `--smoke-tree` check rendered the focus-first tree, couple documents and export options, then opened a selected source page and its saved record. Exit code0; original scans remained immutable.
 - GEDCOM7 and GEDZIP were independently read, strictly validated and reparsed with a reviewed local `karbassi/GEDCOM` checkout at commit3969bf981665bb780f376668f01135b22c8bc57f. No validation issues remained. This checks structure, not historical assertions.
 - Working-library round-trip checks compared all person names and explicit relationship pairs. Media bytes and retained FigJam assets were checksum-verified. The existing subset importer still reports unsupported source/media structures and preserves their original GEDCOM bytes; it does not automatically restore external scan files.
