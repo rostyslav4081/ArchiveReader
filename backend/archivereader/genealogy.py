@@ -3,6 +3,7 @@ import hashlib
 import json
 import re
 import uuid
+from pathlib import Path
 try:
     from .people import PeopleTools
 except ImportError:
@@ -96,8 +97,20 @@ class GenealogyTools(PeopleTools):
         def year(member):
             found=re.search(r'(?<!\d)(1[0-9]{3}|20[0-9]{2})(?!\d)',member['mention']['evidence'].get('date',''))
             return int(found[0]) if found else 9999
+        relationships=self.family_list({'person':a['id']})
+        page_ids=list(person.get('media_pages',[]))+[m['mention']['page'] for m in members]
+        for relation in relationships:
+            if relation.get('page'):page_ids.append(relation['page'])
+            page_ids.extend(d['page'] for d in relation.get('documents',[]) if d.get('page'))
+        documents=[]
+        for page in dict.fromkeys(page_ids):
+            row=self.db.execute('SELECT d.name FROM pages p JOIN documents d ON d.id=p.doc WHERE p.id=?',(page,)).fetchone()
+            if not row:continue
+            record=self.db.execute('SELECT id,data FROM records WHERE page=? ORDER BY rowid LIMIT 1',(page,)).fetchone()
+            documents.append({'page':page,'record':record['id'] if record else None,'title':row['name'],
+                'citation':self.source_card({'id':page})['citation'],'text':json.loads(record['data']).get('text','') if record else ''})
         return person|{'members':sorted(members,key=year),'variants':variants,'variations':variations,
-                       'relationships':self.family_list({'person':a['id']})}
+                       'documents':documents,'relationships':relationships}
 
     def family_list(self,a):
         sql='SELECT * FROM family_links';params=()
@@ -112,6 +125,38 @@ class GenealogyTools(PeopleTools):
             current=records.get(data.get('record'));stale=current is None or hashlib.sha256(json.dumps(current,ensure_ascii=False).encode('utf8')).hexdigest()!=data['signature']
             result.append(data|{'id':row['id'],'stale':stale})
         return result
+
+    def genealogy_canvas(self,a):
+        """Return one document board with explicit person or relationship provenance."""
+        if a.get('person'):
+            card=self.person_card({'id':a['person']});title=card['name'];description=card.get('notes','');docs=card['documents']
+        elif a.get('family'):
+            link=next((f for f in self.family_list({}) if f['id']==a['family']),None)
+            if link is None:raise ValueError('Родинний зв’язок не знайдено.')
+            left=self.require_person(link['left']);right=self.require_person(link['right'])
+            title=left['name']+' — '+right['name']
+            description=link.get('note','')+'\n\n'+left['name']+'\n'+left.get('notes','')+'\n\n'+right['name']+'\n'+right.get('notes','')
+            docs=list(link.get('documents',[]))
+            if link.get('page'):docs.append({'page':link['page'],'record':link.get('record')})
+        else:raise ValueError('Оберіть людину або родинний зв’язок.')
+        documents=[];seen=set()
+        for doc in docs:
+            page=doc.get('page')
+            if not page or page in seen:continue
+            seen.add(page);item=self.engine.page(page);source=self.source_card({'id':page})
+            book=source['book'];locator=source['page_values']
+            group=' · '.join(str(v) for v in [book.get('archive'),('ф. '+book['fonds']) if book.get('fonds') else '',
+                ('оп. '+book['inventory']) if book.get('inventory') else '',('спр. '+book['file']) if book.get('file') else book.get('title')] if v)
+            records=[json.loads(r['data']) for r in self.db.execute('SELECT data FROM records WHERE page=? ORDER BY rowid',(page,))]
+            text=doc.get('text') or '\n\n'.join(dict.fromkeys(r.get('text','') for r in records if r.get('text')))
+            # Raster originals can be decoded directly; PDFs and multipage images use the page renderer.
+            direct=item['num']==0 and Path(item['path']).suffix.lower() in ['.jpg','.jpeg','.png','.bmp']
+            documents.append({'page':page,'record':doc.get('record'),'title':doc.get('title') or item['name'],
+                'group':group or 'Сімейна збірка','citation':source['citation'],'text':text,
+                'image_path':item['path'] if direct else None,'missing':not Path(item['path']).is_file(),
+                'source_url':locator.get('page_url') or book.get('url') or '',
+                'source_scope':'scan' if locator.get('page_url') else 'unit' if book.get('url') else 'unavailable'})
+        return {'title':title,'description':description,'documents':documents,'count':len(documents)}
 
     def family_tree(self,a):
         try:from .genealogy_layout import layout_tree

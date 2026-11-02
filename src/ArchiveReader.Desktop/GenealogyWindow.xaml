@@ -7,6 +7,11 @@
  <TabItem Header="Картка людини"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
  <TextBlock Text="Ім’я картки"/><TextBox x:Name="PersonName"/><TextBlock Text="Примітки людини"/><TextBox x:Name="PersonNotes" Height="60" AcceptsReturn="True" TextWrapping="Wrap"/>
  <WrapPanel><Button Content="Створити картку" Click="CreatePerson"/><Button Content="Зберегти картку" Click="SavePerson"/></WrapPanel>
+ <TextBlock Text="Документи людини та родинних зв’язків" FontWeight="SemiBold"/>
+ <ListBox x:Name="PersonDocuments" Height="130" DisplayMemberPath="Label" SelectionChanged="SelectPersonDocument"/>
+ <TextBox x:Name="PersonDocumentEvidence" Height="90" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+ <Button Content="Відкрити фото документа" Click="OpenPersonDocument"/>
+ <Button Content="Опис і всі фото на полотні" Click="OpenPersonCanvas"/>
  <TextBlock Text="Згадки додаються вручну. Події впорядковано за розпізнаним роком; оригінальні дати не змінюються. Відмінності значень не завжди є суперечностями." TextWrapping="Wrap"/>
  <TextBox x:Name="CardSummary" Height="100" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
  <ListBox x:Name="Members" Height="100" DisplayMemberPath="Label" SelectionChanged="SelectMember"/>
@@ -30,7 +35,7 @@
  <TextBox x:Name="FamilyReason" Height="65" AcceptsReturn="True" TextWrapping="Wrap"/><Button Content="Підтвердити родинний зв’язок" Click="SaveFamily"/>
  <ListBox x:Name="Families" Height="180" DisplayMemberPath="Label" SelectionChanged="SelectFamily"/>
  <TextBox x:Name="FamilyEvidence" Height="160" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
- <ListBox x:Name="FamilyDocuments" Height="130" DisplayMemberPath="Label" SelectionChanged="SelectFamilyDocument"/><Button Content="Відкрити документ пари" Click="OpenFamilyRecord"/><Button Content="Відкликати родинний зв’язок" Click="WithdrawFamily"/>
+ <ListBox x:Name="FamilyDocuments" Height="130" DisplayMemberPath="Label" SelectionChanged="SelectFamilyDocument"/><Button Content="Опис і всі фото пари на полотні" Click="OpenFamilyCanvas"/><Button Content="Відкрити документ пари" Click="OpenFamilyRecord"/><Button Content="Відкликати родинний зв’язок" Click="WithdrawFamily"/>
  </StackPanel></ScrollViewer></TabItem>
  <TabItem Header="Дерево родини"><DockPanel Margin="12"><Button DockPanel.Dock="Top" Content="Дошка з фото як у Figma" Click="OpenSourceBoard"/><TextBlock DockPanel.Dock="Top" Text="Ти зверху, предки нижче; подружжя поруч. Пунктир — неперевірений зв’язок. Натисни лінію пари, щоб відкрити документи." TextWrapping="Wrap"/><ScrollViewer x:Name="TreeViewport" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"><Canvas x:Name="Tree" Width="800" Height="600" Background="White"/></ScrollViewer></DockPanel></TabItem>
  <TabItem Header="Виправлення карток"><ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">

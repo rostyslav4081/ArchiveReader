@@ -16,6 +16,6 @@ $taskNewestSource = Get-ChildItem -LiteralPath $taskSourcePaths -Recurse -File |
 $taskAssembly = Join-Path (Split-Path -Parent $app) 'ArchiveReader.dll'
 if (-not (Test-Path -LiteralPath $taskAssembly) -or ($taskNewestSource -and $taskNewestSource.LastWriteTimeUtc -gt (Get-Item -LiteralPath $taskAssembly).LastWriteTimeUtc)) {
     dotnet build ArchiveReader.slnx -c Release --nologo
-    if ($LASTEXITCODE -ne 0) { throw 'Не вдалося зібрати ArchiveReader.' }
+    if ($LASTEXITCODE -ne 0) { throw 'ArchiveReader build failed. See the output above.' }
 }
-Start-Process -FilePath $app -WorkingDirectory $PSScriptRoot -WindowStyle Hidden
+Start-Process -FilePath $app -WorkingDirectory $PSScriptRoot -WindowStyle Normal

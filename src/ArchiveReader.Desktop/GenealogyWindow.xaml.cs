@@ -16,7 +16,7 @@ public partial class GenealogyWindow:Window
     static string T(string s)=>Localizer.Text(s);
     Task<JsonNode> Call(string command,JsonObject? args=null)=>worker(command,args,default);
     public GenealogyWindow(string? page,Func<string,JsonObject?,CancellationToken,Task<JsonNode>> worker)
-    {this.page=page;this.worker=worker;InitializeComponent();Loaded+=async(_,_)=>await Run(async()=>{Localizer.Apply(this,Localizer.Language);await Refresh();await LoadMentions();if(Environment.GetCommandLineArgs().Contains("--show-tree"))Tabs.SelectedIndex=3;if(Environment.GetCommandLineArgs().Contains("--smoke-tree")){Tabs.IsEnabled=true;Tabs.SelectedIndex=3;await Dispatcher.InvokeAsync(()=>{},System.Windows.Threading.DispatcherPriority.ContextIdle);SmokeCapture.Save(this,"genealogy-ui","tree.png");Tabs.SelectedIndex=2;Families.SelectedItem=Families.Items.Cast<GenealogyRow>().FirstOrDefault(r=>r.Data["kind"]!.ToString()=="spouse"&&r.Data["status"]!.ToString()=="confirmed");FamilyDocuments.SelectedItem=FamilyDocuments.Items.Cast<GenealogyRow>().FirstOrDefault(r=>r.Data["text"]?.ToString().Contains("Zobowiązani")==true);SmokeCapture.Save(this,"genealogy-ui","couple-documents.png");Tabs.SelectedIndex=5;SmokeCapture.Save(this,"genealogy-ui","gedcom.png");if(FamilyDocuments.SelectedItem!=null)OpenFamilyRecord(this,new RoutedEventArgs());else Close();return;}if(Environment.GetCommandLineArgs().Contains("--smoke-roadmap")){FactField.SelectedIndex=2;await ShowFact();await PreviewGedcomFile(System.IO.Path.Combine(Environment.GetEnvironmentVariable("ARCHIVEREADER_DATA")!,"smoke-tree.ged"));Tabs.IsEnabled=true;Families.SelectedIndex=0;for(int i=0;i<Tabs.Items.Count;i++){Tabs.SelectedIndex=i;SmokeCapture.Save(this,"genealogy-ui",$"tab-{i}.png");}Close();}});}
+    {this.page=page;this.worker=worker;InitializeComponent();Loaded+=async(_,_)=>await Run(async()=>{Localizer.Apply(this,Localizer.Language);await Refresh();await LoadMentions();if(Environment.GetCommandLineArgs().Contains("--show-couple-canvas")||Environment.GetCommandLineArgs().Contains("--smoke-evidence-canvas")){var largest=families.Where(f=>f["kind"]!.ToString()=="spouse").OrderByDescending(f=>(f["documents"] as JsonArray)?.Count??0).FirstOrDefault();if(largest!=null)OpenCanvas(new(){["family"]=largest["id"]!.ToString()});}if(Environment.GetCommandLineArgs().Contains("--show-tree"))Tabs.SelectedIndex=3;if(Environment.GetCommandLineArgs().Contains("--smoke-tree")){Tabs.IsEnabled=true;Tabs.SelectedIndex=3;await Dispatcher.InvokeAsync(()=>{},System.Windows.Threading.DispatcherPriority.ContextIdle);SmokeCapture.Save(this,"genealogy-ui","tree.png");Tabs.SelectedIndex=2;Families.SelectedItem=Families.Items.Cast<GenealogyRow>().FirstOrDefault(r=>r.Data["kind"]!.ToString()=="spouse"&&r.Data["status"]!.ToString()=="confirmed");FamilyDocuments.SelectedItem=FamilyDocuments.Items.Cast<GenealogyRow>().FirstOrDefault(r=>r.Data["text"]?.ToString().Contains("Zobowiązani")==true);SmokeCapture.Save(this,"genealogy-ui","couple-documents.png");Tabs.SelectedIndex=5;SmokeCapture.Save(this,"genealogy-ui","gedcom.png");if(FamilyDocuments.SelectedItem!=null)OpenFamilyRecord(this,new RoutedEventArgs());else Close();return;}if(Environment.GetCommandLineArgs().Contains("--smoke-roadmap")){FactField.SelectedIndex=2;await ShowFact();await PreviewGedcomFile(System.IO.Path.Combine(Environment.GetEnvironmentVariable("ARCHIVEREADER_DATA")!,"smoke-tree.ged"));Tabs.IsEnabled=true;Families.SelectedIndex=0;for(int i=0;i<Tabs.Items.Count;i++){Tabs.SelectedIndex=i;SmokeCapture.Save(this,"genealogy-ui",$"tab-{i}.png");}Close();}});}
     async Task Run(Func<Task> action){if(busy)return;busy=true;Tabs.IsEnabled=false;try{await action();}catch(Exception ex){Status.Text=T("Помилка: ")+T(ex.Message);SmokeCapture.Fail(ex);}finally{Tabs.IsEnabled=true;busy=false;}}
     string? PersonId=>(Persons.SelectedItem as GenealogyRow)?.Data["id"]?.ToString();
     async Task Refresh(string? ident=null)
@@ -25,11 +25,11 @@ public partial class GenealogyWindow:Window
         people=(await Call("person_list")).AsArray().Select(n=>new GenealogyRow(n!.AsObject(),n["name"]!.ToString())).ToList();
         Persons.ItemsSource=people;FamilyLeft.ItemsSource=people;FamilyRight.ItemsSource=people;MergeTarget.ItemsSource=people;MergeTarget.SelectedIndex=0;
         Persons.SelectedItem=people.FirstOrDefault(p=>p.Data["id"]!.ToString()==ident) ?? people.FirstOrDefault(p=>p.Data["tree_root"]?.GetValue<bool>()==true) ?? people.FirstOrDefault();
-        if(!gedcomOptionsInitialized){IncludeImportedGedcom.IsChecked=people.Any(p=>p.Data["tree_root"]?.GetValue<bool>()==true);IncludeGedcomMedia.IsChecked=IncludeImportedGedcom.IsChecked;gedcomOptionsInitialized=true;}
+        if(!gedcomOptionsInitialized){IncludeImportedGedcom.IsChecked=people.Any(p=>p.Data["tree_root"]?.GetValue<bool>()==true);IncludeGedcomMedia.IsChecked=true;gedcomOptionsInitialized=true;}
         FamilyLeft.SelectedIndex=0;FamilyRight.SelectedIndex=Math.Min(1,people.Count-1);filling=false;
         families=(await Call("family_list")).AsArray().Select(n=>n!.AsObject()).ToList();
         string Name(JsonNode? id)=>people.FirstOrDefault(p=>p.Data["id"]!.ToString()==id?.ToString())?.Label ?? "?";
-        Families.ItemsSource=families.Select(f=>new GenealogyRow(f,$"{Name(f["left"])} {(f["kind"]!.ToString()=="parent" ? "→" : "↔")} {Name(f["right"])} · {T(f["status"]!.ToString() switch {"confirmed"=>"Підтверджено","imported"=>"Імпортовано, не підтверджено",_=>"Рішення відкликано"})} {(f["stale"]!.GetValue<bool>() ? "⚠" : "")}")).ToList();
+        Families.ItemsSource=families.Select(f=>new GenealogyRow(f,$"{Name(f["left"])} {(f["kind"]!.ToString()=="parent" ? "→" : "↔")} {Name(f["right"])} · {T(f["status"]!.ToString() switch {"confirmed"=>"Підтверджено","imported"=>"Імпортовано зі схеми",_=>"Рішення відкликано"})} {(f["stale"]!.GetValue<bool>() ? "⚠" : "")}")).ToList();
         await LoadCard();DrawTree((await Call("family_tree")).AsObject());await LoadChanges();
     }
     async Task LoadCard()
@@ -38,10 +38,20 @@ public partial class GenealogyWindow:Window
         FactImage.Source=null;MemberEvidence.Text="";
         var card=await Call("person_card",new(){["id"]=PersonId});PersonName.Text=card["name"]!.ToString();PersonNotes.Text=card["notes"]?.ToString() ?? "";
         CardSummary.Text=T("Варіанти імені")+": "+string.Join(", ",card["variants"]!.AsArray().Select(n=>n!.ToString()))+"\n"+string.Join("\n",card["variations"]!.AsObject().Select(pair=>ExtractionWindow.Field(pair.Key)+": "+string.Join(", ",pair.Value!.AsArray().Select(n=>n!.ToString()))));
-        if(card["events"] is JsonArray imported)CardSummary.Text+="\n"+T("Імпортовані неперевірені події")+":\n"+string.Join("\n",imported.Select(n=>$"{n!["tag"]} · {n["date"]} · {n["place"]} · {n["citation"]}"));
+        if(card["events"] is JsonArray imported)CardSummary.Text+="\n"+T("Події та джерела")+":\n"+string.Join("\n",imported.Select(n=>$"{n!["tag"]} · {n["date"]} · {n["place"]} · {n["citation"]}"));
         var members=card["members"]!.AsArray().Select(n=>new GenealogyRow(n!.AsObject(),$"{n["mention"]?["evidence"]?["date"]} · {n["mention"]?["name"]} · {n["mention"]?["document"]} {(n["stale"]!.GetValue<bool>() ? "⚠" : "")}")).ToList();Members.ItemsSource=members;SplitMembers.ItemsSource=members;Members.SelectedIndex=0;
+        PersonDocuments.ItemsSource=card["documents"]!.AsArray().Select(n=>new GenealogyRow(n!.AsObject(),n["title"]!.ToString())).ToList();PersonDocuments.SelectedIndex=0;
     }
     async void SelectPerson(object sender,SelectionChangedEventArgs e){if(!filling)await Run(LoadCard);}
+    void SelectPersonDocument(object sender,SelectionChangedEventArgs e)
+    {
+        PersonDocumentEvidence.Text=PersonDocuments.SelectedItem is GenealogyRow row ? row.Data["citation"]+"\n\n"+row.Data["text"] : "";
+    }
+    void OpenPersonDocument(object sender,RoutedEventArgs e)
+    {
+        if(PersonDocuments.SelectedItem is not GenealogyRow row)return;
+        SelectedPageId=row.Data["page"]!.ToString();SelectedRecordId=row.Data["record"]?.ToString();DialogResult=true;
+    }
     async void CreatePerson(object sender,RoutedEventArgs e)=>await Run(async()=>{var result=await Call("person_save",new(){["name"]=PersonName.Text,["notes"]=PersonNotes.Text});await Refresh(result["id"]!.ToString());});
     async void SavePerson(object sender,RoutedEventArgs e)=>await Run(async()=>{if(PersonId==null)return;await Call("person_save",new(){["id"]=PersonId,["name"]=PersonName.Text,["notes"]=PersonNotes.Text});await Refresh();});
     async Task LoadMentions(){var list=await Call("genealogy_mentions",new(){["page"]=page,["query"]=MentionQuery.Text});Mentions.ItemsSource=list.AsArray().Select(n=>new GenealogyRow(n!.AsObject(),$"{n["name"]} · {PersonMention.Role(n["field"]?.ToString())} · {n["document"]} · {n["number"]}")).ToList();Mentions.SelectedIndex=0;}
@@ -106,6 +116,9 @@ public partial class GenealogyWindow:Window
         Families.SelectedItem=Families.Items.Cast<GenealogyRow>().FirstOrDefault(r=>r.Data["id"]!.ToString()==id);
         Tabs.SelectedIndex=2;
     }
+    void OpenCanvas(JsonObject selection)=>new EvidenceCanvasWindow(worker,selection){Owner=this}.ShowDialog();
+    void OpenPersonCanvas(object sender,RoutedEventArgs e){if(PersonId!=null)OpenCanvas(new(){["person"]=PersonId});}
+    void OpenFamilyCanvas(object sender,RoutedEventArgs e){if(Families.SelectedItem is GenealogyRow row)OpenCanvas(new(){["family"]=row.Data["id"]!.ToString()});}
     void DrawTree(JsonObject layout)
     {
         Tree.Children.Clear();Tree.Width=layout["width"]?.GetValue<double>()??800;Tree.Height=layout["height"]?.GetValue<double>()??600;
@@ -118,13 +131,13 @@ public partial class GenealogyWindow:Window
             bool imported=f["status"]!.ToString()=="imported",stale=f["stale"]!.GetValue<bool>();
             var line=new Line{X1=left.X+112,Y1=left.Y+88,X2=right.X+112,Y2=right.Y+88,
                 Stroke=imported?new SolidColorBrush(Color.FromRgb(179,179,179)):stale?Brushes.Gray:Brushes.SlateGray,StrokeThickness=3,
-                ToolTip=T(imported?"Імпортовано, не підтверджено":"Підтверджено")};
+                ToolTip=T(imported?"Імпортовано зі схеми":"Підтверджено")};
             if(imported||stale)line.StrokeDashArray=new DoubleCollection{4,3};
             line.MouseLeftButtonDown+=(_,_)=>ShowFamily(f["id"]!.ToString());Tree.Children.Add(line);
             if(f["kind"]!.ToString()=="spouse" && f["documents"] is JsonArray documents && documents.Count>0)
             {
                 var proof=new Button{Content=T("Документи пари")+" ("+documents.Count+")",Height=28,Padding=new Thickness(8,2,8,2)};
-                proof.Click+=(_,_)=>ShowFamily(f["id"]!.ToString());Canvas.SetLeft(proof,Math.Min(left.X,right.X)+100);Canvas.SetTop(proof,Math.Max(left.Y,right.Y)+180);Tree.Children.Add(proof);
+                proof.Click+=(_,_)=>OpenCanvas(new(){["family"]=f["id"]!.ToString()});Canvas.SetLeft(proof,Math.Min(left.X,right.X)+100);Canvas.SetTop(proof,Math.Max(left.Y,right.Y)+180);Tree.Children.Add(proof);
             }
         }
         foreach(var person in people)

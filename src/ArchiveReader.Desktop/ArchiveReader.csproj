@@ -1,7 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework><UseWPF>true</UseWPF><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup>
+  <PropertyGroup><Version>0.2.0</Version></PropertyGroup>
   <PropertyGroup><OutputPath>../../bin/$(Configuration)/</OutputPath></PropertyGroup>
   <ItemGroup>
+    <None Include="../../backend/archivereader/gedzip.py" Link="gedzip.py" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../backend/archivereader/shape_search.py" Link="shape_search.py" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../backend/archivereader/recognition_workflow.py" Link="recognition_workflow.py" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../backend/archivereader/paddle_local.py" Link="paddle_local.py" CopyToOutputDirectory="PreserveNewest" />

@@ -6,10 +6,15 @@ import json
 from pathlib import Path
 import re
 import uuid
+import os
+import tempfile
+import zipfile
 try:
     from .research import ResearchTools,date_bounds
+    from .gedzip import input_bytes,safe_name,stage_media
 except ImportError:
     from research import ResearchTools,date_bounds
+    from gedzip import input_bytes,safe_name,stage_media
 
 
 def parse(raw):
@@ -50,8 +55,7 @@ class GedcomTools(ResearchTools):
 
     def preview(self,path):
         path=Path(path)
-        if path.stat().st_size>20*1024*1024:raise ValueError('GEDCOM перевищує ліміт імпорту 20 МБ.')
-        raw=path.read_bytes()
+        raw,input_sha,package_files=input_bytes(path)
         try:roots=parse(raw)
         except UnicodeDecodeError as ex:raise ValueError('Підтримується GEDCOM у кодуванні UTF-8.') from ex
         declared=value(roots[0],'CHAR')
@@ -81,8 +85,37 @@ class GedcomTools(ResearchTools):
                                  'children':[c['value'] for c in children(root,'CHIL')],'note':value(root,'NOTE'),'citation':'; '.join(citations(root))})
         known={p['xref'] for p in people}
         unresolved=[{'family':f['xref'],'reference':ref} for f in families for ref in f['parents']+f['children'] if ref not in known]
-        return {'sha':hashlib.sha256(raw).hexdigest(),'people':people,'families':families,'unsupported':unsupported,'unresolved':unresolved,
-                'policy':'UTF-8 subset. Imported people/events/relationships remain unverified; media are not fetched. Raw bytes are retained in the database.'},raw
+        media=[]
+        if package_files is not None:
+            by_ref={r['xref']:r for r in roots if r['xref']};found={}
+            def media_paths(node,seen=None,source=None):
+                seen=set() if seen is None else seen
+                if len(seen)>128:raise ValueError('Занадто глибокий ланцюг джерел GEDZIP.')
+                source=node if node['tag']=='SOUR' and node['xref'] else source
+                paths=[]
+                if node['tag']=='FILE':
+                    name=safe_name(node['value'])
+                    if name not in package_files:raise ValueError('У GEDZIP відсутній документ: '+name)
+                    found.setdefault(name,{'path':name,'title':value(node,'TITL') or Path(name).name,
+                        'citation':value(source,'TITL') if source else '', 'text':value(source,'TEXT') if source else '',
+                        'bytes':package_files[name]})
+                    if source:
+                        for field,tag in [('citation','TITL'),('text','TEXT')]:
+                            content=value(source,tag)
+                            if content and content not in found[name][field]:found[name][field]+=('\n\n' if found[name][field] else '')+content
+                    paths.append(name)
+                if node['tag'] in ['OBJE','SOUR'] and node['value'] in by_ref and node['value'] not in seen:
+                    paths+=media_paths(by_ref[node['value']],seen|{node['value']},source)
+                for child in node['children']:paths+=media_paths(child,seen,source)
+                return list(dict.fromkeys(paths))
+            for root in roots:media_paths(root)
+            for person in people:person['media_refs']=media_paths(by_ref[person['xref']])
+            for family in families:family['media_refs']=media_paths(by_ref[family['xref']])
+            media=list(found.values())
+            unsupported=[x for x in unsupported if x['tag'] not in ['OBJE','FILE','FORM','TEXT']]
+        return {'sha':input_sha,'people':people,'families':families,'unsupported':unsupported,'unresolved':unresolved,
+                'package':package_files is not None,'media':media,
+                'policy':'GEDZIP restores embedded referenced documents; plain GEDCOM does not fetch media. Imported claims retain their source notes without automatic confirmation.'},raw
 
     def gedcom_preview(self,a):return self.preview(a['path'])[0]
 
@@ -92,23 +125,77 @@ class GedcomTools(ResearchTools):
         old=self.db.execute('SELECT id FROM gedcom_imports WHERE sha=?',(report['sha'],)).fetchone()
         if old:raise ValueError('Цей GEDCOM уже імпортовано.')
         ident=uuid.uuid4().hex;mapping={p['xref']:uuid.uuid4().hex for p in report['people']}
-        with self.db:
-            for person in report['people']:
-                data={k:v for k,v in person.items() if k!='xref'};data['import_id']=ident;data['unverified_import']=True
-                data['events']=[event|{'import_id':ident,'person_xref':person['xref'],'source_file':Path(a['path']).name} for event in data['events']]
-                self.db.execute('INSERT INTO persons VALUES (?,?)',(mapping[person['xref']],json.dumps(data,ensure_ascii=False)))
-            for family in report['families']:
-                parents=[mapping[x] for x in family['parents'] if x in mapping];kids=[mapping[x] for x in family['children'] if x in mapping]
-                pairs=[(parents[0],parents[1],'spouse')] if len(parents)==2 and parents[0]!=parents[1] else []
-                pairs += [(parent,child,'parent') for parent in parents for child in kids if parent!=child]
-                for left,right,kind in pairs:
-                    data={'left':left,'right':right,'kind':kind,'status':'imported','record':None,'signature':None,'evidence':{},'page':None,'note':family['note'],
-                          'citation':family['citation'] or Path(a['path']).name+' '+str(family['xref']),'import_id':ident}
-                    self.db.execute('INSERT INTO family_links VALUES (?,?)',(uuid.uuid4().hex,json.dumps(data,ensure_ascii=False)))
-            self.db.execute('INSERT INTO gedcom_imports VALUES (?,?,?,?)',(ident,report['sha'],raw,json.dumps(report,ensure_ascii=False)))
-        return {'id':ident,'people':len(mapping),'unsupported':report['unsupported'],'unresolved':report['unresolved']}
+        temporary=tempfile.TemporaryDirectory(dir=self.engine.root);created_files=[];media_pages={};media_records={}
+        try:
+            staged=stage_media(a['path'],report['media'],temporary.name) if report['package'] else []
+            # The preview fingerprint covers the entire package, including photographs.
+            if report['package'] and input_bytes(a['path'])[1]!=report['sha']:raise ValueError('GEDZIP змінився після перегляду.')
+            with self.db:
+                for item in staged:
+                    existing=self.db.execute('SELECT id,path FROM documents WHERE sha=?',(item['sha'],)).fetchone()
+                    if existing:
+                        doc=existing['id']
+                        if not Path(existing['path']).is_file() or hashlib.sha256(Path(existing['path']).read_bytes()).hexdigest()!=item['sha']:
+                            raise ValueError('Збережений оригінал пошкоджений; відновіть його перед імпортом GEDZIP.')
+                    else:
+                        doc=uuid.uuid4().hex;target=self.engine.root/'originals'/(item['sha']+item['suffix'])
+                        if target.exists():
+                            if hashlib.sha256(target.read_bytes()).hexdigest()!=item['sha']:raise ValueError('Файл оригіналу змінився.')
+                        else:
+                            shutil.copyfile(item['staged'],target);created_files.append(target)
+                        self.db.execute('INSERT INTO documents VALUES (?,?,?,?)',(doc,item['title'],str(target),item['sha']))
+                        self.db.executemany('INSERT INTO pages(id,doc,num) VALUES (?,?,?)',[(uuid.uuid4().hex,doc,n) for n in range(item['count'])])
+                        self.db.execute('INSERT INTO book_sources VALUES (?,?)',(doc,json.dumps({'title':item['citation'] or item['title'],'notes':'Імпортовано з GEDZIP. '+item['path']},ensure_ascii=False)))
+                    page=self.db.execute('SELECT id FROM pages WHERE doc=? ORDER BY num LIMIT 1',(doc,)).fetchone()['id']
+                    media_pages[item['path']]=page
+                    rec=uuid.uuid4().hex;media_records[item['path']]=rec
+                    self.db.execute('INSERT INTO records VALUES (?,?,?)',(rec,page,json.dumps({'kind':'Інші записи та примітки','person':'','text':item['text'],'notes':item['citation'],'verified':False},ensure_ascii=False)))
+                self._import_gedcom_rows(a,report,raw,ident,mapping,media_pages,media_records)
+        except Exception:
+            for target in created_files:target.unlink(missing_ok=True)
+            raise
+        finally:temporary.cleanup()
+        return {'id':ident,'people':len(mapping),'media_files':len(media_pages),'unsupported':report['unsupported'],'unresolved':report['unresolved']}
+
+    def _import_gedcom_rows(self,a,report,raw,ident,mapping,media_pages,media_records):
+        """Insert the complete genealogy inside the caller's database transaction."""
+        for person in report['people']:
+            data={k:v for k,v in person.items() if k!='xref'};data['import_id']=ident;data['unverified_import']=True
+            data['media_pages']=list(dict.fromkeys(media_pages[p] for p in person.get('media_refs',[])))
+            if person['xref']==next(iter(mapping)):data['collection_pages']=list(dict.fromkeys(media_pages.values()))
+            data['events']=[event|{'import_id':ident,'person_xref':person['xref'],'source_file':Path(a['path']).name} for event in data['events']]
+            self.db.execute('INSERT INTO persons VALUES (?,?)',(mapping[person['xref']],json.dumps(data,ensure_ascii=False)))
+            for name in person.get('media_refs',[]):
+                item=next(x for x in report['media'] if x['path']==name);rec=uuid.uuid4().hex
+                evidence={'kind':'Інші записи та примітки','person':person['name'],'text':item['text'],'notes':item['citation'],'verified':False}
+                self.db.execute('INSERT INTO records VALUES (?,?,?)',(rec,media_pages[name],json.dumps(evidence,ensure_ascii=False)))
+                mention=self.enrich(self.mentions(records=[rec])[0])
+                self.db.execute('INSERT INTO person_members VALUES (?,?,?)',(self.key(mention),mapping[person['xref']],json.dumps({'mention':mention,'note':'Фото прикріплене у вихідному GEDZIP; факт імпорту не підтверджує тотожність особи.'},ensure_ascii=False)))
+        for family in report['families']:
+            parents=[mapping[x] for x in family['parents'] if x in mapping];kids=[mapping[x] for x in family['children'] if x in mapping]
+            pairs=[(parents[0],parents[1],'spouse')] if len(parents)==2 and parents[0]!=parents[1] else []
+            pairs += [(parent,child,'parent') for parent in parents for child in kids if parent!=child]
+            for left,right,kind in pairs:
+                data={'left':left,'right':right,'kind':kind,'status':'imported','record':None,'signature':None,'evidence':{},'page':None,'note':family['note'],
+                      'citation':family['citation'] or Path(a['path']).name+' '+str(family['xref']),'import_id':ident,
+                      'documents':[{'page':media_pages[p],'record':media_records[p],'title':next(x['title'] for x in report['media'] if x['path']==p),'citation':next(x['citation'] for x in report['media'] if x['path']==p),'text':next(x['text'] for x in report['media'] if x['path']==p)} for p in family.get('media_refs',[])]}
+                self.db.execute('INSERT INTO family_links VALUES (?,?)',(uuid.uuid4().hex,json.dumps(data,ensure_ascii=False)))
+        self.db.execute('INSERT INTO gedcom_imports VALUES (?,?,?,?)',(ident,report['sha'],raw,json.dumps(report,ensure_ascii=False)))
 
     def gedcom_export(self,a):
+        if Path(a['path']).suffix.lower()=='.gdz':
+            destination=Path(a['path']).resolve();destination.parent.mkdir(parents=True,exist_ok=True)
+            with tempfile.TemporaryDirectory(dir=destination.parent) as temporary:
+                folder=Path(temporary);ged=folder/'gedcom.ged'
+                result=self.gedcom_export(a|{'path':str(ged),'include_media':True})
+                package=folder/'package.gdz'
+                with zipfile.ZipFile(package,'w',zipfile.ZIP_DEFLATED) as archive:
+                    archive.write(ged,'gedcom.ged')
+                    for photo in sorted((folder/'gedcom.media').glob('*')):archive.write(photo,photo.relative_to(folder).as_posix())
+                os.replace(package,destination)
+            result['path']=str(destination);result['format']='GEDZIP';result['includes_media']=True
+            destination.with_suffix('.gdz.report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),'utf-8')
+            return result
         destination=Path(a['path']).resolve();destination.parent.mkdir(parents=True,exist_ok=True);media={};include_imported=a.get('include_imported') is True
         people=self.person_list({});ids={p['id']:'@I'+str(i+1)+'@' for i,p in enumerate(people)};lines=['0 HEAD','1 SOUR ArchiveReader','1 GEDC','2 VERS 7.0'];warnings=[];sources={};source_pages={};links=[]
         def put(level,tag,text=''):

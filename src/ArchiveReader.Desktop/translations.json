@@ -30,9 +30,9 @@
     "Fond"
   ],
   "Опис": [
-    "Inventory",
-    "Inwentarz",
-    "Inventář"
+    "Description",
+    "Opis",
+    "Popis"
   ],
   "Справа": [
     "File / unit",
@@ -6543,5 +6543,130 @@
     "You are at the top, ancestors below, couples side by side. Dashed links are unverified. Click a couple link to open its documents.",
     "Ty na górze, przodkowie poniżej, pary obok siebie. Linie przerywane oznaczają niezweryfikowane powiązania. Kliknij połączenie pary, aby otworzyć dokumenty.",
     "Vy nahoře, předci níže, páry vedle sebe. Přerušované čáry jsou neověřené. Kliknutím na vazbu páru otevřete dokumenty."
+  ],
+  "Документи людини та родинних зв’язків": [
+    "Documents for this person and family relationships",
+    "Dokumenty osoby i relacji rodzinnych",
+    "Dokumenty osoby a rodinných vazeb"
+  ],
+  "Відкрити фото документа": [
+    "Open document photo",
+    "Otwórz zdjęcie dokumentu",
+    "Otevřít fotografii dokumentu"
+  ],
+  "Опис і всі фото на полотні": [
+    "Description and all photos on one board",
+    "Opis i wszystkie zdjęcia na jednej tablicy",
+    "Popis a všechny fotografie na jednom plátně"
+  ],
+  "Опис і всі фото пари на полотні": [
+    "Couple description and all photos",
+    "Opis pary i wszystkie zdjęcia",
+    "Popis páru a všechny fotografie"
+  ],
+  "Опис і всі документи — спільне полотно": [
+    "Description and all documents — shared board",
+    "Opis i wszystkie dokumenty — wspólna tablica",
+    "Popis a všechny dokumenty — společné plátno"
+  ],
+  "Опис і всі документи": [
+    "Description and all documents",
+    "Opis i wszystkie dokumenty",
+    "Popis a všechny dokumenty"
+  ],
+  "За шириною": [
+    "Fit width",
+    "Dopasuj do szerokości",
+    "Přizpůsobit šířce"
+  ],
+  "Усе полотно": [
+    "Whole board",
+    "Cała tablica",
+    "Celé plátno"
+  ],
+  "фото": [
+    "photos",
+    "zdjęć",
+    "fotografií"
+  ],
+  "колесо — масштаб; середня кнопка — пересування": [
+    "wheel to zoom; middle button to pan",
+    "kółko — skala; środkowy przycisk — przesuwanie",
+    "kolečko — měřítko; prostřední tlačítko — posun"
+  ],
+  "Завантаження документів…": [
+    "Loading documents…",
+    "Ładowanie dokumentów…",
+    "Načítání dokumentů…"
+  ],
+  "Оригінали збережені. Натисни фото, щоб збільшити його; архівні дані вказані під кожним зображенням.": [
+    "Originals are preserved. Click a photo to enlarge it; archive references appear below each image.",
+    "Oryginały są zachowane. Kliknij zdjęcie, aby je powiększyć; dane archiwalne są pod każdym obrazem.",
+    "Originály jsou zachovány. Kliknutím fotografii zvětšíte; archivní údaje jsou pod každým snímkem."
+  ],
+  "Збільшити фото": [
+    "Enlarge photo",
+    "Powiększ zdjęcie",
+    "Zvětšit fotografii"
+  ],
+  "Оригінал не знайдено": [
+    "Original not found",
+    "Nie znaleziono oryginału",
+    "Originál nenalezen"
+  ],
+  "Фото завантажиться під час перегляду": [
+    "Photo loads when viewed",
+    "Zdjęcie zostanie wczytane podczas przeglądania",
+    "Fotografie se načte při prohlížení"
+  ],
+  "Архівний скан": [
+    "Archive scan",
+    "Skan archiwalny",
+    "Archivní snímek"
+  ],
+  "Архівна справа": [
+    "Archival unit",
+    "Jednostka archiwalna",
+    "Archivní jednotka"
+  ],
+  "Не вдалося відкрити фото: ": [
+    "Could not open photo: ",
+    "Nie udało się otworzyć zdjęcia: ",
+    "Fotografii nelze otevřít: "
+  ],
+  "Імпортовано зі схеми": [
+    "Imported from diagram",
+    "Zaimportowano ze schematu",
+    "Importováno ze schématu"
+  ],
+  "Події та джерела": [
+    "Events and sources",
+    "Wydarzenia i źródła",
+    "Události a prameny"
+  ],
+  "Фото в пакеті": [
+    "Photos in package",
+    "Zdjęcia w pakiecie",
+    "Fotografie v balíčku"
+  ],
+  "Відновлено фото": [
+    "Photos restored",
+    "Przywrócone zdjęcia",
+    "Obnovené fotografie"
+  ],
+  "GEDZIP: фотографії будуть збережені та прикріплені до карток і родин.": [
+    "GEDZIP: photos will be saved and attached to people and families.",
+    "GEDZIP: zdjęcia zostaną zapisane i przypisane do osób i rodzin.",
+    "GEDZIP: fotografie budou uloženy a připojeny k osobám a rodinám."
+  ],
+  "GEDCOM: текстовий файл; для імпорту фотографій оберіть пакет GEDZIP.": [
+    "GEDCOM: text file; choose a GEDZIP package to import photos.",
+    "GEDCOM: plik tekstowy; aby importować zdjęcia, wybierz pakiet GEDZIP.",
+    "GEDCOM: textový soubor; pro import fotografií vyberte balíček GEDZIP."
+  ],
+  "GEDZIP містить родовід і фотографії в одному файлі. Звіт збережено поруч.": [
+    "GEDZIP contains the family tree and photos in one file. The report is saved alongside it.",
+    "GEDZIP zawiera drzewo i zdjęcia w jednym pliku. Raport zapisano obok.",
+    "GEDZIP obsahuje rodokmen a fotografie v jednom souboru. Zpráva je uložena vedle něj."
   ]
 }

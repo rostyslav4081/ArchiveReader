@@ -31,6 +31,33 @@ class GenealogyTests(unittest.TestCase):
         mention=next(m for m in self.tools.mentions() if m['record']==self.record)
         return self.tools.family_save({'left':left,'right':right,'kind':kind,'record':self.record,'signature':mention['signature'],'note':'Explicit record evidence'})
 
+    def test_documents_include_media_and_relationship_evidence_without_duplicates(self):
+        self.family(self.people[1],self.people[0])
+        parent=self.tools.person_card({'id':self.people[1]})
+        self.assertEqual(parent['members'],[])
+        self.assertEqual([d['page'] for d in parent['documents']],[self.page])
+        self.attach(self.people[0])
+        person=self.tools.require_person(self.people[0]);person.pop('id')
+        person['media_pages']=[self.page]
+        self.tools.write('persons',self.people[0],person)
+        child=self.tools.person_card({'id':self.people[0]})
+        self.assertEqual(len(child['documents']),1)
+        self.assertEqual(child['documents'][0]['record'],self.record)
+
+    def test_canvas_keeps_source_context_deduplicates_and_shows_missing_photos(self):
+        family=self.family(self.people[1],self.people[0])
+        person=self.tools.require_person(self.people[0]);person.pop('id');person['media_pages']=[self.page,self.page]
+        self.tools.write('persons',self.people[0],person)
+        board=self.tools.genealogy_canvas({'person':self.people[0]})
+        self.assertEqual(board['count'],1)
+        self.assertEqual(board['documents'][0]['text'],'Nomen: Jan; pater: Paulus; mater: Anna\nDomus 34\n12.03.1832')
+        self.assertIn('citation',board['documents'][0])
+        self.assertEqual(self.tools.genealogy_canvas({'family':family['id']})['count'],1)
+        Path(self.engine.page(self.page)['path']).unlink()
+        missing=self.tools.genealogy_canvas({'person':self.people[0]})
+        self.assertEqual(missing['count'],1);self.assertTrue(missing['documents'][0]['missing'])
+        with self.assertRaises(ValueError):self.tools.genealogy_canvas({'family':'missing'})
+
     def test_membership_is_explicit_unique_stale_and_reversible(self):
         self.assertEqual(self.tools.person_card({'id':self.people[0]})['members'],[])
         card=self.attach(self.people[0]);self.assertEqual(card['variants'],['Jan']);self.assertFalse(card['members'][0]['stale'])
